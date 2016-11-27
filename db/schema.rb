@@ -11,30 +11,112 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_151_021_073_628) do
-  create_table 'roles', force: :cascade do |t|
-    t.string 'name',       limit: 255
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
+ActiveRecord::Schema.define(version: 20161127212550) do
+
+  create_table "page_content_translations", force: :cascade do |t|
+    t.integer  "page_content_id", limit: 4,     null: false
+    t.string   "locale",          limit: 255,   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "title",           limit: 255
+    t.text     "content",         limit: 65535
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'email',                  limit: 255, default: '', null: false
-    t.string 'encrypted_password',     limit: 255, default: '', null: false
-    t.string 'reset_password_token',   limit: 255
-    t.datetime 'reset_password_sent_at'
-    t.datetime 'remember_created_at'
-    t.integer 'sign_in_count',          limit: 4,   default: 0,  null: false
-    t.datetime 'current_sign_in_at'
-    t.datetime 'last_sign_in_at'
-    t.string 'current_sign_in_ip',     limit: 255
-    t.string 'last_sign_in_ip',        limit: 255
-    t.datetime 'created_at'
-    t.datetime 'updated_at'
-    t.integer 'role_id',                limit: 4
+  add_index "page_content_translations", ["locale"], name: "index_page_content_translations_on_locale", using: :btree
+  add_index "page_content_translations", ["page_content_id"], name: "index_page_content_translations_on_page_content_id", using: :btree
+
+  create_table "page_contents", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
-  add_index 'users', ['email'], name: 'index_users_on_email', unique: true, using: :btree
-  add_index 'users', ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true, using: :btree
-  add_index 'users', ['role_id'], name: 'index_users_on_role_id', using: :btree
+  create_table "pledge_translations", force: :cascade do |t|
+    t.integer  "pledge_id",  limit: 4,     null: false
+    t.string   "locale",     limit: 255,   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "title",      limit: 255
+    t.text     "text",       limit: 65535
+  end
+
+  add_index "pledge_translations", ["locale"], name: "index_pledge_translations_on_locale", using: :btree
+  add_index "pledge_translations", ["pledge_id"], name: "index_pledge_translations_on_pledge_id", using: :btree
+  add_index "pledge_translations", ["title"], name: "index_pledge_translations_on_title", using: :btree
+
+  create_table "pledges", force: :cascade do |t|
+    t.date     "posted_at"
+    t.boolean  "is_public",                      default: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
+
+  add_index "pledges", ["posted_at"], name: "index_pledges_on_posted_at", using: :btree
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.integer  "story_type",             limit: 4
+    t.date     "posted_at"
+    t.boolean  "is_public",                          default: false
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.string   "thumbnail_file_name",    limit: 255
+    t.string   "thumbnail_content_type", limit: 255
+    t.integer  "thumbnail_file_size",    limit: 4
+    t.datetime "thumbnail_updated_at"
+  end
+
+  add_index "stories", ["is_public"], name: "index_stories_on_is_public", using: :btree
+  add_index "stories", ["posted_at"], name: "index_stories_on_posted_at", using: :btree
+  add_index "stories", ["story_type"], name: "index_stories_on_story_type", using: :btree
+
+  create_table "story_translations", force: :cascade do |t|
+    t.integer  "story_id",           limit: 4,     null: false
+    t.string   "locale",             limit: 255,   null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "title",              limit: 255
+    t.text     "description",        limit: 65535
+    t.string   "organization",       limit: 255
+    t.string   "url",                limit: 255
+    t.text     "embed_code",         limit: 65535
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
+
+  add_index "story_translations", ["locale"], name: "index_story_translations_on_locale", using: :btree
+  add_index "story_translations", ["story_id"], name: "index_story_translations_on_story_id", using: :btree
+  add_index "story_translations", ["title"], name: "index_story_translations_on_title", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "role_id",                limit: 4
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
+
 end

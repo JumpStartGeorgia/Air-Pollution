@@ -164,3 +164,6 @@ end
 
 #####################################################################
 ########################## Project Gems #############################
+
+gem 'paperclip', '~> 4.3', '>= 4.3.7' # process images
+gem 'paperclip-globalize3', '~> 2.2' # be able to have images in translations
