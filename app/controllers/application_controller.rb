@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :set_global_vars
+
   ##############################################
   # Locales #
 
@@ -19,6 +21,12 @@ class ApplicationController < ActionController::Base
 
   ##############################################
   # helpers
+
+  def set_global_vars
+    # indicate if the page title should be shown on the page
+    # if false, then it will only be used in <title> tag
+    @show_page_title = true
+  end
 
   def clean_filename(filename)
     filename.strip.to_slug.transliterate.to_s.gsub(' ', '_').gsub(/[\\ \/ \: \* \? \" \< \> \| \, \. ]/,'')

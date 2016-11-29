@@ -1,1 +1,22 @@
 <% page_title t 'shared.common.name' %>
+
+<% if @stories.present? %>
+  <div class="stories-grid">
+    <% @stories.each do |story| %>
+      <div class="stories-grid-item">
+        <div><%= image_tag story.thumbnail.url(:big) %></div>
+        <div><%= story.title %></div>
+        <div><%= truncate(strip_tags(story.description), length: 150, separator: ' ') %></div>
+        <div><%= l story.posted_at %></div>
+      </div>
+    <% end %>
+  
+    <%= paginate @stories %>
+
+  </div>
+
+<% else %>
+
+  <div><%= t('.no_stories') %></div>
+
+<% end %>

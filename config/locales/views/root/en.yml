@@ -1,5 +1,7 @@
 ---
 en:
   root:
+    index:
+      no_stories: There are no stories at this time.
     about:
       title: About

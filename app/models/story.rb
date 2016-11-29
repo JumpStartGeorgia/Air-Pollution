@@ -19,6 +19,7 @@ class Story < ActiveRecord::Base
   ###########################
   ## CONSTANTS
   TYPE={infographic: 1, storybuilder: 2, radio: 3, animation: 4, video: 5, fact: 6, gif: 7}
+  paginates_per 4
 
   ###########################
   ## IMAGE PROCESSING
@@ -49,8 +50,8 @@ class Story < ActiveRecord::Base
   has_attached_file :thumbnail,
                     :url => "/system/stories/:id/thumbnail/:style.:extension",
                     :styles => {
-                        :'big' => {:geometry => "650x400#"},
-                        :'small' => {:geometry => "130x80#"}
+                        :'big' => {:geometry => "459x328#"},
+                        :'small' => {:geometry => "229x164#"}
                     },
                     :convert_options => {
                       :'big' => '-quality 85',

@@ -1,5 +1,7 @@
 ---
 ka:
   root:
+    index:
+      no_stories: There are no stories at this time.
     about:
       title: ამის შესახებ
