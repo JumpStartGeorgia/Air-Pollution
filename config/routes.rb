@@ -20,8 +20,11 @@ Rails.application.routes.draw do
       resources :page_contents, constraints: { format: :html }
     end
 
-    root 'root#index'
+    get '/stories/:id', :to => 'root#story', :as => :story
+    get '/stories', to: redirect('/')
     get '/about' => 'root#about'
+
+    root 'root#index'
 
     # handles /en/fake/path/whatever
     get '*path', to: redirect("/#{I18n.default_locale}")

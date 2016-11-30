@@ -19,7 +19,7 @@ class Story < ActiveRecord::Base
   ###########################
   ## CONSTANTS
   TYPE={infographic: 1, storybuilder: 2, radio: 3, animation: 4, video: 5, fact: 6, gif: 7}
-  paginates_per 4
+  
 
   ###########################
   ## IMAGE PROCESSING
@@ -42,8 +42,21 @@ class Story < ActiveRecord::Base
               :image_file_name,
               :image_file_size,
               :image_content_type,
-              :image_updated_at, :fallbacks_for_empty_translations => true
+              :image_updated_at, 
+              :slug,
+              :fallbacks_for_empty_translations => true
   globalize_accessors
+
+  ###########################
+  ## URL SLUG
+  extend FriendlyId
+  friendly_id :title, :use => [:globalize, :history]
+
+  ###########################
+  ## RELATIONSHIPS
+  has_many :datasources, :dependent => :destroy
+  accepts_nested_attributes_for :datasources, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
+
 
   ###########################
   ## THUMBNAIL PROCESSING
@@ -75,9 +88,9 @@ class Story < ActiveRecord::Base
   # - infographic, gif, fact -> image
   # - all else, embed code
   def story_type_data
-    if (self.needs_image?) && self.image.nil?
+    if (self.has_image?) && self.image.nil?
       errors.add(:image, "is required")
-    elsif self.needs_embed? && self.embed_code.nil?
+    elsif self.has_embed? && self.embed_code.nil?
       errors.add(:enbed_code, "is required")
     end
   end
@@ -122,10 +135,10 @@ class Story < ActiveRecord::Base
     self.story_type == TYPE[:video]
   end
 
-  def needs_image?
+  def has_image?
     self.is_infographic? || self.is_fact? || self.is_gif?
   end
-  def needs_embed?
+  def has_embed?
     self.is_storybuilder? || self.is_radio? || self.is_animation? || self.is_video?
   end
 

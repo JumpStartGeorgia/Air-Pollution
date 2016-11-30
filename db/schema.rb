@@ -11,7 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161127212550) do
+ActiveRecord::Schema.define(version: 20161130112711) do
+
+  create_table "datasource_translations", force: :cascade do |t|
+    t.integer  "datasource_id", limit: 4,   null: false
+    t.string   "locale",        limit: 255, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",          limit: 255
+    t.string   "url",           limit: 255
+  end
+
+  add_index "datasource_translations", ["datasource_id"], name: "index_datasource_translations_on_datasource_id", using: :btree
+  add_index "datasource_translations", ["locale"], name: "index_datasource_translations_on_locale", using: :btree
+
+  create_table "datasources", force: :cascade do |t|
+    t.integer  "story_id",   limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "datasources", ["story_id"], name: "index_datasources_on_story_id", using: :btree
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",           limit: 255, null: false
+    t.integer  "sluggable_id",   limit: 4,   null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope",          limit: 255
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "page_content_translations", force: :cascade do |t|
     t.integer  "page_content_id", limit: 4,     null: false
@@ -73,10 +106,12 @@ ActiveRecord::Schema.define(version: 20161127212550) do
     t.string   "thumbnail_content_type", limit: 255
     t.integer  "thumbnail_file_size",    limit: 4
     t.datetime "thumbnail_updated_at"
+    t.string   "slug",                   limit: 255
   end
 
   add_index "stories", ["is_public"], name: "index_stories_on_is_public", using: :btree
   add_index "stories", ["posted_at"], name: "index_stories_on_posted_at", using: :btree
+  add_index "stories", ["slug"], name: "index_stories_on_slug", using: :btree
   add_index "stories", ["story_type"], name: "index_stories_on_story_type", using: :btree
 
   create_table "story_translations", force: :cascade do |t|
@@ -93,9 +128,11 @@ ActiveRecord::Schema.define(version: 20161127212550) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.string   "slug",               limit: 255
   end
 
   add_index "story_translations", ["locale"], name: "index_story_translations_on_locale", using: :btree
+  add_index "story_translations", ["slug"], name: "index_story_translations_on_slug", using: :btree
   add_index "story_translations", ["story_id"], name: "index_story_translations_on_story_id", using: :btree
   add_index "story_translations", ["title"], name: "index_story_translations_on_title", using: :btree
 
