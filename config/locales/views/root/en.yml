@@ -5,3 +5,5 @@ en:
       no_stories: There are no stories at this time.
     about:
       title: About
+    story:
+      view: View the Original 

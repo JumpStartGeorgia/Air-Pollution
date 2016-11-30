@@ -1,0 +1,20 @@
+---
+ka:
+  activerecord:
+    attributes:
+      story:
+        story_type: Type
+        posted_at: Date
+        is_public: Is Public?
+        thumbnail: Thumbnail Image
+        title: Title
+        description: Description
+        organization: Created By
+        url: URL to Original
+        embed_code: Embed Code
+        image: Visual Image
+        datasources: Datasources
+    models:
+      story:
+        one: Story
+        other: Stories
