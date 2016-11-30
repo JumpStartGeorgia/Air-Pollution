@@ -1,1 +1,58 @@
-<% page_title @story.title %>
+<% page_title @story.title 
+  model_class = Story
+%>
+
+<div class='story'>
+  <div class='date'>
+    <%= l @story.posted_at %>
+  </div>
+  <div class='description'>
+    <%= simple_format @story.description %>
+  </div>
+
+  <% if @story.organization.present? %>
+    <div class='organization'>
+      <span><%= model_class.human_attribute_name(:organization) %>:</span>
+      <%= @story.organization %>
+    </div>
+  <% end %>
+
+  <% if @story.url.present? %>
+    <div class='url'>
+      <span><%= model_class.human_attribute_name(:url) %>:</span>
+      <%= link_to t('shared.actions.view'), @story.url, target: :blank %>
+    </div>
+  <% end %>
+
+  <% if @story.datasources.present? %>
+    <div class='datasources'>
+      <span><%= model_class.human_attribute_name(:datasources) %>:</span>
+      <ul class="datasource-list">
+        <% @story.datasources.each_with_index do |source, index| %>
+          <% if source.name.present? %>
+            <li>
+            <% if source.url.present? %>
+              <%= link_to source.name, source.url, target: :blank %>
+            <% else %>
+              <%= source.name %>
+            <% end %></li>
+          <% end %>
+        <% end %>
+      </ul>    
+    </div>
+  <% end %>
+
+  <% if @story.has_image? %>
+    <div class='image'>
+      <%= image_tag @story.image.url(:big) %>
+    </div>
+  <% elsif @story.has_embed? %>
+    <div class='embed'>
+      <%= @story.embed_code.html_safe %>
+    </div>
+  <% end %>
+
+
+
+
+</div>

@@ -27,8 +27,8 @@ class Story < ActiveRecord::Base
   has_attached_file :image,
                     :url => "/system/stories/:id/image/:locale/:style.:extension",
                     :styles => {
-                        :'big' => {:geometry => "650x400#"},
-                        :'small' => {:geometry => "130x80#"}
+                        :'big' => {:geometry => "900x>"},
+                        :'small' => {:geometry => "450>"}
                     },
                     :convert_options => {
                       :'big' => '-quality 85',
@@ -102,6 +102,9 @@ class Story < ActiveRecord::Base
   scope :sorted, -> {with_translations(I18n.locale).order(posted_at: :desc, title: :asc)}
   def self.by_type(story_type)
     where(story_type: story_type)
+  end
+  def self.with_datasources
+    includes(datasources: :translations)
   end
 
 

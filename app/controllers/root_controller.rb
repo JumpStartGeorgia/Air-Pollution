@@ -9,7 +9,7 @@ class RootController < ApplicationController
 
   def story
     begin
-      @story = Story.friendly.with_translations(I18n.locale).find(params[:id])
+      @story = Story.friendly.published.with_datasources.with_translations(I18n.locale).find(params[:id])
     rescue Exception
       redirect_to root_path
     end
