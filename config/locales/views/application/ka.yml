@@ -2,9 +2,8 @@
 ka:
   application:
     navbar_header:
-      about: "პროექტის შესახებ"
+      about: About
+      pledge: Latest Pledge
       account:
         edit_profile: პროფილის შეცვლა
         logout: გასვლა
-      link1: "ლინკი 1"
-      link2: "ლინკი 2"

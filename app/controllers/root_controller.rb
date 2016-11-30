@@ -13,7 +13,14 @@ class RootController < ApplicationController
     rescue Exception
       redirect_to root_path
     end
+  end
 
+  def pledge
+    begin
+      @pledge = Pledge.friendly.published.with_translations(I18n.locale).find(params[:id])
+    rescue Exception
+      redirect_to root_path
+    end
   end
 
   def about

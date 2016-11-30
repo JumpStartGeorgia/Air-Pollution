@@ -44,6 +44,8 @@ class Pledge < ActiveRecord::Base
   # only get the pledges that 
   scope :published, -> {where(is_public: true)}
   scope :sorted, -> {with_translations(I18n.locale).order(posted_at: :desc, title: :asc)}
-
+  def self.latest
+    published.sorted.first
+  end
 
 end
