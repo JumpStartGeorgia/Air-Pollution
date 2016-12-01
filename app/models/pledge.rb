@@ -16,7 +16,7 @@
 class Pledge < ActiveRecord::Base
   ###########################
   ## TRANSLATIONS
-  translates :title, :text
+  translates :title, :why_care, :what_it_is, :what_you_do
 
   ###########################
   ## IMAGE PROCESSING

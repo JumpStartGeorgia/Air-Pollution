@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161130112711) do
+ActiveRecord::Schema.define(version: 20161201073609) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -65,12 +65,14 @@ ActiveRecord::Schema.define(version: 20161130112711) do
   end
 
   create_table "pledge_translations", force: :cascade do |t|
-    t.integer  "pledge_id",  limit: 4,     null: false
-    t.string   "locale",     limit: 255,   null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.string   "title",      limit: 255
-    t.text     "text",       limit: 65535
+    t.integer  "pledge_id",   limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "title",       limit: 255
+    t.text     "why_care",    limit: 65535
+    t.text     "what_it_is",  limit: 65535
+    t.text     "what_you_do", limit: 65535
   end
 
   add_index "pledge_translations", ["locale"], name: "index_pledge_translations_on_locale", using: :btree
