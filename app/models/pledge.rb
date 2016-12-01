@@ -15,6 +15,10 @@
 
 class Pledge < ActiveRecord::Base
   ###########################
+  ## PAGE VIEW COUNTS
+  is_impressionable :counter_cache => true, :unique => :session_hash
+
+  ###########################
   ## TRANSLATIONS
   translates :title, :why_care, :what_it_is, :what_you_do
 

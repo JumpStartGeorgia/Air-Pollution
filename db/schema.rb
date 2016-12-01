@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201073609) do
+ActiveRecord::Schema.define(version: 20161201122702) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -45,6 +45,33 @@ ActiveRecord::Schema.define(version: 20161201073609) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "impressions", force: :cascade do |t|
+    t.string   "impressionable_type", limit: 255
+    t.integer  "impressionable_id",   limit: 4
+    t.integer  "user_id",             limit: 4
+    t.string   "controller_name",     limit: 255
+    t.string   "action_name",         limit: 255
+    t.string   "view_name",           limit: 255
+    t.string   "request_hash",        limit: 255
+    t.string   "ip_address",          limit: 255
+    t.string   "session_hash",        limit: 255
+    t.text     "message",             limit: 65535
+    t.text     "referrer",            limit: 65535
+    t.text     "params",              limit: 65535
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "impressions", ["controller_name", "action_name", "ip_address"], name: "controlleraction_ip_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "request_hash"], name: "controlleraction_request_index", using: :btree
+  add_index "impressions", ["controller_name", "action_name", "session_hash"], name: "controlleraction_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "ip_address"], name: "poly_ip_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "params"], name: "poly_params_request_index", length: {"impressionable_type"=>nil, "impressionable_id"=>nil, "params"=>255}, using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "request_hash"], name: "poly_request_index", using: :btree
+  add_index "impressions", ["impressionable_type", "impressionable_id", "session_hash"], name: "poly_session_index", using: :btree
+  add_index "impressions", ["impressionable_type", "message", "impressionable_id"], name: "impressionable_type_message_index", length: {"impressionable_type"=>nil, "message"=>255, "impressionable_id"=>nil}, using: :btree
+  add_index "impressions", ["user_id"], name: "index_impressions_on_user_id", using: :btree
 
   create_table "page_content_translations", force: :cascade do |t|
     t.integer  "page_content_id", limit: 4,     null: false
@@ -88,6 +115,7 @@ ActiveRecord::Schema.define(version: 20161201073609) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.integer  "impressions_count",  limit: 4,   default: 0
   end
 
   add_index "pledges", ["posted_at"], name: "index_pledges_on_posted_at", using: :btree
@@ -109,6 +137,7 @@ ActiveRecord::Schema.define(version: 20161201073609) do
     t.integer  "thumbnail_file_size",    limit: 4
     t.datetime "thumbnail_updated_at"
     t.string   "slug",                   limit: 255
+    t.integer  "impressions_count",      limit: 4,   default: 0
   end
 
   add_index "stories", ["is_public"], name: "index_stories_on_is_public", using: :btree

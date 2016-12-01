@@ -7,3 +7,6 @@ en:
       title: About
     story:
       view: View the Original 
+      count: Views
+    pledge:
+      count: Views

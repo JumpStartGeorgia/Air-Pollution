@@ -22,6 +22,10 @@ class Story < ActiveRecord::Base
   
 
   ###########################
+  ## PAGE VIEW COUNTS
+  is_impressionable :counter_cache => true, :unique => :session_hash
+
+  ###########################
   ## IMAGE PROCESSING
   ## this is in the translation
   has_attached_file :image,

@@ -7,3 +7,7 @@ ka:
       title: ამის შესახებ
     story:
       view: View the Original 
+      count: Views
+    pledge:
+      count: Views
+      
