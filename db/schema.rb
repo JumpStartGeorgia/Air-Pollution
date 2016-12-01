@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201122702) do
+ActiveRecord::Schema.define(version: 20161201134557) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -100,10 +100,12 @@ ActiveRecord::Schema.define(version: 20161201122702) do
     t.text     "why_care",    limit: 65535
     t.text     "what_it_is",  limit: 65535
     t.text     "what_you_do", limit: 65535
+    t.string   "slug",        limit: 255
   end
 
   add_index "pledge_translations", ["locale"], name: "index_pledge_translations_on_locale", using: :btree
   add_index "pledge_translations", ["pledge_id"], name: "index_pledge_translations_on_pledge_id", using: :btree
+  add_index "pledge_translations", ["slug"], name: "index_pledge_translations_on_slug", using: :btree
   add_index "pledge_translations", ["title"], name: "index_pledge_translations_on_title", using: :btree
 
   create_table "pledges", force: :cascade do |t|
@@ -116,9 +118,11 @@ ActiveRecord::Schema.define(version: 20161201122702) do
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
     t.integer  "impressions_count",  limit: 4,   default: 0
+    t.string   "slug",               limit: 255
   end
 
   add_index "pledges", ["posted_at"], name: "index_pledges_on_posted_at", using: :btree
+  add_index "pledges", ["slug"], name: "index_pledges_on_slug", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255

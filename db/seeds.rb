@@ -167,9 +167,42 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
 
 
-
+  puts '-------------------'
 
   puts 'CREATE PLEDGES'
+
+  p = Pledge.create(
+    is_public: true, posted_at: '2015-02-22', image: File.open(path + 'pledge1.jpg'),
+    title_en: 'Pledge 1', 
+    why_care_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
+    what_it_is_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er',
+    what_you_do: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er'
+  )
+
+  p = Pledge.create(
+    is_public: true, posted_at: '2016-04-22', image: File.open(path + 'pledge2.jpg'),
+    title_en: 'Pledge 2', 
+    why_care_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
+    what_it_is_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er' ,
+    what_you_do: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er'
+  )
+
+
+  p = Pledge.create(
+    is_public: true, posted_at: '2015-04-22', image: File.open(path + 'pledge3.jpg'),
+    title_en: 'Pledge Pledge 3', 
+    why_care_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
+    what_it_is_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er',
+    what_you_do: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er'
+  )
+
+  p = Pledge.create(
+    is_public: true, posted_at: '2016-06-22', image: File.open(path + 'pledge4.jpg'),
+    title_en: 'Pledge Pledge 4', 
+    why_care_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
+    what_it_is_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er',
+    what_you_do: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er'
+  )
 
 
 end

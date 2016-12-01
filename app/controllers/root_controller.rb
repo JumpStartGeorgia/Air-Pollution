@@ -18,13 +18,14 @@ class RootController < ApplicationController
   end
 
   def pledge
-    begin
+    # begin
       @pledge = Pledge.friendly.published.find(params[:id])
       impressionist(@pledge, :unique => [:session_hash]) # record the view coun
       @pledge = Pledge.friendly.published.with_translations(I18n.locale).find(params[:id])
-    rescue Exception
-      redirect_to root_path
-    end
+      @pledges = Pledge.published.with_translations(I18n.locale).sorted.except_pledge(@pledge.id)
+    # rescue Exception
+      # redirect_to root_path
+      # end
   end
 
   def about

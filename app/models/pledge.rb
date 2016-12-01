@@ -20,15 +20,22 @@ class Pledge < ActiveRecord::Base
 
   ###########################
   ## TRANSLATIONS
-  translates :title, :why_care, :what_it_is, :what_you_do
+  translates :title, :why_care, :what_it_is, :what_you_do, :slug,
+              :fallbacks_for_empty_translations => true
+  globalize_accessors
+
+  ###########################
+  ## URL SLUG
+  extend FriendlyId
+  friendly_id :title, :use => [:globalize, :history]
 
   ###########################
   ## IMAGE PROCESSING
   has_attached_file :image,
                     :url => "/system/pledges/:id/:style.:extension",
                     :styles => {
-                        :'big' => {:geometry => "650x400#"},
-                        :'small' => {:geometry => "130x80#"}
+                        :'big' => {:geometry => "459x328#"},
+                        :'small' => {:geometry => "229x164#"}
                     },
                     :convert_options => {
                       :'big' => '-quality 85',
@@ -50,6 +57,9 @@ class Pledge < ActiveRecord::Base
   scope :sorted, -> {with_translations(I18n.locale).order(posted_at: :desc, title: :asc)}
   def self.latest
     published.sorted.first
+  end
+  def self.except_pledge(id)
+    where.not(id: id)
   end
 
 end

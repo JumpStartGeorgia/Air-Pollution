@@ -10,7 +10,7 @@
       <ul class="nav navbar-nav navbar-left">
         <li><%= link_to t('.about'), about_path  %></li>
         <% if @latest_pledge.present? %>
-          <li><%= link_to t('.pledge'), pledge_path(@latest_pledge)  %></li>
+          <li><%= link_to t('.pledge'), pledge_path(@latest_pledge) %></li>
         <% end %>
       </ul>
       <ul class='nav navbar-nav navbar-right'>

@@ -1,0 +1,52 @@
+<% page_title @pledge.title 
+  model_class = Pledge
+%>
+
+<div class='pledge'>
+  <div class='image'>
+    <%= image_tag @pledge.image.url(:big) %>
+  </div>
+
+  <% if @pledge.why_care.present? %>
+    <div class='why_care'>
+      <h2><%= model_class.human_attribute_name(:why_care) %>:</h2>
+      <%= simple_format @pledge.why_care %>
+    </div>
+  <% end %>
+
+  <% if @pledge.what_it_is.present? %>
+    <div class='why_care'>
+      <h2><%= model_class.human_attribute_name(:what_it_is) %>:</h2>
+      <%= simple_format @pledge.what_it_is %>
+    </div>
+  <% end %>
+
+  <% if @pledge.what_you_do.present? %>
+    <div class='why_care'>
+      <h2><%= model_class.human_attribute_name(:what_you_do) %>:</h2>
+      <%= simple_format @pledge.what_you_do %>
+    </div>
+  <% end %>
+
+  <div class="count">
+    <%= t('.count')%>: 
+    <%= number_with_delimiter(@pledge.impressions_count) %>
+  </div>
+
+</div>
+
+<% if @pledges.present? %>
+  <div class="all-pledges">
+    <h2><%= t('.all_pledges') %></h2>
+    <ul>
+      <% @pledges.each do |pledge| %>
+        <li>
+          <%= link_to pledge_path(pledge) do %>
+            <div><%= image_tag pledge.image.url(:small) %></div>
+            <div><%= pledge.title %></div>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
