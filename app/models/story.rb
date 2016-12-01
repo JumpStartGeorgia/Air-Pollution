@@ -145,4 +145,10 @@ class Story < ActiveRecord::Base
     self.is_storybuilder? || self.is_radio? || self.is_animation? || self.is_video?
   end
 
+  def story_type_name
+    if self.story_type.present?
+      return TYPE.keys[TYPE.values.index(self.story_type.to_i)]
+    end
+  end
+
 end

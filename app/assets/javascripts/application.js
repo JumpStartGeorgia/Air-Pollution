@@ -42,3 +42,5 @@
 
 //= require turbolinks
 //= require google-analytics-turbolinks
+
+//= require fancybox

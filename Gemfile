@@ -170,3 +170,4 @@ gem 'paperclip-globalize3', '~> 2.2' # be able to have images in translations
 gem 'kaminari', '~> 0.17.0' # pagination
 gem 'friendly_id', '~> 5.1' # url slugs
 gem 'friendly_id-globalize', '~> 1.0.0.alpha2' # translated url slugs
+gem 'fancybox2-rails', '~> 0.2.8' # popup window
