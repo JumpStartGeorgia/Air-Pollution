@@ -101,7 +101,6 @@ class Story < ActiveRecord::Base
 
   ###########################
   ## SCOPES
-  # only get the pledges that 
   scope :published, -> {where(is_public: true)}
   scope :sorted, -> {with_translations(I18n.locale).order(posted_at: :desc, title: :asc)}
   def self.by_type(story_type)
