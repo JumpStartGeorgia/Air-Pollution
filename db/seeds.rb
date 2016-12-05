@@ -38,6 +38,10 @@ if ENV['load_test_data'].present? && !Rails.env.production?
   puts 'DELETE EVERYTHING FIRST'
   Story.destroy_all
   Pledge.destroy_all
+  Highlight.destroy_all
+
+  stories = []
+  pledges = []
 
   path = "#{Rails.root}/db/data/"
 
@@ -52,6 +56,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
   )
   s.datasources.create(name_en: 'CRRC', url_en: 'http://www.crrccenters.org/')
   s.datasources.create(name_en: 'GeoStat', url_en: 'http://google.com')
+  stories << s
 
   puts '- infographic2'
   s = Story.create(
@@ -60,6 +65,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name2',  url_en: 'https://feradi.info/en',
                                 image: File.open(path + 'info2.png')
   )
+  stories << s
 
 
   puts '- infographic3'
@@ -71,6 +77,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
   )
   s.datasources.create(name_en: 'CRRC', url_en: 'http://www.crrccenters.org/')
   s.datasources.create(name_en: 'GeoStat', url_en: 'http://google.com')
+  stories << s
 
   puts '- infographic4'
   s = Story.create(
@@ -79,6 +86,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name4',  url_en: 'https://feradi.info/en',
                                 image: File.open(path + 'info2.png')
   )
+  stories << s
 
 
   puts '- fact'
@@ -88,6 +96,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Fact',  url_en: 'https://feradi.info/en',
                                 image: File.open(path + 'fact1.jpg')
   )
+  stories << s
 
   puts '- fact2'
   s = Story.create(
@@ -96,6 +105,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Fact',  url_en: 'https://feradi.info/en',
                                 image: File.open(path + 'fact1.jpg')
   )
+  stories << s
 
 
   puts '- gif'
@@ -105,6 +115,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Gif',  url_en: 'https://feradi.info/en',
                                 image: File.open(path + 'gif.gif')
   )
+  stories << s
 
   puts '- gif'
   s = Story.create(
@@ -113,6 +124,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Gif',  url_en: 'https://feradi.info/en',
                                 image: File.open(path + 'gif.gif')
   )
+  stories << s
 
 
   puts '- sb'
@@ -122,6 +134,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name SB',  url_en: 'https://feradi.info/en',
                                 embed_code_en: "<iframe src='http://storybuilder.jumpstart.ge/en/embed/bavshvebi-shavshvebidan?type=full' width='1000' height='100%' frameborder='0'></iframe>"
   )
+  stories << s
 
   puts '- sb'
   s = Story.create(
@@ -130,6 +143,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name SB2',  url_en: 'https://feradi.info/en',
                                 embed_code_en: "<iframe src='http://storybuilder.jumpstart.ge/en/embed/bavshvebi-shavshvebidan?type=full' width='1000' height='100%' frameborder='0'></iframe>"
   )
+  stories << s
 
   puts '- radio'
   s = Story.create(
@@ -138,6 +152,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Radio',  url_en: 'https://feradi.info/en',
                                 embed_code_en: '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/292201337&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>'
   )
+  stories << s
 
   puts '- radio'
   s = Story.create(
@@ -146,6 +161,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Radio',  url_en: 'https://feradi.info/en',
                                 embed_code_en: '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/292201337&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>'
   )
+  stories << s
 
 
   puts '- animation'
@@ -155,6 +171,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Animation',  url_en: 'https://www.youtube.com/watch?v=zkP1u3ZRoeQ',
                                 embed_code_en: '<iframe width="560" height="315" src="https://www.youtube.com/embed/zkP1u3ZRoeQ" frameborder="0" allowfullscreen></iframe>'
   )
+  stories << s
 
   puts '- animation'
   s = Story.create(
@@ -163,6 +180,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Animation',  url_en: 'https://www.youtube.com/watch?v=zkP1u3ZRoeQ',
                                 embed_code_en: '<iframe width="560" height="315" src="https://www.youtube.com/embed/zkP1u3ZRoeQ" frameborder="0" allowfullscreen></iframe>'
   )
+  stories << s
 
 
 
@@ -178,6 +196,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     what_it_is_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er',
     what_you_do: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er'
   )
+  pledges << p
 
   p = Pledge.create(
     is_public: true, posted_at: '2016-04-22', image: File.open(path + 'pledge2.jpg'),
@@ -186,6 +205,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     what_it_is_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er' ,
     what_you_do: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er'
   )
+  pledges << p
 
 
   p = Pledge.create(
@@ -195,6 +215,7 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     what_it_is_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er',
     what_you_do: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er'
   )
+  pledges << p
 
   p = Pledge.create(
     is_public: true, posted_at: '2016-06-22', image: File.open(path + 'pledge4.jpg'),
@@ -203,7 +224,46 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     what_it_is_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er',
     what_you_do: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu erlka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er'
   )
+  pledges << p
 
+
+
+  puts '-------------------'
+
+  puts 'CREATE HIGHLIGHTS'
+
+  item = stories.sample
+
+  h = Highlight.create(
+    is_public: true, posted_at: '2015-02-22',
+    title_en: item.title, url_en: 'http://jumpstart.ge',
+                                image: File.open(path + 'highlight1.jpg')
+  )
+  
+  item = stories.sample
+
+  h = Highlight.create(
+    is_public: true, posted_at: '2016-02-22',
+    title_en: item.title, url_en: 'http://jumpstart.ge',
+                                image: File.open(path + 'highlight2.jpg')
+  )
+  
+  item = pledges.sample
+
+  h = Highlight.create(
+    is_public: true, posted_at: '2015-08-22',
+    title_en: item.title, url_en: 'http://jumpstart.ge',
+                                image: File.open(path + 'highlight3.jpg')
+  )
+  
+  item = pledges.sample
+
+  h = Highlight.create(
+    is_public: true, posted_at: '2016-08-22',
+    title_en: item.title, url_en: 'http://jumpstart.ge',
+                                image: File.open(path + 'highlight4.jpg')
+  )
+  
 
 end
 

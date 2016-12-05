@@ -1,5 +1,18 @@
 <% page_title t 'shared.common.name' %>
 
+<% if @highlights.present? %>
+  <div class="highlights">
+  <% @highlights.each do |highlight| %>
+    <div class="highlight-item">
+      <%= link_to highlight.url do %>
+        <%= image_tag highlight.image.url(:big), style: 'width: 100%' %>
+        <%= highlight.title %>
+      <% end %>
+    </div>
+  <% end %>
+  </div>
+<% end %>
+
 <% if @stories.present? %>
   <div class="stories-grid">
     <% @stories.each do |story| %>

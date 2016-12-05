@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201134557) do
+ActiveRecord::Schema.define(version: 20161205103118) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -45,6 +45,33 @@ ActiveRecord::Schema.define(version: 20161201134557) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
+
+  create_table "highlight_translations", force: :cascade do |t|
+    t.integer  "highlight_id",       limit: 4,   null: false
+    t.string   "locale",             limit: 255, null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "title",              limit: 255
+    t.string   "url",                limit: 255
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+  end
+
+  add_index "highlight_translations", ["highlight_id"], name: "index_highlight_translations_on_highlight_id", using: :btree
+  add_index "highlight_translations", ["locale"], name: "index_highlight_translations_on_locale", using: :btree
+  add_index "highlight_translations", ["title"], name: "index_highlight_translations_on_title", using: :btree
+
+  create_table "highlights", force: :cascade do |t|
+    t.boolean  "is_public",  default: false
+    t.datetime "posted_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "highlights", ["is_public"], name: "index_highlights_on_is_public", using: :btree
+  add_index "highlights", ["posted_at"], name: "index_highlights_on_posted_at", using: :btree
 
   create_table "impressions", force: :cascade do |t|
     t.string   "impressionable_type", limit: 255
@@ -185,9 +212,14 @@ ActiveRecord::Schema.define(version: 20161201134557) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "role_id",                limit: 4
+    t.string   "provider",               limit: 255
+    t.string   "uid",                    limit: 255
+    t.string   "nickname",               limit: 255
+    t.string   "avatar",                 limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["provider", "uid"], name: "idx_users_provider", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
