@@ -78,6 +78,13 @@ gem 'globalize-accessors', '~> 0.2.1'
 # send variables to javascript
 gem 'gon', '~> 6.1'
 
+# View helper for inlining SVG images
+gem 'inline_svg', '~> 0.11.0'
+
+# SkrollR 
+gem 'skrollr-rails'
+
+
 group :development do
   # Silences assets-related logging
   gem 'quiet_assets', '~> 1.0.3'

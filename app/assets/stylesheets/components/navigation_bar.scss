@@ -1,0 +1,208 @@
+
+$navigation-color: #417aab;
+
+.container {
+	width: 1500px;
+}
+
+.navbar-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	display: flex;
+	justify-content: center;
+	font-size: 18px;
+	background-color: white;
+	* {
+		color: $navigation-color;
+	}
+
+	a {
+		text-decoration: none;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+
+	::before, ::after {
+		display: none;
+	}
+
+
+}
+
+
+.navbar-wrapper .container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 20px 0 20px 0;
+	> * {
+		padding: 0;
+		margin: 0;
+	}
+  
+    height: auto;
+    transition: 1s max-height;
+    overflow: hidden;
+}
+
+
+
+.navbar-wrapper .navbar-logo {
+
+	.logo-with-lungs {
+		height: 90px;
+		width: auto;
+	}
+
+	.logo-with-letters {
+		height: 50px;
+		width: auto;
+	}
+}
+
+
+
+.navbar-wrapper .navbar-left, .navbar-wrapper .navbar-right {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar-wrapper .navbar-left {
+ 	> * {
+ 		margin-right: 30px;
+ 	}
+}
+
+.navbar-wrapper .navbar-right {
+ 	> * {
+ 		margin-left: 30px;
+ 	}
+}
+
+.navbar-wrapper .pledge-button {
+
+
+
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;	
+	}
+
+	p {
+		color: #9c1813;
+		letter-spacing: 3px;
+		font-weight: bold;
+	}
+
+	.pledge-hand {
+		transform-origin: 50% 50%;
+	}
+
+	svg {
+		width: 40px;
+		height: auto;
+		fill: #9c1813;
+		stroke-dasharray:1000;
+	}
+
+
+
+}
+
+.navbar-wrapper .language-switcher-container {
+	::before, ::after {
+		display: initial;
+	}
+}
+
+
+.navbar-wrapper .dropdown-button {
+	height: 25px;
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: transparent;
+	border: none;
+
+	span {
+		width: 30px;
+		height: 5px;
+		background-color: $navigation-color;
+		border-radius: 3px;
+	}
+}
+
+.hide_lungs {
+
+	.container, .navbar-left,  .navbar-right {
+		align-items: center;
+	}
+
+	.logo-with-letters {
+		display: initial !important;
+	}
+
+	.logo-with-lungs {
+		display: none;
+	}
+}
+
+
+
+@media screen and (max-width:  1500px){
+
+	.container {
+		width: 90vw;
+	}	
+
+}
+
+
+
+@media screen and (max-width: 1000px) {
+
+	.container {
+		width: 95vw;
+	}	
+
+	.navbar-wrapper .dropdown-button {
+		display: flex;
+	}
+
+	.navbar-wrapper .navbar-right {
+		display: none;
+
+   		flex: 0 1 100%;
+		ul {
+			padding: 0;
+		}
+
+		> * {
+			flex: 1 100%;
+			margin-left: 0;
+
+		}
+	}
+
+
+} 
+
+
+.navbar-wrapper .no-display {
+	display: none;
+}
+
+.navbar-wrapper .flex-display {
+	display: flex;
+}
