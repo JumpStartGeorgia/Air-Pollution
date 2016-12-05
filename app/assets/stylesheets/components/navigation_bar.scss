@@ -12,7 +12,7 @@ $navigation-color: #417aab;
 	width: 100vw;
 	display: flex;
 	justify-content: center;
-	font-size: 18px;
+	font-size: 23px;
 	background-color: white;
 	* {
 		color: $navigation-color;
@@ -31,7 +31,6 @@ $navigation-color: #417aab;
 		display: none;
 	}
 
-
 }
 
 
@@ -40,15 +39,13 @@ $navigation-color: #417aab;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
+    height: auto;
 	padding: 20px 0 20px 0;
 	> * {
 		padding: 0;
 		margin: 0;
 	}
   
-    height: auto;
-    transition: 1s max-height;
-    overflow: hidden;
 }
 
 
@@ -116,8 +113,6 @@ $navigation-color: #417aab;
 		stroke-dasharray:1000;
 	}
 
-
-
 }
 
 .navbar-wrapper .language-switcher-container {
@@ -140,6 +135,10 @@ $navigation-color: #417aab;
 		height: 5px;
 		background-color: $navigation-color;
 		border-radius: 3px;
+	}
+
+	:focus {
+		 outline: none;
 	}
 }
 
