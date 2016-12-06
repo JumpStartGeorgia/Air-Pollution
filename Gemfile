@@ -180,3 +180,4 @@ gem 'friendly_id-globalize', '~> 1.0.0.alpha2' # translated url slugs
 gem 'fancybox2-rails', '~> 0.2.8' # popup window
 gem 'impressionist', '~> 1.5', '>= 1.5.2' # count page views
 gem 'omniauth-facebook', '~> 4.0' # facebook login
+gem 'scoped_search', '~> 4.0' # search
