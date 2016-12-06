@@ -16,13 +16,16 @@
 <% if @stories.present? %>
 
   <div id="filter">  
-    <div class="search">
-      <%= form_tag root_path, :method => :get, :id => 'search-filter', :role => "search" do %>
-        <input autocomplete="off" class="search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
-      <% end %>  
+    <div class="mob">
+      <div class="search">
+        <%= form_tag root_path, :method => :get, :id => 'search-filter', :role => "search" do %>
+          <input autocomplete="off" class="search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
+        <% end %>  
+      </div>
+      <div class="filters"><%= t('shared.filters.filters') %><i class='s i-caret-b'></i></div>
     </div>
 
-    <ul class="nav">
+    <ul class="nav h">
       <li class="dropdown dropdown-hover story-types afilter">
         <a href="#" class="dropdown-toggle<%= params[:type].nil? ? '' : ' selected' %>" 
           data-toggle="dropdown" tabindex="15" title="<%= t('shared.filters.story_type_title') %>"
@@ -36,7 +39,7 @@
           </li>
           <% I18n.t('shared.story_types').each do |key, value| %>
             <li class="dropdown">
-              <%= link_to value, url_for(params.merge(:type => key)), :class => params[:type] == key ? 'active' : '', :"data-filter" => key %>
+              <%= link_to value, url_for(params.merge(:type => key)), :class => params[:type] == key.to_s ? 'active' : '', :"data-filter" => key %>
             </li>
           <% end %>
         </ul>
@@ -52,7 +55,7 @@
         <ul class="dropdown-menu afilter-list">
           <% I18n.t('shared.filters.sort').each do |key, value| %>
             <li class="dropdown">
-              <%= link_to value, url_for(params.merge(:sort => key)), :class => params[:sort] == key ? 'active' : '', :"data-filter" => key %>
+              <%= link_to value, url_for(params.merge(:sort => key)), :class => params[:sort] == key.to_s || (params[:sort].nil? && key.to_s == 'recent') ? 'active' : '', :"data-filter" => key %>
             </li>
           <% end %>
         </ul>
