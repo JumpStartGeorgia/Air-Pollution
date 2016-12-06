@@ -51,3 +51,24 @@ ka:
       sign_in_local_or_provider: "ან შეიყვანეთ თქვენი ელ. ფოსტა და პაროლი"
       sign_up_question: "არ გაქვთ ანგარიში?"
       sign_up: "დარეგისტრირდით"
+    story_types:
+      infographic: Infographic
+      storybuilder: StoryBuilder (Long)
+      radio: Radio
+      animation: Animation
+      video: Video
+      fact: Fact
+      gif: Animated GIF
+    filters:
+      all: ყველა
+      matches: მსგავსი ამბები
+      sort_header: დალაგება
+      sort_title: როგორ გსურთ ამბების დალაგება?
+      filters: ფილტრი
+      sort:
+        recent: ბოლო
+        views: ნახვა
+        likes: მოწონება
+      story_type_header: Type
+      story_type_title: Filter stories by type
+

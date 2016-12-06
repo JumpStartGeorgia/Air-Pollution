@@ -2,7 +2,29 @@
 class RootController < ApplicationController
 
   def index
-    @stories = Story.published.search_for(params[:q]).sorted.page(params[:page])
+    @stories = Story.published.search_for(params[:q]).page(params[:page])
+
+    # apply filters
+    if params[:type].present?
+      value = Story::TYPE[params[:type].to_sym]
+      if value.present?
+        @stories = @stories.by_type(value) 
+      else
+        params[:type] = nil
+      end
+    end
+
+    # apply sorting
+    if params[:sort].present?
+      case params[:sort]
+        when 'views'
+          @stories = @stories.sort_views
+        else  # recent
+          @stories = @stories.sort_recent
+          params[:sort] = nil
+      end
+    end
+
     @show_page_title = false
     @highlights = Highlight.published.sorted
   end

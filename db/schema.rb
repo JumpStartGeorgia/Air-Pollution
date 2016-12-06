@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205103118) do
+ActiveRecord::Schema.define(version: 20161206085848) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(version: 20161205103118) do
     t.string   "slug",               limit: 255
   end
 
+  add_index "pledges", ["impressions_count"], name: "index_pledges_on_impressions_count", using: :btree
   add_index "pledges", ["posted_at"], name: "index_pledges_on_posted_at", using: :btree
   add_index "pledges", ["slug"], name: "index_pledges_on_slug", using: :btree
 
@@ -171,6 +172,7 @@ ActiveRecord::Schema.define(version: 20161205103118) do
     t.integer  "impressions_count",      limit: 4,   default: 0
   end
 
+  add_index "stories", ["impressions_count"], name: "index_stories_on_impressions_count", using: :btree
   add_index "stories", ["is_public"], name: "index_stories_on_is_public", using: :btree
   add_index "stories", ["posted_at"], name: "index_stories_on_posted_at", using: :btree
   add_index "stories", ["slug"], name: "index_stories_on_slug", using: :btree

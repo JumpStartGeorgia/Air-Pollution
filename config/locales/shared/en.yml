@@ -51,3 +51,23 @@ en:
       sign_in_local_or_provider: or log in with your email and password
       sign_up_question: "Not a member yet?"
       sign_up: "Register now"
+    story_types:
+      infographic: Infographic
+      storybuilder: StoryBuilder (Long)
+      radio: Radio
+      animation: Animation
+      video: Video
+      fact: Fact
+      gif: Animated GIF
+    filters:
+      all: All
+      matches: Matches
+      sort_header: Sorted By    
+      sort_title: Indicate how the stories should be sorted
+      filters: Filters
+      sort:
+        recent: Recent
+        views: Views
+        likes: Likes
+      story_type_header: Type
+      story_type_title: Filter stories by type
