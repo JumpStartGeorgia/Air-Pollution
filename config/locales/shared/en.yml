@@ -5,7 +5,7 @@ en:
       change_my_password: Change my password
       destroy: Delete
       edit: Edit
-      log_in: Log in
+      log_in: Sign In
       view: View
       add: Add
       with_obj:
@@ -45,3 +45,8 @@ en:
     prompts:
       confirm: Are you sure?
       forgot_password: Forgot your password?
+      sign_in_provider: "Sign in with %{provider}"
+      sign_up_provider: "Sign up with %{provider}"
+      sign_in_local_or_provider: or log in with your email and password
+      sign_up_question: "Not a member yet?"
+      sign_up: "Register now"

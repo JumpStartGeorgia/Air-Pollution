@@ -4,7 +4,7 @@
 puts "=================================="
 
 
-roles = %w(super_admin site_admin content_manager)
+roles = %w(super_admin site_admin content_manager user)
 roles.each do |role|
   Role.find_or_create_by(name: role)
 end

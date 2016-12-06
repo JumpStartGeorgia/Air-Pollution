@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  devise_for :users, only: :omniauth_callbacks, controllers: {omniauth_callbacks: 'omniauth_callbacks'}
+
   scope ':locale', locale: /#{I18n.available_locales.join("|")}/ do
     post '/users', to: 'users#create'
 
@@ -12,7 +15,8 @@ Rails.application.routes.draw do
                  unlocks: 'users/unlocks'
                },
                path_names: {sign_in: 'login', sign_out: 'logout'},
-               constraints: { format: :html }
+               constraints: { format: :html }, 
+               skip: :omniauth_callbacks
 
     match '/admin', :to => 'admin#index', :as => :admin, :via => :get
     namespace :admin do
