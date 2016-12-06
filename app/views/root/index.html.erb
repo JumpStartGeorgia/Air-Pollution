@@ -2,14 +2,35 @@
 
 <% if @highlights.present? %>
   <div class="highlights">
+  <% high_index = 0  %>
   <% @highlights.each do |highlight| %>
-    <div class="highlight-item">
+
+    <div class="highlight-item" data-index=<%= high_index %>>
       <%= link_to highlight.url do %>
-        <%= image_tag highlight.image.url(:big), style: 'width: 100%' %>
-        <%= highlight.title %>
+        <div class='highlight-image' style='background-image: url(<%= highlight.image.url(:big) %>)'></div>
+        <p class='highlight-title'>
+          <%= highlight.title %>
+        </p>
       <% end %>
     </div>
+    <% high_index +=1 %>
   <% end %>
+  
+    <button class="highlight-next-prev-button prev">
+      <span class='icon'> </span>
+    </button>
+    <button class="highlight-next-prev-button next">
+      <span class='icon'> </span>
+    </button>
+
+    <% $i = 0 %>
+    <div class="highlight-buttons">
+      <% while $i < high_index  do %>
+          <button class="highlight-item-button" data-index=<%= $i %>> </button>
+       <% $i +=1 %>
+      <% end %>
+    </div>
+
   </div>
 <% end %>
 

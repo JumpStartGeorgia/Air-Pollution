@@ -212,14 +212,9 @@ ActiveRecord::Schema.define(version: 20161205103118) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "role_id",                limit: 4
-    t.string   "provider",               limit: 255
-    t.string   "uid",                    limit: 255
-    t.string   "nickname",               limit: 255
-    t.string   "avatar",                 limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["provider", "uid"], name: "idx_users_provider", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 

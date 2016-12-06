@@ -30,10 +30,18 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import 'components/primary_header';
 @import 'components/translated_inputs';
 @import 'components/navigation_bar';
+@import 'components/main';
 
 .actions-container {
   background-color: #f9f9f9;
   padding: 10px;
   margin: 20px 0px;
 }
+
+main {
+	position: relative;
+	z-index: 1;
+	background-color: white;
+}
+
 

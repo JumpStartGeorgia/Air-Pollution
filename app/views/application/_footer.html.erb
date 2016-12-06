@@ -1,8 +1,20 @@
 <footer class='app-footer'>
-  <p class='app-footer-left'>&copy; <%= Time.now.year %></p>
-  <p id='footer-targer'> </p>
-  <%= link_to image_tag('jumpstart-logo.png', class: 'app-footer-right'),
-              'http://jumpstart.ge',
-              target: '_blank',
-              title: t('shared.common.jumpstart.slogan') %>
+	<div class="pledge-footer-wrap">
+		<div class='pledge-footer'>
+			  <%= link_to image_tag('pledge_icon_footer.png', class: 'pledge-footer-image'),
+	              'http://jumpstart.ge',
+	              target: '_blank',
+	              title: t('shared.common.jumpstart.slogan') %>
+	    		<p> შემოგვიერთდი და შეცვალე გარემო! </p>
+
+	    </div>
+	</div>
+	<div>
+	  <p class='app-footer-left'>&copy; <%= Time.now.year %></p>
+	  <p id='footer-targer'> </p>
+	  <%= link_to image_tag('jumpstart-logo.png', class: 'app-footer-right'),
+	              'http://jumpstart.ge',
+	              target: '_blank',
+	              title: t('shared.common.jumpstart.slogan') %>
+	</div>
 </footer>

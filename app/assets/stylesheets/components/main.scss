@@ -1,0 +1,170 @@
+
+@import url('https://fonts.googleapis.com/css?family=Eczar');
+
+main {
+	margin-top: 130px;
+}
+
+main .container {
+	width: 1500px;
+	padding: 0;
+}
+
+.highlights {
+	position: relative;
+}
+
+.highlights .highlight-item {
+	display: none;
+}
+
+.highlights .highlight-image {
+	width: 100%;
+	height: 800px;
+
+	background-size: cover;
+	background-position: center center;
+	background-repeate: no-repeate;
+}
+
+.highlights .highlight-title {
+	position: absolute;
+	left: 10%;
+	right: 10%;
+	bottom: 50px;
+	width: 60%;
+
+	font-family: 'Eczar', serif;
+	font-weight: bold;
+	font-size: 3em;
+	text-align: left;
+	color: white;
+}
+
+.highlights .highlight-next-prev-button {
+	position: absolute;
+	top: calc(50% - 35px);
+	width: 70px;
+	height: 70px;
+
+	border: none;
+	border-radius: 35px;
+	background-color: rgba(27,27,27,0.5);
+  	transition: background-color 0.3s ease;
+  	color: white;
+
+  	font-size: 40px;
+  	font-family: serif;
+  	line-height: 70px;
+	&:hover {
+		background-color: rgba(27,27,27,0.9) !important;
+	}
+
+	&:focus {
+	 	outline: none; 
+	}
+
+	span {
+		position: relative;
+		top: -5px;
+	    line-height: 27px;
+	}
+
+	&.prev {
+		left: 20px;
+
+		span::before{
+    		content: "\2039";
+    	}
+	}
+
+	&.next {
+		right: 20px;
+
+		span::before{
+    		content: "\203a";		
+    	}
+	}
+
+
+}
+
+.highlights .highlight-buttons {
+	position: absolute;
+	bottom: 20px;
+	left: calc(50% - 43px);
+	display: flex;
+	justify-content: center;
+	z-index: 2;
+}
+
+.highlights .highlight-item-button {
+	width: 14px;
+	height: 14px;
+	margin: 5px;
+
+	border-radius: 10px;
+	border: 2px solid;
+	border-color: rgba(72,62,62,0.88);
+	background-color: rgba(72,62,62,0.88);
+
+	&:focus {
+	 	outline: none; 
+	}
+
+
+	&.active {
+		background-color: rgba(255,255,255,0.67);
+	}
+}
+
+
+
+
+@media screen and (max-width:  1500px){
+	main .container {
+		width: 90vw;
+	}	
+}
+
+@media screen and (max-height: 900px) {
+	.highlights .highlight-image {
+		height: 700px;
+	}
+
+	.highlights .highlight-title {
+		font-size: 2em;
+	}
+}
+
+@media screen and (max-width: 650px) {
+	main {
+		margin-top: 60px;
+	}
+
+
+	.highlights .highlight-next-prev-button {
+		top: calc(50% - 20px);
+		width: 40px;
+		height: 40px;
+		border-radius: 20px;
+	  	font-size: 20px;
+	  	line-height: 40px;
+
+		span {
+			top: -5px;
+		    line-height: 27px;
+		}
+
+		&.prev {
+			left: 5px;
+		}
+
+		&.next {
+			right: 5px;
+		}	
+	}
+
+
+
+}

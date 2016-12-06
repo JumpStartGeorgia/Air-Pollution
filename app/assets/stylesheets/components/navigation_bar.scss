@@ -1,7 +1,7 @@
 
 $navigation-color: #417aab;
 
-.container {
+.navbar-wrapper .container {
 	width: 1500px;
 }
 
@@ -12,8 +12,10 @@ $navigation-color: #417aab;
 	width: 100vw;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	font-size: 23px;
 	background-color: white;
+	z-index: 2;
 	* {
 		color: $navigation-color;
 	}
@@ -40,6 +42,8 @@ $navigation-color: #417aab;
 	align-items: center;
 	flex-wrap: wrap;
     height: auto;
+    overflow: hidden;
+
 	padding: 20px 0 20px 0;
 	> * {
 		padding: 0;
@@ -51,6 +55,7 @@ $navigation-color: #417aab;
 
 
 .navbar-wrapper .navbar-logo {
+
 
 	.logo-with-lungs {
 		height: 90px;
@@ -75,10 +80,16 @@ $navigation-color: #417aab;
 }
 
 .navbar-wrapper .navbar-left {
+	height: 90px;
+    transition: height 0.5s;
  	> * {
  		margin-right: 30px;
  	}
 }
+
+.navbar-wrapper .navbar-change-height {
+	height: 60px;
+} 
 
 .navbar-wrapper .navbar-right {
  	> * {
@@ -87,8 +98,6 @@ $navigation-color: #417aab;
 }
 
 .navbar-wrapper .pledge-button {
-
-
 
 	a {
 		display: flex;
@@ -126,7 +135,7 @@ $navigation-color: #417aab;
 	height: 25px;
 	display: none;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: space-between;	
 	background-color: transparent;
 	border: none;
 
@@ -137,33 +146,19 @@ $navigation-color: #417aab;
 		border-radius: 3px;
 	}
 
-	:focus {
+	&:focus {
 		 outline: none;
 	}
 }
 
-.hide_lungs {
-
-	.container, .navbar-left,  .navbar-right {
-		align-items: center;
-	}
-
-	.logo-with-letters {
-		display: initial !important;
-	}
-
-	.logo-with-lungs {
-		display: none;
-	}
-}
 
 
 
 @media screen and (max-width:  1500px){
-
-	.container {
+	.navbar-wrapper .container {
 		width: 90vw;
 	}	
+
 
 }
 
@@ -171,7 +166,7 @@ $navigation-color: #417aab;
 
 @media screen and (max-width: 1000px) {
 
-	.container {
+	.navbar-wrapper > * {
 		width: 95vw;
 	}	
 
@@ -197,6 +192,52 @@ $navigation-color: #417aab;
 
 } 
 
+@media screen and (max-width: 650px) {
+	.navbar-wrapper {
+		font-size: 15px;
+	}
+
+	.navbar-wrapper .navbar-logo {
+
+		.logo-with-lungs {
+			height: 30px;
+		}
+
+		.logo-with-letters {
+			height: 30px;
+		}
+	}
+
+	.navbar-wrapper .navbar-left {
+		height: 60px;
+		> * {
+ 			margin-right: 10px;
+ 		}
+	}
+
+	.navbar-wrapper .navbar-right {
+		> * {
+ 			margin-left: 10px;
+ 		}
+	}
+
+	.navbar-wrapper .navbar-change-height {
+		height: 40px;
+	} 
+
+	.navbar-wrapper .dropdown-button {
+		height: 15px;
+
+		span {
+			width: 20px;
+			height: 3px;
+
+		}
+
+	}
+
+
+}
 
 .navbar-wrapper .no-display {
 	display: none;
