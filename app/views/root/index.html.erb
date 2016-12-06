@@ -35,6 +35,57 @@
 <% end %>
 
 <% if @stories.present? %>
+
+  <div id="filter">  
+    <div class="mob">
+      <div class="search">
+        <%= form_tag root_path, :method => :get, :id => 'search-filter', :role => "search" do %>
+          <input autocomplete="off" class="search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
+        <% end %>  
+      </div>
+      <div class="filters"><%= t('shared.filters.filters') %><i class='s i-caret-b'></i></div>
+    </div>
+
+    <ul class="nav h">
+      <li class="dropdown dropdown-hover story-types afilter">
+        <a href="#" class="dropdown-toggle<%= params[:type].nil? ? '' : ' selected' %>" 
+          data-toggle="dropdown" tabindex="15" title="<%= t('shared.filters.story_type_title') %>"
+          data-filtered-by="<%= params[:type] %>" 
+          data-filter-type="category" data-filter-default-label="<%= t('shared.filters.story_type_header') %>"
+          data-filter-default="all">
+        <span><%= params[:type].nil? ? t('shared.filters.all') : I18n.t("shared.story_types.#{params[:type]}") %></span><i class='s i-caret-b'></i></a>
+        <ul class="dropdown-menu afilter-list">          
+          <li class="dropdown">
+            <%= link_to I18n.t('shared.filters.all'), url_for(params.merge(:type => nil)), :class => params[:type].nil? ? 'active' : '', :"data-filter" => 'all' %>
+          </li>
+          <% I18n.t('shared.story_types').each do |key, value| %>
+            <li class="dropdown">
+              <%= link_to value, url_for(params.merge(:type => key)), :class => params[:type] == key.to_s ? 'active' : '', :"data-filter" => key %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+
+      <li class="li-sort-label"><span class="sort-label"><%= t('shared.filters.sort_header') %>:</span></li>
+      <li class="dropdown dropdown-hover sort afilter">
+        <a href="#" class="dropdown-toggle<%= params[:sort].nil? ? '' : ' selected' %>" 
+            data-toggle="dropdown" tabindex="17"  title="<%= t('shared.filters.sort_title') %>"
+            data-filtered-by="<%= params[:sort] %>" data-filter-type="sort" 
+            data-filter-default="recent">
+          <span><%= params[:sort].nil? ? t('shared.filters.sort.recent') : I18n.t("shared.filters.sort.#{params[:sort]}") %></span><i class='s i-caret-b'></i></a>
+        <ul class="dropdown-menu afilter-list">
+          <% I18n.t('shared.filters.sort').each do |key, value| %>
+            <li class="dropdown">
+              <%= link_to value, url_for(params.merge(:sort => key)), :class => params[:sort] == key.to_s || (params[:sort].nil? && key.to_s == 'recent') ? 'active' : '', :"data-filter" => key %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    </ul>      
+  </div>
+
+  
+
   <div class="stories-grid">
     <% @stories.each do |story| %>
       <div class="stories-grid-item">

@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
          :recoverable,
          :rememberable,
          :trackable,
-         :validatable
+         :validatable, 
+         :omniauthable, :omniauth_providers => [:facebook]
 
   belongs_to :role
   # Email already required by devise
@@ -42,4 +43,29 @@ class User < ActiveRecord::Base
   def manageable_roles
     Role.all.select { |role| Ability.new(self).can? :manage, role }
   end
+
+
+  ####################################
+  ## OMNIAUTH LOGIN
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email.present? ? auth.info.email : "<%= Devise.friendly_token[0,10] %>@fake.com"
+      user.password = Devise.friendly_token[0,20]
+      user.nickname = auth.info.nickname,
+      user.avatar = auth.info.image
+      user.role_id = 4 #user
+    end
+  end
+
+  # if login fails with omniauth, sessions values are populated with
+  # any data that is returned from omniauth
+  # this helps load them into the new user registration url
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
+    end
+  end
+
 end

@@ -29,13 +29,24 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import 'components/loading_indicator';
 @import 'components/primary_header';
 @import 'components/translated_inputs';
+@import 'components/devise';
 @import 'components/navigation_bar';
 @import 'components/main';
+@import 'components/filters';
 
 .actions-container {
   background-color: #f9f9f9;
   padding: 10px;
   margin: 20px 0px;
+}
+i.s
+{
+    background-color: transparent;   
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width:27px; 
+    height:27px;  
 }
 
 main {
@@ -44,4 +55,18 @@ main {
 	background-color: white;
 }
 
-
+i.xs
+{
+    background-color: transparent;   
+    background-repeat: no-repeat;
+    display: inline-block;
+    vertical-align: middle;
+    width:16px; 
+    height:17px; 
+}
+i.h{visibility:hidden;}
+i.v{visibility:visible;}
+.i-caret-w    { background: url('/assets/svg/menu_w.svg'); }
+.i-caret-b    { background: url('/assets/svg/menu_b.svg'); }
+.i-facebook-w { background: url('/assets/svg/facebook_w.svg'); }
+.i-facebook-b { background: url('/assets/svg/facebook_b.svg'); }

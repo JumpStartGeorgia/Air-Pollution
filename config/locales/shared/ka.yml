@@ -20,6 +20,7 @@ ka:
     common:
       account: ანგარიში
       actions: მოქმედებები
+      search: Search
       jumpstart:
         slogan: JumpStart Georgia - ჩვენ გაწვდით ინფორმაციას მონაცემებით და დიზაინით
       name: ჰაერის ფილტრი
@@ -45,3 +46,29 @@ ka:
     prompts:
       confirm: დარწმუნებული ხართ?
       forgot_password: დაგავიწყდათ პაროლი?
+      sign_in_provider: "შესვლა %{provider}-ით"
+      sign_up_provider: "დარეგისტრირდით %{provider}-ით"
+      sign_in_local_or_provider: "ან შეიყვანეთ თქვენი ელ. ფოსტა და პაროლი"
+      sign_up_question: "არ გაქვთ ანგარიში?"
+      sign_up: "დარეგისტრირდით"
+    story_types:
+      infographic: Infographic
+      storybuilder: StoryBuilder (Long)
+      radio: Radio
+      animation: Animation
+      video: Video
+      fact: Fact
+      gif: Animated GIF
+    filters:
+      all: ყველა
+      matches: მსგავსი ამბები
+      sort_header: დალაგება
+      sort_title: როგორ გსურთ ამბების დალაგება?
+      filters: ფილტრი
+      sort:
+        recent: ბოლო
+        views: ნახვა
+        likes: მოწონება
+      story_type_header: Type
+      story_type_title: Filter stories by type
+

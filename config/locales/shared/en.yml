@@ -5,7 +5,7 @@ en:
       change_my_password: Change my password
       destroy: Delete
       edit: Edit
-      log_in: Log in
+      log_in: Sign In
       view: View
       add: Add
       with_obj:
@@ -20,6 +20,7 @@ en:
     common:
       account: Account
       actions: Actions
+      search: Search
       jumpstart:
         slogan: JumpStart Georgia - Informing Communities with Data and Design
       name: Air Filter
@@ -45,3 +46,28 @@ en:
     prompts:
       confirm: Are you sure?
       forgot_password: Forgot your password?
+      sign_in_provider: "Sign in with %{provider}"
+      sign_up_provider: "Sign up with %{provider}"
+      sign_in_local_or_provider: or log in with your email and password
+      sign_up_question: "Not a member yet?"
+      sign_up: "Register now"
+    story_types:
+      infographic: Infographic
+      storybuilder: StoryBuilder (Long)
+      radio: Radio
+      animation: Animation
+      video: Video
+      fact: Fact
+      gif: Animated GIF
+    filters:
+      all: All
+      matches: Matches
+      sort_header: Sorted By    
+      sort_title: Indicate how the stories should be sorted
+      filters: Filters
+      sort:
+        recent: Recent
+        views: Views
+        likes: Likes
+      story_type_header: Type
+      story_type_title: Filter stories by type

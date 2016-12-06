@@ -1,27 +1,56 @@
 <% page_title t('shared.actions.log_in') %>
 
-<%= semantic_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.inputs do %>
-    <%= f.input :email, as: :email, input_html: { autofocus: true } %>
-    <%= f.input :password, as: :password %>
+<div id="login-form">
 
-    <% if devise_mapping.rememberable? -%>
-      <div class="field">
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-      </div>
+  <div class="providers">
+    <%- if devise_mapping.omniauthable? %>          
+      <%- resource_class.omniauth_providers.each do |provider| %>
+        <% if provider == :facebook %>
+          <%= link_to  omniauth_authorize_path(resource_name, provider), :class => 'facebook' do %>
+            <i class="s i-facebook-w"></i><span><%= t('shared.prompts.sign_in_provider', :provider => provider.to_s.titleize) %></span>
+          <% end %>
+        <% else %>
+          <%= link_to t('shared.prompts.sign_in_provider', :provider => provider.to_s.titleize), omniauth_authorize_path(resource_name, provider), :class => 'btn btn-primary' %>
+        <% end %>
+      <% end -%>
     <% end -%>
+  </div>
+
+  <div class="facebook_or_local"><%= t('shared.prompts.sign_in_local_or_provider') %></div>
+
+  <%= semantic_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= f.inputs do %>
+      <%= f.input :email, :as => :email, :input_html => { autofocus: true, :size => 35, :class => "login-username" }, 
+                    :placeholder => t('activerecord.attributes.user.email') , label: false %>
+      <%= f.input :password, as: :password, :input_html => { :size => 35, :class => "login-password" }, 
+                    :placeholder => t('activerecord.attributes.user.password'), label: false %>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+    <% end %>
+
+    <%= f.actions do %>
+      <%= f.action :submit,
+                   label: t('shared.actions.log_in'),
+                   button_html: { class: 'btn btn-success' } %>
+    <% end %>
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit,
-                 label: t('shared.actions.log_in'),
-                 button_html: { class: 'btn btn-success' } %>
-  <% end %>
-<% end %>
+  <div class="form-group">
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+      <%= link_to t('shared.prompts.forgot_password'), new_password_path(resource_name), :class => 'forgot-link' %>
+    <% end -%>
 
-<%- if devise_mapping.recoverable? %>
-  <%= link_to t('shared.prompts.forgot_password'),
-              new_password_path(resource_name),
-              class: 'btn btn-primary' %>
-<% end -%>
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <div class="sign-up-box">
+        <span><%= t('shared.prompts.sign_up_question') %></span>
+        <%= link_to t('shared.prompts.sign_up'), new_registration_path(resource_name), :class => 'sign-up-link' %>
+      </div>
+    <% end -%>  
+  </div>  
+
+</div>

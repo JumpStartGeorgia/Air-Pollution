@@ -77,6 +77,11 @@ class Story < ActiveRecord::Base
   
 
   ###########################
+  ## SEARCH
+  scoped_search relation: :translations, on: [:title, :description, :organization]
+
+
+  ###########################
   ## VALIDATIONS
   validates :story_type, :title, :url, :posted_at, presence: true
   validates :story_type, inclusion: {in: TYPE.values}
@@ -102,7 +107,8 @@ class Story < ActiveRecord::Base
   ###########################
   ## SCOPES
   scope :published, -> {where(is_public: true)}
-  scope :sorted, -> {with_translations(I18n.locale).order(posted_at: :desc, title: :asc)}
+  scope :sort_recent, -> {with_translations(I18n.locale).order(posted_at: :desc, title: :asc)}
+  scope :sort_views, -> {with_translations(I18n.locale).order(impressions_count: :desc, posted_at: :desc, title: :asc)}
   def self.by_type(story_type)
     where(story_type: story_type)
   end
@@ -148,7 +154,8 @@ class Story < ActiveRecord::Base
     self.is_storybuilder? || self.is_radio? || self.is_animation? || self.is_video?
   end
 
-  def story_type_name
+
+  def story_type_key
     if self.story_type.present?
       return TYPE.keys[TYPE.values.index(self.story_type.to_i)]
     end
