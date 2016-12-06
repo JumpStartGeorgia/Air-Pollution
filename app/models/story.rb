@@ -77,6 +77,11 @@ class Story < ActiveRecord::Base
   
 
   ###########################
+  ## SEARCH
+  scoped_search relation: :translations, on: [:title, :description, :organization]
+
+
+  ###########################
   ## VALIDATIONS
   validates :story_type, :title, :url, :posted_at, presence: true
   validates :story_type, inclusion: {in: TYPE.values}
