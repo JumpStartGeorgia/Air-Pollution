@@ -1,19 +1,41 @@
-<div class="navbar navbar-default navbar-static-top">
+<div class="navbar-wrapper">
   <div class="container">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+    <ul class="navbar-left">
+
+      <%= link_to root_path, class: 'navbar-logo' do%>
+          <%= image_tag 'filter_logo_lungs', class: "logo-with-lungs" %>
+          <%= image_tag 'filter_logo_letters', class: "logo-with-letters" %>
+
+      <% end %>
+      <li><%= link_to t('.about'), about_path  %></li>
+
+
+    <% if @latest_pledge.present? %>
+      <% img =  image_path("sky.jpg") %>
+      <li class="pledge-button">
+           <%= link_to pledge_path(@latest_pledge) do%>
+<!--               <div class="pledge-hand">
+                    <%= inline_svg('join-hand1.svg', class: 'logo_image') %>
+              </div> -->
+
+          <% end %>
+      </li>
+    <% end %>
+
+
+    </ul>
+
+
+
+
+
+    <button type="button" class="dropdown-button" >
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-    <%= link_to t('shared.common.name'), root_path, class: 'navbar-brand' %>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
-      <ul class="nav navbar-nav navbar-left">
-        <li><%= link_to t('.about'), about_path  %></li>
-        <% if @latest_pledge.present? %>
-          <li><%= link_to t('.pledge'), pledge_path(@latest_pledge) %></li>
-        <% end %>
-      </ul>
-      <ul class='nav navbar-nav navbar-right'>
+
+    <ul class='navbar-right'>
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" id="user-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -54,7 +76,9 @@
             <% end %>
           </ul>
         </li>
+
       </ul>
-    </div>
   </div>
 </div>
+
+
