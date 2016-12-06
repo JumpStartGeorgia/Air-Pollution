@@ -12,26 +12,29 @@ function replace_iframe_sizes(w,h){
 }
 
 $(document).on("page:change", function() {
-  $(".fb-image").fancybox({parent: 'body', fitToView: false});
+  if ($(".fb-image").length > 0 || $(".fb-inline").length > 0){
+    $(".fb-image").fancybox({parent: 'body', fitToView: false});
 
-  var options = {parent: 'body'};
-  if (!is_touch_device()){
-    $inline = $(".fb-inline:first");
+    var options = {parent: 'body'};
+    if (!is_touch_device()){
+      $inline = $(".fb-inline:first");
+      if ($inline.length > 0){
+        var w = $(window).width()-100;
+        var h = $(window).height()-100;
 
-    var w = $(window).width()-100;
-    var h = $(window).height()-100;
+        switch($inline.data('type')){
+          case 'radio': 
+            options.minWidth = w > 500 ? 500 : w; 
+            break;
 
-    switch($inline.data('type')){
-      case 'radio': 
-        options.minWidth = w > 500 ? 500 : w; 
-        break;
-
-      default: //fullscreen
-        options.minWidth = w;
-        options.minHeight = h;
-        replace_iframe_sizes(w,h);
-        break;
+          default: //fullscreen
+            options.minWidth = w;
+            options.minHeight = h;
+            replace_iframe_sizes(w,h);
+            break;
+        }
+        $inline.fancybox(options);
+      }
     }
   }
-  $inline.fancybox(options);
 });
