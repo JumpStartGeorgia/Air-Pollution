@@ -125,6 +125,9 @@ $navigation-color: #417aab;
 }
 
 .navbar-wrapper .language-switcher-container {
+	display: flex;
+	align-items: center;
+
 	::before, ::after {
 		display: initial;
 	}
@@ -180,6 +183,10 @@ $navigation-color: #417aab;
    		flex: 0 1 100%;
 		ul {
 			padding: 0;
+		}
+
+		> li {
+			margin: 20px 0 0 10px;
 		}
 
 		> * {

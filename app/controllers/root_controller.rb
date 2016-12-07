@@ -2,7 +2,7 @@
 class RootController < ApplicationController
 
   def index
-    @stories = Story.published.search_for(params[:q]).page(params[:page])
+    @stories = Story.published.search_for(params[:q]).page(params[:page]).per(6);
 
     # apply filters
     if params[:type].present?

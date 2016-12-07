@@ -23,7 +23,9 @@ function check_scrolled_height() {
 	}
 	if($(window).scrollTop() >= scrollTop){ 
 		if(! $(".navbar-left").hasClass( "navbar-change-height") ) {
+			$(".navbar-wrapper .navbar-logo").stop(true, true); 
 			$(".navbar-logo").fadeOut(200, function(){
+				$(".navbar-logo").stop(true, true); 
 				$(".navbar-left").addClass("navbar-change-height");
 				$(".logo-with-lungs").addClass("no-display");
 				$(".navbar-logo").fadeIn(200);
@@ -31,7 +33,9 @@ function check_scrolled_height() {
 		}
 	} else {
 		if( $(".navbar-left").hasClass( "navbar-change-height") ) {
+			$("	.navbar-wrapper .navbar-logo").stop(true, true); 
 			$(".navbar-logo").fadeOut(200, function(){
+				$(".navbar-logo").stop(true, true); 
 				$(".navbar-left").removeClass("navbar-change-height");
 				$(".logo-with-lungs").removeClass("no-display");
 				$(".navbar-logo").fadeIn(200);

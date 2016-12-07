@@ -1,5 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Eczar');
+@import url('https://fonts.googleapis.com/css?family=Lato:900');
+@import url('https://fonts.googleapis.com/css?family=Arimo');
 
 main {
 	margin-top: 130px;
@@ -8,6 +10,12 @@ main {
 main .container {
 	width: 1500px;
 	padding: 0;
+	display: flex;
+	flex-direction: column;
+
+	> div {
+		margin-bottom: 10px;
+	}
 }
 
 .highlights {
@@ -16,6 +24,7 @@ main .container {
 
 .highlights .highlight-item {
 	display: none;
+
 }
 
 .highlights .highlight-image {
@@ -120,12 +129,114 @@ main .container {
 
 
 
+.stories-grid {
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+
+}
+
+.stories-grid-item{
+	width: 450px;
+	margin: 20px 0;
+	margin-left: calc((1500px - 1350px)/6);
+	margin-right: calc((1500px - 1350px)/6);
+}
+
+.stories-grid-item .story-link {
+	width: 100%;
+	height: 100%;
+}
+
+.stories-grid-item .story-image{
+	width: 100%;
+	height: 300px;
+	position: relative;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+}
+
+.stories-grid-item .story-title {
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	color: white;
+	font-size: 1.6em;
+	font-family: 'Lato', sans-serif;
+	text-decoration: none;
+}
+
+
+.stories-grid-item .story-info {
+	width: 100%;
+	margin-top: 7px;
+	padding: 10px;	
+	color: #585555;
+	border: solid 1px;
+	border-color: #f1efef;
+	font-family: 'Arimo', sans-serif;
+
+	.story-description {
+		letter-spacing: 1px;
+		height: 60px;	
+	}
+
+	&.triangle-corner {
+	  background: linear-gradient(
+	  	135deg, #FAFAFA 98%, #FD5440 98%  
+	  );
+	}
+}
+
+.stories-grid .pages-numbers{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+
+	a {
+		font-size: 16px;
+		color: #737171;
+		text-decoration: none;
+		font-family: 'Arimo', sans-serif;
+	}
+
+	.current {
+		font-size: 16px;
+		color: #09989e;
+	}
+}
+
+
+
+
 
 @media screen and (max-width:  1500px){
 	main .container {
 		width: 90vw;
 	}	
+
+	.stories-grid-item{
+		width: 31%;
+		margin-left: calc((100% - 93%)/6);
+		margin-right: calc((100% - 93%)/6);
+	}
+
 }
+
+@media screen and (max-width:  1150px){
+
+	.stories-grid-item{
+		width: 48%;
+		margin-left: calc((100% - 96%)/4);
+		margin-right: calc((100% - 96%)/4);
+	}
+
+}
+
+
+
 
 @media screen and (max-height: 900px) {
 	.highlights .highlight-image {
@@ -135,6 +246,23 @@ main .container {
 	.highlights .highlight-title {
 		font-size: 2em;
 	}
+}
+
+@media screen and (max-width:  750px){
+
+	.stories-grid-item{
+		width: 98%;
+		margin-left: 2%;
+		margin-right: 2%;
+	}
+
+	.stories-grid-item .story-info {
+		.story-description {
+			height: auto;	
+		}
+	}
+
+
 }
 
 @media screen and (max-width: 650px) {
@@ -168,3 +296,4 @@ main .container {
 
 
 }
+

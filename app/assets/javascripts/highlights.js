@@ -19,7 +19,6 @@ function highlight_button_functions() {
 		var index = $(this).attr("data-index");
 		$(this).click(function(){
 			change_highlight(index);
-			$(this).addClass("active");
 		});
 	});
 
@@ -40,17 +39,19 @@ function show_first_highlight() {
 function change_highlight(index, direction) {
 	var highlights_num = $(".highlight-item").size();
 	var curr_highlight = $(".highlight-item.active");
-	var curr_highlight_button = $(".highlight-item-button.active");
 	var curr_highlight_index = parseInt(curr_highlight.attr("data-index"));
 	var next_highlight_index = 0;
 	curr_highlight.removeClass("active");
-	curr_highlight_button.removeClass("active");
-	curr_highlight.hide();
+	$(".highlight-item").hide();
+	$(".highlight-item").stop(true, true); 
+
+	$(".highlight-item-button").removeClass("active");
+
 
 	var manual_change = false;
 
 
-	if( typeof direction === "undefined" ){
+	if( typeof index === "undefined" ){
 		direction = 1;
 	} else {
 		clearInterval(auto_slideshow);		
@@ -71,10 +72,6 @@ function change_highlight(index, direction) {
 
 
 	var next_item = $(".highlights").find('.highlight-item:eq('+ (next_highlight_index) +')');
-
-	$(".highlights-item").removeClass("active");
-	$(".highlights-item").stop(true, true); 
-
 	next_item.addClass('active');
 	next_item.fadeIn(800);
 

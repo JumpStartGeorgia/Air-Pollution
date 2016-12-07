@@ -89,14 +89,21 @@
   <div class="stories-grid">
     <% @stories.each do |story| %>
       <div class="stories-grid-item">
-        <div><%= link_to(image_tag(story.thumbnail.url(:big)),story) %></div>
-        <div><%= link_to story.title, story %></div>
-        <div><%= truncate(strip_tags(story.description), length: 150, separator: ' ') %></div>
-        <div><%= l story.posted_at %></div>
+        <%= link_to story, class: 'story-link' do%>
+          <div class="story-image" style='background-image: url(<%= story.thumbnail.url(:big) %>)' >
+            <%= link_to story.title, story, class: 'story-title' %>
+          </div>
+        <% end %>
+        <div class='story-info triangle-corner'>
+          <p class='story-description'><%= truncate(strip_tags(story.description), length: 150, separator: ' ') %></p>
+          <p class='date'><%= l story.posted_at %></p>
+        </div>
       </div>
     <% end %>
   
-    <%= paginate @stories %>
+    <div class='pages-numbers'>
+      <%= paginate @stories %>
+    </div>
 
   </div>
 
