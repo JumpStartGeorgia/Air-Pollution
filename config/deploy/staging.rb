@@ -4,6 +4,6 @@ set :application, 'Filter-Staging'
 # easier to use https; if you use ssh then you have to create key on server
 set :repository, 'https://github.com/JumpStartGeorgia/Air-Pollution.git'
 set :branch, 'dev'
-set :web_url, 'dev-reformeter.jumpstart.ge'
+set :web_url, 'dev-filter.jumpstart.ge'
 set :visible_to_robots, false
 set :use_ssl, true
