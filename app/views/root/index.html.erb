@@ -69,6 +69,7 @@
     <% @stories.each do |story| %>
       <div class="stories-grid-item">
         <div><%= link_to(image_tag(story.thumbnail.url(:big)),story) %></div>
+        <div><%= image_tag(story_icon(story), alt: story.story_type_key, width: 35) %></div>
         <div><%= link_to story.title, story %></div>
         <div><%= truncate(strip_tags(story.description), length: 150, separator: ' ') %></div>
         <div><%= l story.posted_at %></div>
