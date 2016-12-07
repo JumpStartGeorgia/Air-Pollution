@@ -1,14 +1,16 @@
 <footer class='app-footer'>
-	<div class="pledge-footer-wrap">
-		<div class='pledge-footer' style='background-image: url(<%= image_path("pledge_icon_footer") %>)'>
-			  <%= link_to 'http://jumpstart.ge', class: 'pledge-footer-image',
-	              target: '_blank',
-	              title: t('shared.common.jumpstart.slogan') do %>
-	    		<p> შემოგვიერთდი და შეცვალე გარემო! </p>
+	<% if params[:controller] == "root" && params[:action] != "pledge" %>
+		<div class="pledge-footer-wrap">
+			<div class='pledge-footer' style='background-image: url(<%= image_path("pledge_icon_footer") %>)'>
+				  <%= link_to pledge_path(@latest_pledge), class: 'pledge-footer-image',
+		              target: '_blank',
+		              title: t('shared.common.jumpstart.slogan') do %>
+		    		<p> შემოგვიერთდი და შეცვალე გარემო! </p>
 
-	          <% end %>    
-	    </div>
-	</div>
+		          <% end %>    
+		    </div>
+		</div>
+	<% end %>
 	<div>
 	  <p class='app-footer-left'>&copy; <%= Time.now.year %></p>
 	  <p>
