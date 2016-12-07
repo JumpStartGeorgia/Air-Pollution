@@ -36,6 +36,15 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import 'components/story';
 @import 'components/pledge';
 
+body {
+    height: auto !important;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
 
 .actions-container {
   background-color: #f9f9f9;
@@ -52,11 +61,6 @@ i.s
     height:27px;  
 }
 
-main {
-	position: relative;
-	z-index: 1;
-	background-color: white;
-}
 
 i.xs
 {

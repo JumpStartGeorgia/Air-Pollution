@@ -4,15 +4,39 @@
 
   
 <div class='story-wrapper'>
-  <div class='story-info'>
-    <div class="addthis_inline_share_toolbox"></div>
-    <div class='date'>
+  <div class='date'>
       <%= l @story.posted_at %>
+  </div>
+
+  <div class='story-statistics'>
+    <div class="addthis_inline_share_toolbox"></div>
+    <div class="count">
+      <%= t('.count')%>: 
+      <%= number_with_delimiter(@story.impressions_count) %>
     </div>
+  </div>
+
+  <div class="image" title="<%= t('.click') %>">
+    <% if @story.has_image? %>
+      <% img = @story.is_gif? ? @story.thumbnail.url(:xl) : @story.image.url(:xl) %>
+      <%= link_to(image_tag(img), @story.image.url(:original), class: 'fb-image') %></a>
+      <div class="image-click"><%= link_to(image_tag('click.png'),@story.image.url(:original), class: 'fb-image') %></div>
+    <% elsif @story.has_embed? %>
+      <%= link_to(image_tag(@story.thumbnail.url(:xl)), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
+      <div class="image-click"><%= link_to(image_tag('click.png'), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></div>
+    <% end %>
+  </div>
+
+  <% if @story.has_embed? %>
+    <div id='fb-inline-content' style="display:none;">
+      <%= @story.embed_code.html_safe %>
+    </div>
+  <% end %>
+
+  <div class='story-info'>
     <div class='description'>
       <%= simple_format @story.description %>
     </div>
-
     <% if @story.organization.present? %>
       <div class='organization'>
         <span><%= model_class.human_attribute_name(:organization) %>:</span>
@@ -45,31 +69,7 @@
       </div>
     <% end %>
 
-    <div class="count">
-      <%= t('.count')%>: 
-      <%= number_with_delimiter(@story.impressions_count) %>
-    </div>
-
   </div>
-  <div class="image" title="<%= t('.click') %>">
-    <% if @story.has_image? %>
-      <% img = @story.is_gif? ? @story.thumbnail.url(:xl) : @story.image.url(:xl) %>
-      <%= link_to(image_tag(img), @story.image.url(:original), class: 'fb-image') %></a>
-      <!-- <div class="image-click"><%= link_to(image_tag('click.png'),@story.image.url(:original), class: 'fb-image') %></div> -->
-    <% elsif @story.has_embed? %>
-      <%= link_to(image_tag(@story.thumbnail.url(:xl)), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
-      <!-- <div class="image-click"><%= link_to(image_tag('click.png'), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></div> -->
-    <% end %>
-  </div>
-
-
-  <% if @story.has_embed? %>
-    <div id='fb-inline-content' style="display:none;">
-      <%= @story.embed_code.html_safe %>
-    </div>
-  <% end %>
-
-
 
 
 </div>

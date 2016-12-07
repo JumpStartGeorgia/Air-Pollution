@@ -6,33 +6,31 @@
 }
 
 .story main .container {
-  width: 600px;
+  width: 900px;
 }
 
 .story .primary-header {
-  margin-bottom: 40px;
   width: 100%;
   color: #757575;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  font-size: 3em;
 }
 
 .story-wrapper {
-  position: relative;
   display: flex;
+  flex-direction: column;
 }
 
-.story-wrapper .story-info {
-  position: absolute;
-  width: 300px;
-  right: -300px;
+.story-wrapper .date {
+  text-align: center;
+  margin-bottom: 5px;
 }
+
 
 .story-wrapper .image{
   position: relative;
-  width: 600px;
-
-
+  width: 100%;
   &:hover{
     opacity: 0.7;
   }
@@ -45,15 +43,90 @@
         width: 100%;
         height: auto;
     }
-
   }
 
 
   .image-click{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -50px;
-    margin-top: -50px;
+    top: calc(50% - 38px);
+    left: calc(50% - 38px);
   }
+}
+
+
+.story-wrapper .story-info {
+    margin: 50px 0 50px 0;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    > div {
+      margin-top: 5px;
+    }
+
+    .description {
+      text-align: center;
+      max-width: 500px;
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-bottom-color: #dedede;
+      margin-bottom: 15px;
+      padding: 0 30px 0 30px;
+    }
+
+}
+
+@media screen and (max-width: 1200px) {
+  .story main .container {
+    width: 80vw;
+  }
+
+  .story .primary-header {
+    font-size: 2.5em;
+  }
+
+  .story-wrapper .story-info {
+    .description {
+      max-width: 60vw;
+      padding: 0 3vw 0 3vw;
+    }
+  }
+
+
+
+
+}
+
+@media screen and (max-width: 700px) {
+
+  .story main .container {
+    width: 95vw;
+  }
+
+}
+
+
+@media screen and (max-width: 520px) {
+
+  .story .primary-header {
+    font-size: 2em;
+  }
+
+  .story-wrapper .image{
+    .image-click{
+      width: 50px;
+      height: 50px;
+      top: calc(50% - 25px);
+      left: calc(50% - 25px);
+    }
+  }
+
+  .story-wrapper .story-info {
+    .description {
+      max-width: 100%;
+      padding: 0 3vw 0 3vw;
+    }
+  }
+
 }
