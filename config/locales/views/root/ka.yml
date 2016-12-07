@@ -8,6 +8,7 @@ ka:
     story:
       view: View the Original 
       count: Views
+      click: Click to view the story
     pledge:
       count: Views
       all_pledges: All Pledges

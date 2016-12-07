@@ -23,6 +23,8 @@ class RootController < ApplicationController
           @stories = @stories.sort_recent
           params[:sort] = nil
       end
+    else  # recent
+      @stories = @stories.sort_recent
     end
 
     @show_page_title = false

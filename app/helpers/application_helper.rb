@@ -47,4 +47,16 @@ module ApplicationHelper
     return locales
   end
 
+
+  # get the path to the story icon
+  def story_icon(story)
+    path = nil
+    if story.story_type_key.present?
+      path = "story_types/#{story.story_type_key}.png"
+    end
+
+    return path
+  end
+
+
 end
