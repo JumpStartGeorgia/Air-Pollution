@@ -47,11 +47,13 @@
     <%= number_with_delimiter(@story.impressions_count) %>
   </div>
 
-  <div class="image">
+  <div class="image" title="<%= t('.click') %>">
     <% if @story.has_image? %>
       <%= link_to(image_tag(@story.image.url(:big)), @story.image.url(:original), class: 'fb-image') %></a>
+      <div class="image-click"><%= link_to(image_tag('click.png'),@story.image.url(:original), class: 'fb-image') %></div>
     <% elsif @story.has_embed? %>
-      <%= link_to(image_tag(@story.thumbnail.url(:big)), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
+      <%= link_to(image_tag(@story.thumbnail.url(:xl)), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
+      <div class="image-click"><%= link_to(image_tag('click.png'), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></div>
     <% end %>
   </div>
 

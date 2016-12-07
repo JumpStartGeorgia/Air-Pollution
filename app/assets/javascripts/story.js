@@ -17,23 +17,26 @@ $(document).on("page:change", function() {
 
     var options = {parent: 'body'};
     if (!is_touch_device()){
-      $inline = $(".fb-inline:first");
+      $inline = $(".fb-inline");
       if ($inline.length > 0){
         var w = $(window).width()-100;
         var h = $(window).height()-100;
+        $inline.each(function(){
+          var $t = $(this);
+          switch($t.data('type')){
+            case 'radio': 
+              options.minWidth = w > 500 ? 500 : w; 
+              break;
 
-        switch($inline.data('type')){
-          case 'radio': 
-            options.minWidth = w > 500 ? 500 : w; 
-            break;
+            default: //fullscreen
+              options.minWidth = w;
+              options.minHeight = h;
+              replace_iframe_sizes(w,h);
+              break;
+          }
+          $t.fancybox(options);
+        });
 
-          default: //fullscreen
-            options.minWidth = w;
-            options.minHeight = h;
-            replace_iframe_sizes(w,h);
-            break;
-        }
-        $inline.fancybox(options);
       }
     }
   }

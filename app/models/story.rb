@@ -32,7 +32,7 @@ class Story < ActiveRecord::Base
                     :url => "/system/stories/:id/image/:locale/:style.:extension",
                     :default_url => "/assets/missing/story/image/:style.png",
                     :styles => {
-                        :'big' => {:geometry => "900x>"},
+                        :'big' => {:geometry => "600x>"},
                         :'small' => {:geometry => "450>"}
                     },
                     :convert_options => {
@@ -69,10 +69,12 @@ class Story < ActiveRecord::Base
                     :url => "/system/stories/:id/thumbnail/:style.:extension",
                     :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
+                        :'xl' => {:geometry => "600x>"},
                         :'big' => {:geometry => "459x328#"},
                         :'small' => {:geometry => "229x164#"}
                     },
                     :convert_options => {
+                      :'xl' => '-quality 85',
                       :'big' => '-quality 85',
                       :'small' => '-quality 85'
                     }

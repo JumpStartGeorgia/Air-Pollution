@@ -1,0 +1,14 @@
+.story .image{
+  position: relative;
+  width: 600px;
+  &:hover{
+    opacity: 0.7;
+  }
+  .image-click{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+  }
+}
