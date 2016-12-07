@@ -32,10 +32,12 @@ class Story < ActiveRecord::Base
                     :url => "/system/stories/:id/image/:locale/:style.:extension",
                     :default_url => "/assets/missing/story/image/:style.png",
                     :styles => {
+                        :'xl' => {:geometry => "1000x>"},
                         :'big' => {:geometry => "600x>"},
                         :'small' => {:geometry => "450>"}
                     },
                     :convert_options => {
+                      :'xl' => '-quality 85',
                       :'big' => '-quality 85',
                       :'small' => '-quality 85'
                     }
