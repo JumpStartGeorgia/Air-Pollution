@@ -1,0 +1,52 @@
+
+.pledge main .container {
+  width: 1300px;
+  padding: 0;
+}
+
+.pledge main .container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.pledge-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+
+.pledge-wrapper .image {
+	width: 350px;
+	height: 350px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	border-radius: 200px;
+}
+
+.pledge-wrapper .pledge-texts {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	margin-top: 50px;
+	font-size: 1.3em;
+
+	> div {
+		padding: 20px;
+		width: 400px;
+		height: auto;
+		border: solid 2px;
+		text-align:justify;
+
+		h2 {
+			text-align: center;
+			text-decoration: underline;
+
+		}
+
+	}
+
+}
