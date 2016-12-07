@@ -49,12 +49,12 @@ function change_highlight(index, direction) {
 
 
 	var manual_change = false;
+	clearTimeout(auto_slideshow);		
 
 
 	if( typeof index === "undefined" ){
 		direction = 1;
 	} else {
-		clearTimeout(auto_slideshow);		
 		manual_change = !manual_change;
 	}
 
