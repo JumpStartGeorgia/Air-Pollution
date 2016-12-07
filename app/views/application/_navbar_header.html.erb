@@ -4,8 +4,7 @@
 
       <%= link_to root_path, class: 'navbar-logo' do%>
           <%= image_tag 'filter_logo_lungs.svg', class: "logo-with-lungs" %>
-          <%= image_tag 'filter_logo_letters.svg', class: "logo-with-letters" %>
-
+          <%= image_tag "filter_logo_letters_#{I18n.locale}.svg", class: "logo-with-letters" %>
       <% end %>
       <li><%= link_to t('.about'), about_path  %></li>
 
