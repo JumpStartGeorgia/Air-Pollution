@@ -1,59 +1,62 @@
-<% page_title @story.title 
-  model_class = Story
-%>
+  <% page_title @story.title 
+    model_class = Story
+  %>  
 
-<div class='story'>
-  <div class='date'>
-    <%= l @story.posted_at %>
-  </div>
-  <div class='description'>
-    <%= simple_format @story.description %>
-  </div>
+<div class='story-wrapper'>
 
-  <% if @story.organization.present? %>
-    <div class='organization'>
-      <span><%= model_class.human_attribute_name(:organization) %>:</span>
-      <%= @story.organization %>
+  <div class='story-info'>
+    <div class='date'>
+      <%= l @story.posted_at %>
     </div>
-  <% end %>
-
-  <% if @story.url.present? %>
-    <div class='url'>
-      <span><%= model_class.human_attribute_name(:url) %>:</span>
-      <%= link_to t('.view'), @story.url, target: :blank %>
+    <div class='description'>
+      <%= simple_format @story.description %>
     </div>
-  <% end %>
 
-  <% if @story.datasources.present? %>
-    <div class='datasources'>
-      <span><%= model_class.human_attribute_name(:datasources) %>:</span>
-      <ul class="datasource-list">
-        <% @story.datasources.each_with_index do |source, index| %>
-          <% if source.name.present? %>
-            <li>
-            <% if source.url.present? %>
-              <%= link_to source.name, source.url, target: :blank %>
-            <% else %>
-              <%= source.name %>
-            <% end %></li>
+    <% if @story.organization.present? %>
+      <div class='organization'>
+        <span><%= model_class.human_attribute_name(:organization) %>:</span>
+        <%= @story.organization %>
+      </div>
+    <% end %>
+
+    <% if @story.url.present? %>
+      <div class='url'>
+        <span><%= model_class.human_attribute_name(:url) %>:</span>
+        <%= link_to t('.view'), @story.url, target: :blank %>
+      </div>
+    <% end %>
+
+    <% if @story.datasources.present? %>
+      <div class='datasources'>
+        <span><%= model_class.human_attribute_name(:datasources) %>:</span>
+        <ul class="datasource-list">
+          <% @story.datasources.each_with_index do |source, index| %>
+            <% if source.name.present? %>
+              <li>
+              <% if source.url.present? %>
+                <%= link_to source.name, source.url, target: :blank %>
+              <% else %>
+                <%= source.name %>
+              <% end %></li>
+            <% end %>
           <% end %>
-        <% end %>
-      </ul>    
+        </ul>    
+      </div>
+    <% end %>
+
+    <div class="count">
+      <%= t('.count')%>: 
+      <%= number_with_delimiter(@story.impressions_count) %>
     </div>
-  <% end %>
 
-  <div class="count">
-    <%= t('.count')%>: 
-    <%= number_with_delimiter(@story.impressions_count) %>
   </div>
-
   <div class="image" title="<%= t('.click') %>">
     <% if @story.has_image? %>
       <%= link_to(image_tag(@story.image.url(:big)), @story.image.url(:original), class: 'fb-image') %></a>
-      <div class="image-click"><%= link_to(image_tag('click.png'),@story.image.url(:original), class: 'fb-image') %></div>
+      <!-- <div class="image-click"><%= link_to(image_tag('click.png'),@story.image.url(:original), class: 'fb-image') %></div> -->
     <% elsif @story.has_embed? %>
       <%= link_to(image_tag(@story.thumbnail.url(:xl)), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
-      <div class="image-click"><%= link_to(image_tag('click.png'), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></div>
+      <!-- <div class="image-click"><%= link_to(image_tag('click.png'), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></div> -->
     <% end %>
   </div>
 

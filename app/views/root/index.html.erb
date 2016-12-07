@@ -9,7 +9,7 @@
       <%= link_to highlight.url do %>
         <div class='highlight-image' style='background-image: url(<%= highlight.image.url(:big) %>)'></div>
         <p class='highlight-title'>
-          <%= highlight.title %>
+          <%= highlight.title %> 
         </p>
       <% end %>
     </div>
@@ -91,12 +91,16 @@
       <div class="stories-grid-item">
         <%= link_to story, class: 'story-link' do%>
           <div class="story-image" >
-            <p class='story-title'> <%= story.title %> </p>
-            <%= image_tag(story_icon(story), alt: story.story_type_key, width: 35, class: "story-icon") %>
+            <div class='story-image-attr'>
+              <%= image_tag(story_icon(story), alt: story.story_type_key, width: 35, class: "story-icon") %>
+              <span class='story-title'>
+                  <%= story.title %> 
+               </span>
+            </div>
             <div class='story-image-effect' style='background-image: url(<%= story.thumbnail.url(:big) %>)'></div>
           </div>
         <% end %>
-        <div class='story-info triangle-corner'>
+        <div class='story-info'>
           <p class='story-description'><%= truncate(strip_tags(story.description), length: 150, separator: ' ') %></p>
           <p class='date'><%= l story.posted_at %></p>
         </div>
