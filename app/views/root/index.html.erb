@@ -90,16 +90,16 @@
     <% @stories.each do |story| %>
       <div class="stories-grid-item">
         <%= link_to story, class: 'story-link' do%>
-          <div class="story-image" style='background-image: url(<%= story.thumbnail.url(:big) %>)' >
-            <%= link_to story.title, story, class: 'story-title' %>
-            <div><%= image_tag(story_icon(story), alt: story.story_type_key, width: 35) %></div>
+          <div class="story-image" >
+            <p class='story-title'> <%= story.title %> </p>
+            <%= image_tag(story_icon(story), alt: story.story_type_key, width: 35, class: "story-icon") %>
+            <div class='story-image-effect' style='background-image: url(<%= story.thumbnail.url(:big) %>)'></div>
           </div>
         <% end %>
         <div class='story-info triangle-corner'>
           <p class='story-description'><%= truncate(strip_tags(story.description), length: 150, separator: ' ') %></p>
           <p class='date'><%= l story.posted_at %></p>
         </div>
-
       </div>
     <% end %>
   
