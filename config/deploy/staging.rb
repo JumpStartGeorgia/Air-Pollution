@@ -6,4 +6,4 @@ set :repository, 'https://github.com/JumpStartGeorgia/Air-Pollution.git'
 set :branch, 'dev'
 set :web_url, 'dev-filter.jumpstart.ge'
 set :visible_to_robots, false
-set :use_ssl, true
+set :use_ssl, false
