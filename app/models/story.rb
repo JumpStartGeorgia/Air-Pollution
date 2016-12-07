@@ -30,6 +30,7 @@ class Story < ActiveRecord::Base
   ## this is in the translation
   has_attached_file :image,
                     :url => "/system/stories/:id/image/:locale/:style.:extension",
+                    :default_url => "/assets/missing/story/image/:style.png",
                     :styles => {
                         :'big' => {:geometry => "900x>"},
                         :'small' => {:geometry => "450>"}
@@ -66,6 +67,7 @@ class Story < ActiveRecord::Base
   ## THUMBNAIL PROCESSING
   has_attached_file :thumbnail,
                     :url => "/system/stories/:id/thumbnail/:style.:extension",
+                    :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'big' => {:geometry => "459x328#"},
                         :'small' => {:geometry => "229x164#"}
