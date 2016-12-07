@@ -28,6 +28,8 @@ class ApplicationController < ActionController::Base
     @show_page_title = true
 
     @latest_pledge = Pledge.latest
+
+    gon.addthis = ENV['ADDTHIS_ID']
   end
 
   def clean_filename(filename)
