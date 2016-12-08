@@ -1,32 +1,39 @@
-<% page_title @pledge.title 
-  model_class = Pledge
-%>
 
-<div class='pledge'>
-  <div class='image'>
-    <%= image_tag @pledge.image.url(:big) %>
+<div class='pledge-wrapper'>
+  <% @show_page_title = false 
+  page_title @pledge.title 
+    model_class = Pledge
+  %>
+
+  <h1  class="pledge-name" > <%= @pledge.title%> </h1>
+
+  <div class='image' style='background-image: url(<%= @pledge.image.url(:big) %>) '>
   </div>
 
-  <% if @pledge.why_care.present? %>
-    <div class='why_care'>
-      <h2><%= model_class.human_attribute_name(:why_care) %>:</h2>
-      <%= simple_format @pledge.why_care %>
-    </div>
-  <% end %>
+  <div class='pledge-texts'>
+    <% if @pledge.what_it_is.present? %>
+      <div class='what-is'>
+        <h2><%= model_class.human_attribute_name(:what_it_is) %>:</h2>
+        <%= simple_format @pledge.what_it_is %>
+      </div>
+    <% end %>
 
-  <% if @pledge.what_it_is.present? %>
-    <div class='why_care'>
-      <h2><%= model_class.human_attribute_name(:what_it_is) %>:</h2>
-      <%= simple_format @pledge.what_it_is %>
-    </div>
-  <% end %>
+    <% if @pledge.what_you_do.present? %>
+      <div class='what-do'>
+        <h2><%= model_class.human_attribute_name(:what_you_do) %>:</h2>
+        <%= simple_format @pledge.what_you_do %>
+      </div>
+    <% end %>
 
-  <% if @pledge.what_you_do.present? %>
-    <div class='why_care'>
-      <h2><%= model_class.human_attribute_name(:what_you_do) %>:</h2>
-      <%= simple_format @pledge.what_you_do %>
-    </div>
-  <% end %>
+
+    <% if @pledge.why_care.present? %>
+      <div class='why-care'>
+        <h2><%= model_class.human_attribute_name(:why_care) %>:</h2>
+        <%= simple_format @pledge.why_care %>
+      </div>
+    <% end %>
+
+  </div>
 
   <div class="count">
     <%= t('.count')%>: 
@@ -35,7 +42,7 @@
 
 </div>
 
-  <div class="addthis_inline_share_toolbox"></div>
+<div class="addthis_inline_share_toolbox"></div>
 
 
 <% if @pledges.present? %>

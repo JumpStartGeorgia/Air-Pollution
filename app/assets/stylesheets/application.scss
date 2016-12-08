@@ -35,7 +35,23 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import 'components/filters';
 @import 'components/story';
 @import 'components/pledge';
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+@import url('https://fonts.googleapis.com/css?family=Eczar');
+@import url('https://fonts.googleapis.com/css?family=Lato:900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+@import url('https://fonts.googleapis.com/css?family=Arimo');
 
+
+body {
+    height: auto !important;
+}
+
+main {
+    margin-top: 130px;
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
 
 .actions-container {
   background-color: #f9f9f9;
@@ -52,11 +68,6 @@ i.s
     height:27px;  
 }
 
-main {
-	position: relative;
-	z-index: 1;
-	background-color: white;
-}
 
 i.xs
 {

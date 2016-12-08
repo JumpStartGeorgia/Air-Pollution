@@ -3,10 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:900');
 @import url('https://fonts.googleapis.com/css?family=Arimo');
 
-.index main {
-	margin-top: 130px;
-}
-
 .index main .container {
 	width: 1500px;
 	padding: 0;
@@ -247,7 +243,7 @@
 
 
 
-@media screen and (max-width:  1500px){
+@media screen and (max-width:  1700px){
 	.index main .container {
 		width: 90vw;
 	}	
@@ -300,7 +296,7 @@
 
 }
 
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 650px), (max-height: 900px) {
 	.index main {
 		margin-top: 60px;
 	}
