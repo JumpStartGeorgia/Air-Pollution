@@ -1,13 +1,11 @@
 
-.pledge main .container {
-  width: 1300px;
-  padding: 0;
-}
 
 .pledge main .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	width: 1500px;
+  	padding: 0;
 }
 
 .pledge-wrapper {
@@ -15,12 +13,23 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
+	padding: 50px 0 50px 0;
+	margin-top: 30px;
+	color: white;
+	/*background-image: linear-gradient( #76CAD4, #7cbfa1	);*/
+	background-image: linear-gradient( #8ee2ec, #497b65	);
 }
 
+.pledge .pledge-name {
+	font-family: 'Julius Sans One', sans-serif;
+	font-weight: bold;
+	font-size: 3.5em;
+	margin: 0 0 40px 0;
+}
 
 .pledge-wrapper .image {
-	width: 350px;
-	height: 350px;
+	width: 320px;
+	height: 320px;
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
@@ -29,24 +38,25 @@
 
 .pledge-wrapper .pledge-texts {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
 	width: 100%;
-	margin-top: 50px;
+	padding: 25px 0 25px 0;
 	font-size: 1.3em;
+}
 
-	> div {
-		padding: 20px;
-		width: 400px;
-		height: auto;
-		border: solid 2px;
-		text-align:justify;
+.pledge-wrapper .pledge-texts > div {
+	width: 60%;
+	margin: 25px 0 25px 0;
+	text-align:justify;
+	background-color: transparent;
 
-		h2 {
-			text-align: center;
-			text-decoration: underline;
-
-		}
-
+	h2 {
+		font-family: 'Julius Sans One', sans-serif;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: underline;
+		margin-bottom: 20px;
 	}
 
 }
