@@ -1,5 +1,4 @@
 
-
 .pledge main .container {
 	display: flex;
 	flex-direction: column;
@@ -22,7 +21,6 @@
 
 .pledge .pledge-name {
 	font-family: 'Julius Sans One', sans-serif;
-	font-weight: bold;
 	font-size: 3.5em;
 	margin: 0 0 40px 0;
 }
@@ -46,17 +44,83 @@
 }
 
 .pledge-wrapper .pledge-texts > div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	width: 60%;
-	margin: 25px 0 25px 0;
-	text-align:justify;
+	margin: 40px 0 40px 0;
+	text-align: justify;
 	background-color: transparent;
+	font-family: 'Arimo', sans-serif;
+
 
 	h2 {
 		font-family: 'Julius Sans One', sans-serif;
 		font-weight: bold;
+		font-size: 1.6em;
+		line-height: 3.2rem;
 		text-align: center;
 		text-decoration: underline;
-		margin-bottom: 20px;
+		margin: 20px 0 20px 0;
 	}
+
+	.icon {
+		height: 50px;
+		width: auto;
+	}
+
+}
+
+
+
+@media screen and (max-width:  1700px){
+
+	.pledge main .container {
+		width: 90vw;
+	}	
+
+	.pledge-wrapper .image {
+		width: 40vw;
+		height: 40vw;
+		max-width: 350px;
+		max-height: 350px;
+		border-radius: 170px;
+	}
+
+}
+
+
+@media screen and (max-width: 1000px){
+
+	.pledge-wrapper .pledge-texts > div {
+		width: 80%;
+	}
+} 
+
+
+@media screen and (max-width: 1000px) and (max-height: 1000px){
+	.pledge .pledge-name {
+		font-size: 2em;
+	}
+
+	.pledge-wrapper .pledge-texts {
+		font-size: 1.1em;
+	}
+
+	.pledge-wrapper .pledge-texts > div {
+		margin: 20px 0 20px 0;
+
+
+		h2 {
+			font-size: 1.3em;
+			line-height: 2.6rem;
+		}
+
+		.icon {
+			height: 40px;
+		}
+
+	}
+
 
 }

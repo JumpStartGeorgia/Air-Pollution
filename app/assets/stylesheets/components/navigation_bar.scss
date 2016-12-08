@@ -167,11 +167,7 @@ $navigation-color: #417aab;
 
 
 
-@media screen and (max-width: 1000px) and (max-height: 700px) {
-
-	.navbar-wrapper > * {
-		width: 95vw;
-	}	
+@media screen and (max-width: 1000px) {
 
 	.navbar-wrapper .dropdown-button {
 		display: flex;
@@ -196,6 +192,17 @@ $navigation-color: #417aab;
 		}
 	}
 
+
+} 
+
+
+
+
+@media screen and (max-width: 1000px) and (max-height: 700px) {
+
+	.navbar-wrapper > * {
+		width: 95vw;
+	}	
 
 } 
 
