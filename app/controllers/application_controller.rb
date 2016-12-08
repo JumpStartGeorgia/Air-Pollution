@@ -29,7 +29,8 @@ class ApplicationController < ActionController::Base
 
     @latest_pledge = Pledge.latest
 
-    gon.addthis = ENV['ADDTHIS_ID']
+    @addthis_id = ENV['ADDTHIS_ID']
+    @facebook_app_id = ENV['FACEBOOK_APP_ID']
   end
 
   def clean_filename(filename)
