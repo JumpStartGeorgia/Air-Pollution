@@ -16,6 +16,10 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  role_id                :integer
+#  provider               :string(255)
+#  uid                    :string(255)
+#  nickname               :string(255)
+#  avatar                 :string(255)
 #
 
 require 'rails_helper'

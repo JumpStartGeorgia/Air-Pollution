@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: highlights
+#
+#  id         :integer          not null, primary key
+#  is_public  :boolean          default(FALSE)
+#  posted_at  :datetime
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Highlight < ActiveRecord::Base
 
   ###########################

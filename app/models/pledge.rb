@@ -11,6 +11,9 @@
 #  image_content_type :string(255)
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  impressions_count  :integer          default(0)
+#  slug               :string(255)
+#  pledge_count       :integer          default(0)
 #
 
 class Pledge < ActiveRecord::Base
@@ -44,6 +47,10 @@ class Pledge < ActiveRecord::Base
                       :'small' => '-quality 85'
                     }
   
+  ###########################
+  ## RELATIONSHIPS
+  has_many :pledge_users, :dependent => :destroy
+  accepts_nested_attributes_for :pledge_users, :reject_if => lambda { |a| a[:user_id].blank? }, :allow_destroy => true
 
   ###########################
   ## VALIDATIONS
@@ -63,4 +70,16 @@ class Pledge < ActiveRecord::Base
     where.not(id: id)
   end
 
+
+  ###########################
+  ## METHODS
+  def make_pledge(user)
+    self.pledge_count += 1
+    self.pledge_users.build(user_id: user.id)
+    self.save
+  end
+
+  def has_made_pledge?(user)
+    self.pledge_users.where(user_id: user.id).count > 0
+  end
 end

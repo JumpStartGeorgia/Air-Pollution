@@ -4,8 +4,12 @@ module ApplicationHelper
     content_for(:page_title) { page_title.html_safe }
   end
 
-  def current_url
-    "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
+  def current_url(with_params=true)
+    if with_params
+      "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
+    else 
+      "#{request.protocol}#{request.host_with_port}#{request.path}"
+    end
   end
 
   def full_url(path)

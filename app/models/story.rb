@@ -12,6 +12,8 @@
 #  thumbnail_content_type :string(255)
 #  thumbnail_file_size    :integer
 #  thumbnail_updated_at   :datetime
+#  slug                   :string(255)
+#  impressions_count      :integer          default(0)
 #
 
 class Story < ActiveRecord::Base

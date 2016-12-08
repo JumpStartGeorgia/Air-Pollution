@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_global_vars
+  before_action :store_location
 
   ##############################################
   # Locales #
@@ -37,6 +38,40 @@ class ApplicationController < ActionController::Base
     filename.strip.to_slug.transliterate.to_s.gsub(' ', '_').gsub(/[\\ \/ \: \* \? \" \< \> \| \, \. ]/,'')
   end
 
+  # store the current path so after login, can go back
+  def store_location
+    session[:previous_urls] ||= []
+    # only record path if page is not for users (sign in, sign up, etc) and not for reporting problems
+    if session[:previous_urls].first != request.fullpath &&
+        params[:format] != 'js' && params[:format] != 'json' && !request.xhr? &&
+        request.fullpath.index("/users/").nil?
+      session[:previous_urls].unshift request.fullpath
+    elsif session[:previous_urls].first != request.fullpath &&
+       request.xhr? && !request.fullpath.index("/users/").nil? &&
+       params[:return_url].present?
+      session[:previous_urls].unshift params[:return_url]
+    end
+
+    session[:previous_urls].pop if session[:previous_urls].count > 1
+    Rails.logger.debug "====================================="
+    Rails.logger.debug session[:previous_urls]
+  end
+  # def store_location
+  #   session[:previous_urls] ||= []
+  #   # only record path if page is not for users (sign in, sign up, etc) and not for reporting problems
+  #   if session[:previous_urls].first != request.fullpath && 
+  #       params[:format] != 'js' && params[:format] != 'json' && 
+  #       request.fullpath.index("/users/").nil?
+
+  #     session[:previous_urls].unshift request.fullpath
+  #   end
+  #   session[:previous_urls].pop if session[:previous_urls].count > 1
+
+  #   Rails.logger.debug "====================================="
+  #   Rails.logger.debug session[:previous_urls]
+  # end
+
+
   ##############################################
   # Authorization #
 
@@ -44,6 +79,13 @@ class ApplicationController < ActionController::Base
   def valid_role?(role)
     redirect_to root_path(locale: I18n.locale), :notice => t('shared.msgs.not_authorized') if !current_user || !((role.is_a?(String) && current_user.is?(role)) || (role.is_a?(Array) && role.include?(current_user.role.name)))
   end
+
+  # after user logs in go back to the last page or go to root page
+  def after_sign_in_path_for(resource)
+    session[:previous_urls].last || request.env['omniauth.origin'] || root_path(:locale => I18n.locale)
+  end
+
+
 
   rescue_from CanCan::AccessDenied do |_exception|
     if user_signed_in?

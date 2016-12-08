@@ -1,5 +1,6 @@
 # Non-resource pages
 class RootController < ApplicationController
+  before_filter :authenticate_user!, only: [:make_pledge]
 
   def index
     @stories = Story.published.search_for(params[:q]).page(params[:page]).per(6);
@@ -42,14 +43,25 @@ class RootController < ApplicationController
   end
 
   def pledge
-    # begin
+    begin
       @pledge = Pledge.friendly.published.find(params[:id])
       impressionist(@pledge, :unique => [:session_hash]) # record the view coun
       @pledge = Pledge.friendly.published.with_translations(I18n.locale).find(params[:id])
       @pledges = Pledge.published.with_translations(I18n.locale).sorted.except_pledge(@pledge.id)
+    rescue Exception
+      redirect_to root_path
+    end
+  end
+
+  def make_pledge
+    # begin
+      @pledge = Pledge.friendly.published.find(params[:id])
+      @pledge.make_pledge(current_user)
+
+      redirect_to pledge_path(@pledge, make_pledge: 'success')
     # rescue Exception
       # redirect_to root_path
-      # end
+    # end
   end
 
   def about

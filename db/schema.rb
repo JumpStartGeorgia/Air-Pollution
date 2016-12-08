@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161206085848) do
+ActiveRecord::Schema.define(version: 20161208103608) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -135,6 +135,16 @@ ActiveRecord::Schema.define(version: 20161206085848) do
   add_index "pledge_translations", ["slug"], name: "index_pledge_translations_on_slug", using: :btree
   add_index "pledge_translations", ["title"], name: "index_pledge_translations_on_title", using: :btree
 
+  create_table "pledge_users", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "pledge_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "pledge_users", ["pledge_id"], name: "index_pledge_users_on_pledge_id", using: :btree
+  add_index "pledge_users", ["user_id"], name: "index_pledge_users_on_user_id", using: :btree
+
   create_table "pledges", force: :cascade do |t|
     t.date     "posted_at"
     t.boolean  "is_public",                      default: false
@@ -146,6 +156,7 @@ ActiveRecord::Schema.define(version: 20161206085848) do
     t.datetime "image_updated_at"
     t.integer  "impressions_count",  limit: 4,   default: 0
     t.string   "slug",               limit: 255
+    t.integer  "pledge_count",       limit: 4,   default: 0
   end
 
   add_index "pledges", ["impressions_count"], name: "index_pledges_on_impressions_count", using: :btree

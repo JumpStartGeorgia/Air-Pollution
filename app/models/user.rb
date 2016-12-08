@@ -16,6 +16,10 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  role_id                :integer
+#  provider               :string(255)
+#  uid                    :string(255)
+#  nickname               :string(255)
+#  avatar                 :string(255)
 #
 
 # Contains account data
@@ -53,7 +57,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
       user.nickname = auth.info.nickname,
       user.avatar = auth.info.image
-      user.role_id = 4 #user
+      user.role_id = 1 #user
     end
   end
 
