@@ -39,7 +39,9 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import url('https://fonts.googleapis.com/css?family=Eczar');
 @import url('https://fonts.googleapis.com/css?family=Lato:900');
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
-@import url('https://fonts.googleapis.com/css?family=Arimo');
+@import url('https://fonts.googleapis.com/css?family=Arimo|Raleway|Ubuntu');
+
+
 
 
 body {
@@ -84,3 +86,10 @@ i.v{visibility:visible;}
 .i-caret-b    { background: url('/assets/svg/menu_b.svg'); }
 .i-facebook-w { background: url('/assets/svg/facebook_w.svg'); }
 .i-facebook-b { background: url('/assets/svg/facebook_b.svg'); }
+
+
+@media screen and (max-width: 650px), (max-height: 900px) {
+    main {
+        margin-top: 60px;
+    }
+}

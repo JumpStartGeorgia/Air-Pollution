@@ -7,12 +7,15 @@
 
   <h1  class="pledge-name" > <%= @pledge.title%> </h1>
 
-  <div class='image' style='background-image: url(<%= @pledge.image.url(:big) %>) '>
+  <div class='image' style='background-image: url(<%= @pledge.image.url(:big) %>) '
+      data-start="opacity: 1" data-600-start="opacity: 0"
+      >
   </div>
 
   <div class='pledge-texts'>
     <% if @pledge.what_it_is.present? %>
       <div class='what-is'>
+       <%= inline_svg('svg/pledge_icons/question.svg',  class: "icon question") %>
         <h2><%= model_class.human_attribute_name(:what_it_is) %>:</h2>
         <%= simple_format @pledge.what_it_is %>
       </div>
@@ -20,6 +23,7 @@
 
     <% if @pledge.what_you_do.present? %>
       <div class='what-do'>
+        <%= inline_svg('svg/pledge_icons/list.svg',  class: "icon do") %>
         <h2><%= model_class.human_attribute_name(:what_you_do) %>:</h2>
         <%= simple_format @pledge.what_you_do %>
       </div>
@@ -28,6 +32,7 @@
 
     <% if @pledge.why_care.present? %>
       <div class='why-care'>
+        <%= inline_svg('svg/pledge_icons/care.svg',  class: "icon care") %>
         <h2><%= model_class.human_attribute_name(:why_care) %>:</h2>
         <%= simple_format @pledge.why_care %>
       </div>
