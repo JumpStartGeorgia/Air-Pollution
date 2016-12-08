@@ -4,6 +4,15 @@
 
   
 <div class='story-wrapper'>
+  <div class='share'>
+    <%= link_to(image_tag("share_fb.png", width: 50),
+          "https://www.facebook.com/share.php?u=#{current_url}",
+          :title => "facebook", :target => "_blank") %>
+    <%= link_to(image_tag("share_twitter.png", width: 50),
+          "https://twitter.com/share?url=#{current_url}", :title => "twitter",
+          :target => "_blank") %>
+  </div>
+
   <div class='date'>
       <%= l @story.posted_at %>
   </div>
@@ -71,5 +80,6 @@
 
   </div>
 
+  <div class="fb-comments" data-href="<%= current_url %>" data-num-posts="5" data-width="100%"></div>
 
 </div>

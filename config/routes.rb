@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get '/stories/:id', :to => 'root#story', :as => :story
     get '/stories', to: redirect('/')
     get '/pledges/:id', :to => 'root#pledge', :as => :pledge
+    get '/pledges/:id/make_pledge', :to => 'root#make_pledge', :as => :make_pledge
     get '/pledges', to: redirect('/')
     get '/about' => 'root#about'
 

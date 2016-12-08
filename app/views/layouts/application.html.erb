@@ -3,6 +3,9 @@
   <%= render partial: 'application/head' %>
   <body class="<%= controller_name %> <%= action_name %>">
     <%= Gon::Base.render_data %>
+
+    <div id="fb-root"></div>
+
     <%= render partial: 'application/loading_indicator' %>
     <%= render partial: 'application/navbar_header' %>
     <%= render partial: 'application/main' %>
@@ -11,8 +14,6 @@
     <% if Rails.env.production? %>
       <%= render partial: 'application/google_analytics' %>
     <% end %>
-
-    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<%= ENV['ADDTHIS_ID'] %>"></script>
 
   </body>
 

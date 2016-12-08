@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: datasources
+#
+#  id         :integer          not null, primary key
+#  story_id   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Datasource < ActiveRecord::Base
   ###########################
   ## TRANSLATIONS

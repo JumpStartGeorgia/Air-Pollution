@@ -11,7 +11,7 @@ function replace_iframe_sizes(w,h){
   }
 }
 
-$(document).on("page:change", function() {
+$(document).on("ready page:change", function() {
   if ($(".fb-image").length > 0 || $(".fb-inline").length > 0){
     $(".fb-image").fancybox({parent: 'body', fitToView: false});
 

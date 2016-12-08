@@ -1,9 +1,11 @@
-
-<div class='pledge-wrapper'>
-  <% @show_page_title = false 
+<% 
+  @show_page_title = false 
   page_title @pledge.title 
-    model_class = Pledge
-  %>
+  model_class = Pledge
+%>
+
+
+<div class='pledge-wrapper' data-made-pledge="<%= params[:make_pledge] == 'success' %>">
 
   <h1  class="pledge-name" > <%= @pledge.title%> </h1>
 
@@ -40,14 +42,49 @@
 
   </div>
 
-  <div class="count">
-    <%= t('.count')%>: 
-    <%= number_with_delimiter(@pledge.impressions_count) %>
-  </div>
+  <% if @pledge.pledge_count > 0 %>
+    <div class="pledge-count">
+      <span><%= t('.pledge_count') %>:</span>
+      <%= number_with_delimiter(@pledge.pledge_count) %>
+    </div>
+  <% end %>
 
+  <% if user_signed_in?  && @pledge.has_made_pledge?(current_user) %>
+    <div class="made-pledge">
+      <%= t('.made_pledge') %>
+    </div>
+  <% else %>
+    <div class='make-pledge'>
+      <%= link_to t('.make_pledge'), make_pledge_path(@pledge) %> 
+    </div>
+  
+  <% end %>
+
+
+
+  <div class='share'>
+    <%= link_to(image_tag("share_fb.png", width: 50),
+          "https://www.facebook.com/share.php?u=#{current_url(false)}",
+          :title => "facebook", :target => "_blank") %>
+    <%= link_to(image_tag("share_twitter.png", width: 50),
+          "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
+          :target => "_blank") %>
+  </div>
 </div>
 
-<div class="addthis_inline_share_toolbox"></div>
+<a class="fb-inline" href="#fb-inline-content" style="display:none;"></a>
+<div id='fb-inline-content' style="display:none;">
+ <h2><%= t('.pledge_success.header') %></h2>
+ <p><%= t('.pledge_success.ask') %></p>
+  <div class='share'>
+    <%= link_to(image_tag("share_fb.png", width: 50),
+          "https://www.facebook.com/share.php?u=#{current_url(false)}",
+          :title => "facebook", :target => "_blank") %>
+    <%= link_to(image_tag("share_twitter.png", width: 50),
+          "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
+          :target => "_blank") %>
+  </div>
+</div>
 
 
 <% if @pledges.present? %>
@@ -65,3 +102,4 @@
     </ul>
   </div>
 <% end %>
+
