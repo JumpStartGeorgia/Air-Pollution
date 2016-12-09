@@ -3,7 +3,9 @@ ka:
   application:
     navbar_header:
       about: About
-      pledge: Latest Pledge
+      pledge: ჩაერთე!
       account:
         edit_profile: პროფილის შეცვლა
         logout: გასვლა
+    footer:
+      pledge: შემოგვიერთდი და შეცვალე გარემო!

@@ -56,11 +56,3 @@ function dropdown_button_func() {
 	});
 }
 
-function navbar_height_change() {
-
-}
-
-
-$(function(){
-	skrollr.init(); 
-});

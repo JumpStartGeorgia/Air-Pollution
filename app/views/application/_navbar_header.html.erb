@@ -6,20 +6,7 @@
           <%= image_tag 'filter_logo_lungs.svg', class: "logo-with-lungs" %>
           <%= image_tag "filter_logo_letters_#{I18n.locale}.svg", class: "logo-with-letters" %>
       <% end %>
-      <li><%= link_to t('.about'), about_path  %></li>
 
-
-    <% if @latest_pledge.present? %>
-      <% img =  image_path("sky.jpg") %>
-      <li class="pledge-button">
-           <%= link_to pledge_path(@latest_pledge) do%>
-<!--               <div class="pledge-hand">
-                    <%= inline_svg('join-hand1.svg', class: 'logo_image') %>
-              </div> -->
-
-          <% end %>
-      </li>
-    <% end %>
     </ul>
 
 
@@ -30,11 +17,17 @@
     </button>
 
     <ul class='navbar-right'>
-      <li>
-        <form accept-charset="UTF-8" action="<%= root_path %>" id="search-form" method="get" role="search">
-          <input autocomplete="off" class="search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
-        </form>
-      </li>
+
+        <% if @latest_pledge.present? %>
+          <% img =  image_path("sky.jpg") %>
+          <li class="pledge-button">
+               <%= link_to t('.pledge'), pledge_path(@latest_pledge)%>
+          </li>
+        <% end %>
+
+        <li><%= link_to t('.about'), about_path  %></li>
+
+
         <% if user_signed_in? %>
           <li class="dropdown">
             <a href="#" id="user-dropdown" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -56,6 +49,12 @@
             </ul>
           </li>
         <% end %>
+
+        <li>
+          <form accept-charset="UTF-8" action="<%= root_path %>" id="search-form" class='search-form' method="get" role="search">
+            <input autocomplete="off" class="search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
+          </form>
+        </li>
 
         <li class='language-switcher-container'>
           <ul class='language-switcher'>

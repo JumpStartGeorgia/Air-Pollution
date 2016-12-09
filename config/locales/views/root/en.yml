@@ -12,7 +12,7 @@ en:
     pledge:
       count: Views
       all_pledges: All Pledges
-      make_pledge: Submit Your Pledge
+      make_pledge: Join!
       made_pledge: You have already taken the pledge.
       pledge_count: Pledges Made
       pledge_success:

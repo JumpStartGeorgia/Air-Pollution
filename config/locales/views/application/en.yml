@@ -3,7 +3,9 @@ en:
   application:
     navbar_header:
       about: About
-      pledge: Latest Pledge
+      pledge: Join!
       account:
         edit_profile: Edit Profile
         logout: Logout
+    footer:
+      pledge: Join us and create a better environment!

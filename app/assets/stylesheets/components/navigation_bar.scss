@@ -1,5 +1,5 @@
 
-$navigation-color: #417aab;
+$navigation-color: #1bc5c7;
 
 .navbar-wrapper .container {
 	width: 1500px;
@@ -14,6 +14,8 @@ $navigation-color: #417aab;
 	justify-content: center;
 	flex-wrap: wrap;
 	font-size: 23px;
+	font-weight: bold;
+    font-family: 'Julius Sans One', sans-serif;
 	background-color: white;
 	z-index: 2;
 	* {
@@ -28,7 +30,6 @@ $navigation-color: #417aab;
 		list-style: none;
 	}
 
-
 	::before, ::after {
 		display: none;
 	}
@@ -42,7 +43,6 @@ $navigation-color: #417aab;
 	align-items: center;
 	flex-wrap: wrap;
     height: auto;
-    overflow: hidden;
 
 	padding: 20px 0 20px 0;
 	> * {
@@ -98,30 +98,30 @@ $navigation-color: #417aab;
 }
 
 .navbar-wrapper .pledge-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	padding: 0 10px;
+	background: linear-gradient(45deg, #296faf, #1bc5cc);
+	-webkit-text-fill-color: transparent;
+	-webkit-background-clip: text;
+	letter-spacing: 4px;
 
-	a {
-		display: flex;
-		justify-content: center;
-		align-items: center;	
+    &:hover {
+    	background: #23527c;
+		-webkit-text-fill-color: transparent;
+		-webkit-background-clip: text;
+    }
+
+}
+
+.navbar-wrapper .search-form {
+
+	input {
+		text-align: right;
+		padding: 2px 6px;
+		outline: none;
 	}
-
-	p {
-		color: #9c1813;
-		letter-spacing: 3px;
-		font-weight: bold;
-	}
-
-	.pledge-hand {
-		transform-origin: 50% 50%;
-	}
-
-	svg {
-		width: 40px;
-		height: auto;
-		fill: #9c1813;
-		stroke-dasharray:1000;
-	}
-
 }
 
 .navbar-wrapper .language-switcher-container {
@@ -145,6 +145,7 @@ $navigation-color: #417aab;
 	span {
 		width: 30px;
 		height: 5px;
+		margin-bottom: 3px;
 		background-color: $navigation-color;
 		border-radius: 3px;
 	}
@@ -167,7 +168,7 @@ $navigation-color: #417aab;
 
 
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1200px) {
 
 	.navbar-wrapper .dropdown-button {
 		display: flex;
@@ -241,16 +242,14 @@ $navigation-color: #417aab;
 	} 
 
 	.navbar-wrapper .dropdown-button {
-		height: 15px;
+		height: 20px;
 
 		span {
 			width: 20px;
 			height: 3px;
-
 		}
 
 	}
-
 
 }
 

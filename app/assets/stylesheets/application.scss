@@ -10,11 +10,9 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
  *= require formtastic-bootstrap
  *= require fancybox
  *= require slick-theme
-
- */
+*/
 
 @charset 'UTF-8';
-@import 'slick-theme';
 
 @import 'variables';
 @import 'media-queries';
@@ -91,9 +89,17 @@ i.v{visibility:visible;}
 .i-facebook-w { background: url('/assets/svg/facebook_w.svg'); }
 .i-facebook-b { background: url('/assets/svg/facebook_b.svg'); }
 
+.share {
+    display: flex;
+    justify-content: center;
+    img {
+       margin: 5px; 
+    }
+}
 
 @media screen and (max-width: 650px), (max-height: 900px) {
     main {
         margin-top: 60px;
     }
 }
+

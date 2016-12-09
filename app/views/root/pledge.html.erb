@@ -3,9 +3,7 @@
   page_title @pledge.title 
   model_class = Pledge
 %>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
-<!-- Add the slick-theme.css if you want default styling -->
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+
 
 <div class='pledge-wrapper' data-made-pledge="<%= params[:make_pledge] == 'success' %>">
 
@@ -56,7 +54,11 @@
     </div>
   <% else %>
     <div class='make-pledge'>
-      <%= link_to t('.make_pledge'), make_pledge_path(@pledge) %> 
+      <%= link_to  make_pledge_path(@pledge) do%> 
+        <span class='before'> < </span>
+        <%= t('.make_pledge') %>
+        <span class='after'> > </span>
+      <% end %>
     </div>
   
   <% end %>
@@ -64,10 +66,10 @@
 
 
   <div class='share'>
-    <%= link_to(image_tag("share_fb.png", width: 50),
+    <%= link_to(image_tag("share_fb.svg", width: 50),
           "https://www.facebook.com/share.php?u=#{current_url(false)}",
           :title => "facebook", :target => "_blank") %>
-    <%= link_to(image_tag("share_twitter.png", width: 50),
+    <%= link_to(image_tag("share_twitter.svg", width: 50),
           "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
           :target => "_blank") %>
   </div>
@@ -78,10 +80,10 @@
  <h2><%= t('.pledge_success.header') %></h2>
  <p><%= t('.pledge_success.ask') %></p>
   <div class='share'>
-    <%= link_to(image_tag("share_fb.png", width: 50),
+    <%= link_to(image_tag("share_fb.svg", width: 50),
           "https://www.facebook.com/share.php?u=#{current_url(false)}",
           :title => "facebook", :target => "_blank") %>
-    <%= link_to(image_tag("share_twitter.png", width: 50),
+    <%= link_to(image_tag("share_twitter.svg", width: 50),
           "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
           :target => "_blank") %>
   </div>
@@ -102,7 +104,6 @@
     <% end %>
   </div>
 <% end %>
-
 
 
 <div class="fb-comments" data-href="<%= current_url(false) %>" data-num-posts="5" data-width="100%" style='width: 100%;'></div>

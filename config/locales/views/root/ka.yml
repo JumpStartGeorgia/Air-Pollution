@@ -12,10 +12,10 @@ ka:
     pledge:
       count: Views
       all_pledges: All Pledges
-      make_pledge: Submit Your Pledge
+      make_pledge: ჩაერთე!
       made_pledge: You have already taken the pledge.
       pledge_count: Pledges Made
       pledge_success:
         header: Thank you for making the pledge!
-        ask: Please let your friends know about the pledge so they too can take it.      
+        ask: Please let your friends know about the pledge so they too can take it.  
       
