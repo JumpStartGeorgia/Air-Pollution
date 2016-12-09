@@ -16,6 +16,13 @@
   <meta property="og:description" content="<%= desc %>" />
   <meta property="og:type" content="non_profit" />
   <meta property="og:url" content="<%= current_url %>" />
+
+  <% if @story.present? && params[:controller] == 'root' && params[:action] == 'story' %>
+    <meta property="og:image" content="<%= image_url(@story.thumbnail(:share)) %>" />
+  <% end %>
+  <% if @pledge.present? && params[:controller] == 'root' && params[:action] == 'pledge' %>
+    <meta property="og:image" content="<%= image_url(@pledge.image(:share)) %>" />
+  <% end %>
   <meta property="og:image" content="<%= image_url("share_#{I18n.locale}.png") %>" />
   <meta property="og:site_name" content="<%= t("shared.common.name") %>" />
 
@@ -31,10 +38,10 @@
     # add extra styles/scripts for the story page
     css = ["application"]
     js = ["application"]
-    if params[:controller] == 'root' && params[:action] == 'story'
-      css << 'story'
-      js << 'story'
-    end
+    # if params[:controller] == 'root' && params[:action] == 'story'
+    #   css << 'story'
+    #   js << 'story'
+    # end
   %>
   <%= stylesheet_link_tag  *(css), :media => "all" %>
 

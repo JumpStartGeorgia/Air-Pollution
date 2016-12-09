@@ -73,11 +73,13 @@ class Story < ActiveRecord::Base
                     :url => "/system/stories/:id/thumbnail/:style.:extension",
                     :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
+                        :'share' => {:geometry => "1200x>"},
                         :'xl' => {:geometry => "600x>"},
                         :'big' => {:geometry => "459x328#"},
                         :'small' => {:geometry => "229x164#"}
                     },
                     :convert_options => {
+                      :'share' => '-quality 85',
                       :'xl' => '-quality 85',
                       :'big' => '-quality 85',
                       :'small' => '-quality 85'
