@@ -1,6 +1,6 @@
 
 var auto_slideshow;
-var slideshow_time = 4000;
+var slideshow_time = 5000;
 
 (function() {
 
@@ -33,7 +33,6 @@ function highlight_button_functions() {
 
 function show_first_highlight() {
 	$(".highlight-item").first().addClass("active");
-	$(".highlight-item").first().show();
 	$(".highlight-item-button").first().addClass("active");
 }
 
@@ -43,7 +42,7 @@ function change_highlight(index, direction) {
 	var curr_highlight_index = parseInt(curr_highlight.attr("data-index"));
 	var next_highlight_index = 0;
 	curr_highlight.removeClass("active");
-	$(".highlight-item").hide();
+	// $(".highlight-item").hide();
 	$(".highlight-item").stop(true, true); 
 
 	$(".highlight-item-button").removeClass("active");
@@ -74,7 +73,7 @@ function change_highlight(index, direction) {
 
 	var next_item = $(".highlights").find('.highlight-item:eq('+ (next_highlight_index) +')');
 	next_item.addClass('active');
-	next_item.fadeIn(2000);
+	// next_item.fadeIn(2000);
 
 	$(".highlights").find('.highlight-item-button:eq('+ (next_highlight_index) +')').addClass('active');
 

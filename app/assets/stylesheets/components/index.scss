@@ -17,6 +17,20 @@
 .highlights .highlight-item {
 	display: none;
 
+	&.active {
+		display: block;
+		animation: appear 2s;
+	}
+
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .highlights .highlight-image {
