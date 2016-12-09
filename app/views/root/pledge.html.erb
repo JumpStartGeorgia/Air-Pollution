@@ -3,20 +3,21 @@
   page_title @pledge.title 
   model_class = Pledge
 %>
-
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+<!-- Add the slick-theme.css if you want default styling -->
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
 
 <div class='pledge-wrapper' data-made-pledge="<%= params[:make_pledge] == 'success' %>">
 
   <h1  class="pledge-name" > <%= @pledge.title%> </h1>
 
   <div class='image' style='background-image: url(<%= @pledge.image.url(:big) %>) '
-      data-start="opacity: 1" data-600-start="opacity: 0"
-      >
+      data-300-top="opacity: 1" data-top-bottom="opacity: 0" >
   </div>
 
   <div class='pledge-texts'>
     <% if @pledge.what_it_is.present? %>
-      <div class='what-is'>
+      <div class='what-is' data-300-top="opacity: 1" data-top-bottom="opacity: 0">
        <%= inline_svg('svg/pledge_icons/question.svg',  class: "icon question") %>
         <h2><%= model_class.human_attribute_name(:what_it_is) %>:</h2>
         <%= simple_format @pledge.what_it_is %>
@@ -24,7 +25,7 @@
     <% end %>
 
     <% if @pledge.what_you_do.present? %>
-      <div class='what-do'>
+      <div class='what-do' data-300-top="opacity: 1" data-top-bottom="opacity: 0">
         <%= inline_svg('svg/pledge_icons/list.svg',  class: "icon do") %>
         <h2><%= model_class.human_attribute_name(:what_you_do) %>:</h2>
         <%= simple_format @pledge.what_you_do %>
@@ -33,7 +34,7 @@
 
 
     <% if @pledge.why_care.present? %>
-      <div class='why-care'>
+      <div class='why-care' data-300-top="opacity: 1" data-top-bottom="opacity: 0">
         <%= inline_svg('svg/pledge_icons/care.svg',  class: "icon care") %>
         <h2><%= model_class.human_attribute_name(:why_care) %>:</h2>
         <%= simple_format @pledge.why_care %>
@@ -84,22 +85,24 @@
           "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
           :target => "_blank") %>
   </div>
+
+
 </div>
 
 
 <% if @pledges.present? %>
   <div class="all-pledges">
-    <h2><%= t('.all_pledges') %></h2>
-    <ul>
-      <% @pledges.each do |pledge| %>
-        <li>
-          <%= link_to pledge_path(pledge) do %>
-            <div><%= image_tag pledge.image.url(:small) %></div>
-            <div><%= pledge.title %></div>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
+    <% @pledges.each do |pledge| %>
+          <div>
+            <%= link_to pledge_path(pledge), class: "pledge-link" do %>
+              <div><%= image_tag pledge.image.url(:small) %></div>
+              <div class='pledge-title'><%= pledge.title %></div>
+            <% end %>
+          </div>
+    <% end %>
   </div>
 <% end %>
 
+
+
+<div class="fb-comments" data-href="<%= current_url(false) %>" data-num-posts="5" data-width="100%" style='width: 100%;'></div>

@@ -7,3 +7,15 @@ $(document).on("page:change", function() {
   }
 
 });
+
+
+$(document).ready(function(){
+
+	$('.all-pledges').slick({
+	  infinite: true,
+	  slidesToShow: 3,
+	  slidesToScroll: 3
+	});
+			
+});
+		

@@ -9,9 +9,12 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
  *= require formtastic
  *= require formtastic-bootstrap
  *= require fancybox
+ *= require slick-theme
+
  */
 
 @charset 'UTF-8';
+@import 'slick-theme';
 
 @import 'variables';
 @import 'media-queries';
@@ -60,6 +63,7 @@ main {
   padding: 10px;
   margin: 20px 0px;
 }
+
 i.s
 {
     background-color: transparent;   

@@ -84,6 +84,11 @@ gem 'inline_svg', '~> 0.11.0'
 # SkrollR 
 gem 'skrollr-rails'
 
+# Slider for multiple images
+gem 'bxslider-rails', '~> 4.2', '>= 4.2.5.1'
+
+gem "jquery-slick-rails"
+
 
 group :development do
   # Silences assets-related logging

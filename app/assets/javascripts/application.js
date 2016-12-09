@@ -44,3 +44,4 @@
 //= require google-analytics-turbolinks
 
 //= require fancybox
+//= require jquery.slick
