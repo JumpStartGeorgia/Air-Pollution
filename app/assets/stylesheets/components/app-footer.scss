@@ -83,3 +83,9 @@ html {
         text-align: center;
     }
 }
+
+@media screen and (max-width: 900px) {
+    .pledge-footer{
+        width: 80%;
+    }
+}

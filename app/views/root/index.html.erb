@@ -101,7 +101,7 @@
           </div>
         <% end %>
         <div class='story-info'>
-          <p class='story-description'><%= truncate(strip_tags(story.description), length: 150, separator: ' ') %></p>
+          <p class='story-description'><%= truncate(strip_tags(story.description), length: 100, separator: ' ') %></p>
           <p class='date'><%= l story.posted_at %></p>
         </div>
       </div>
