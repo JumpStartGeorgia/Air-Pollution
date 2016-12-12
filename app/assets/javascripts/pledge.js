@@ -20,8 +20,8 @@ $(document).ready(function(){
 	    {
 	      breakpoint: 5000,
 	      settings: {
-	        slidesToShow: 2,
-	        slidesToScroll: 2,
+	        slidesToShow: 3,
+	        slidesToScroll: 3,
 	        infinite: true,
 	        dots: true
 	      }
