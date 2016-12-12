@@ -91,16 +91,19 @@
 
 
 <% if @pledges.present? %>
-  <div class="all-pledges">
-    <% @pledges.each do |pledge| %>
-          <div>
-            <%= link_to pledge_path(pledge), class: "pledge-link" do %>
-              <div><%= image_tag pledge.image.url(:small) %></div>
-              <div class='pledge-title'><%= pledge.title %></div>
-            <% end %>
-          </div>
-    <% end %>
-  </div>
+<div class='all-pledges-wrapper'>
+    <h2 class='all-pledges-title'> <%= t('.all-pledges') %> </h2>
+    <div class="all-pledges">
+      <% @pledges.each do |pledge| %>
+            <div>
+              <%= link_to pledge_path(pledge), class: "pledge-link" do %>
+                <div class='image' style='background-image: url("<%= pledge.image.url(:small) %>")'></div>
+                <div class='pledge-title'><%= pledge.title %></div>
+              <% end %>
+            </div>
+      <% end %>
+    </div>
+</div>
 <% end %>
 
 

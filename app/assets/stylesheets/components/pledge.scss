@@ -7,6 +7,13 @@
   	padding: 0;
 }
 
+.pledge main .container {
+	h1, h2 {
+		font-family: 'Julius Sans One', sans-serif;
+	}
+
+}
+
 .pledge-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -21,8 +28,8 @@
 }
 
 .pledge .pledge-name {
-	font-family: 'Julius Sans One', sans-serif;
 	font-size: 3.5em;
+	text-align: center;
 	margin: 0 0 40px 0;
 }
 
@@ -55,7 +62,6 @@
 
 
 	h2 {
-		font-family: 'Julius Sans One', sans-serif;
 		font-weight: bold;
 		font-size: 1.6em;
 		line-height: 1.6em;
@@ -93,8 +99,74 @@
 	};
 }
 
+.all-pledges-wrapper{
+	width: 100%;	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 100px 0;
+	color: #1bc5c7;
+
+	.all-pledges-title {
+		font-size: 3em;
+	}
+
+	.all-pledges {
+		margin-top: 50px;
+		width: 100%;
+	}
 
 
+	.slick-prev, .slick-next {
+
+		&:before{
+			color: #1f352b !important;
+		}
+
+		&.slick-prev {
+			left: 5px;
+		}
+
+		&.slick-next {
+			right: 5px;
+		}
+	}
+
+}
+
+
+
+
+.all-pledges .slick-slide a {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.image {
+		width: 80%;
+		height: 250px;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+	.pledge-title {	
+		margin-top: 10px;
+		max-width: 80%;
+		font-family: 'Julius Sans One', sans-serif;
+		font-size: 1.8em;
+		font-weight: bold;
+		color: #1bc5c7;
+		text-decoration: none;
+	}
+
+
+	&:focus, &:hover {
+		 outline: none;
+		 text-decoration: none;
+	}
+}
 
 
 
@@ -167,5 +239,6 @@
 	.pledge-wrapper .pledge-texts > div {
 		width: 90%;
 	}
+
 
 }

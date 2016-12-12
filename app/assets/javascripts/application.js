@@ -44,7 +44,6 @@
 //= require google-analytics-turbolinks
 
 //= require fancybox
-//= require jquery.slick
 
 
 // $(document).ready(function() {

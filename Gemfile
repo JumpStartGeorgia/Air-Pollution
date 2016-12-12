@@ -78,16 +78,9 @@ gem 'globalize-accessors', '~> 0.2.1'
 # send variables to javascript
 gem 'gon', '~> 6.1'
 
-# View helper for inlining SVG images
-gem 'inline_svg', '~> 0.11.0'
 
-# SkrollR 
-gem 'skrollr-rails'
 
-# Slider for multiple images
-gem 'bxslider-rails', '~> 4.2', '>= 4.2.5.1'
 
-gem "jquery-slick-rails"
 
 
 group :development do
@@ -186,3 +179,5 @@ gem 'fancybox2-rails', '~> 0.2.8' # popup window
 gem 'impressionist', '~> 1.5', '>= 1.5.2' # count page views
 gem 'omniauth-facebook', '~> 4.0' # facebook login
 gem 'scoped_search', '~> 4.0' # search
+gem 'inline_svg', '~> 0.11.0'
+gem 'skrollr-rails'

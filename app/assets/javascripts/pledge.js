@@ -12,10 +12,36 @@ $(document).on("page:change", function() {
 $(document).ready(function(){
 
 	$('.all-pledges').slick({
-	  infinite: true,
-	  slidesToShow: 3,
-	  slidesToScroll: 3
-	});
-			
+	  dots: true,
+	  infinite: false,
+	  slidesToShow: 2,
+	  slidesToScroll: 2,
+	  responsive: [
+	    {
+	      breakpoint: 5000,
+	      settings: {
+	        slidesToShow: 3,
+	        slidesToScroll: 3,
+	        infinite: true,
+	        dots: true
+	      }
+	    },
+	    {
+	      breakpoint: 1300,
+	      settings: {
+	        slidesToShow: 2,
+	        slidesToScroll: 2
+	      }
+	    },
+	    {
+	      breakpoint: 880,
+	      settings: {
+	        slidesToShow: 1,
+	        slidesToScroll: 1
+	      }
+	    }
+
+	  ]
+	});			
 });
 		
