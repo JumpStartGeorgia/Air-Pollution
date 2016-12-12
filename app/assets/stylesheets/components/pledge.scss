@@ -7,6 +7,13 @@
   	padding: 0;
 }
 
+.pledge main .container {
+	h1, h2 {
+		font-family: 'Julius Sans One', sans-serif;
+	}
+
+}
+
 .pledge-wrapper {
 	display: flex;
 	flex-direction: column;
@@ -21,8 +28,8 @@
 }
 
 .pledge .pledge-name {
-	font-family: 'Julius Sans One', sans-serif;
 	font-size: 3.5em;
+	text-align: center;
 	margin: 0 0 40px 0;
 }
 
@@ -48,20 +55,19 @@
 	flex-direction: column;
 	align-items: center;
 	width: 60%;
-	margin: 40px 0 40px 0;
+	margin: 60px 0 60px 0;
 	text-align: justify;
 	background-color: transparent;
 	font-family: 'Arimo', sans-serif;
 
 
 	h2 {
-		font-family: 'Julius Sans One', sans-serif;
 		font-weight: bold;
 		font-size: 1.6em;
 		line-height: 1.6em;
 		text-align: center;
 		text-decoration: underline;
-		margin: 20px 0 20px 0;
+		margin: 35px 0 35px 0;
 	}
 
 	.icon {
@@ -72,25 +78,95 @@
 }
 
 .pledge-wrapper .made-pledge, .pledge-wrapper .pledge-count {
-	margin: 0 0 20px 0;
+	margin: 0 0 30px 0;
 }
 
 .pledge-wrapper .make-pledge {
 	font-family: 'Julius Sans One', sans-serif;
-	font-size: 2.6em;
+	font-size: 2.1em;
 	margin:0 0 50px 0;
+	border: solid 3px;
+	padding: 5px 30px;
 
 	a {
 		text-decoration: none;
 		color: white;
-		&:hover {
-			color: #70bbff;
-		};
+
 	}
+
+	&:hover, &:hover a {
+		color: #70bbff;
+	};
+}
+
+.all-pledges-wrapper{
+	width: 100%;	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 100px 0;
+	color: #1bc5c7;
+
+	.all-pledges-title {
+		font-size: 3em;
+	}
+
+	.all-pledges {
+		margin-top: 50px;
+		width: 100%;
+	}
+
+
+	.slick-prev, .slick-next {
+
+		&:before{
+			color: #1f352b !important;
+		}
+
+		&.slick-prev {
+			left: 5px;
+		}
+
+		&.slick-next {
+			right: 5px;
+		}
+	}
+
 }
 
 
 
+
+.all-pledges .slick-slide a {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	.image {
+		width: 80%;
+		height: 250px;
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
+	}
+
+	.pledge-title {	
+		margin-top: 10px;
+		max-width: 80%;
+		font-family: 'Julius Sans One', sans-serif;
+		font-size: 1.8em;
+		font-weight: bold;
+		color: #1bc5c7;
+		text-decoration: none;
+	}
+
+
+	&:focus, &:hover {
+		 outline: none;
+		 text-decoration: none;
+	}
+}
 
 
 
@@ -130,7 +206,7 @@
 	}
 
 	.pledge-wrapper .pledge-texts > div {
-		margin: 20px 0 20px 0;
+		margin: 40px 0 40px 0;
 
 		h2 {
 			font-size: 1.3em;
@@ -140,11 +216,10 @@
 		.icon {
 			height: 40px;
 		}
-
 	}
 
 	.pledge-wrapper .make-pledge {
-		font-size: 2.2em;
+		font-size: 1.6em;
 		margin:0 0 40px 0;
 	}
 
@@ -164,5 +239,6 @@
 	.pledge-wrapper .pledge-texts > div {
 		width: 90%;
 	}
+
 
 }

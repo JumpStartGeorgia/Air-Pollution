@@ -12,6 +12,7 @@
 
 .highlights {
 	position: relative;
+	background-color: gray;
 }
 
 .highlights .highlight-item {
@@ -19,8 +20,9 @@
 
 	&.active {
 		display: block;
-		animation: appear 2s;
+		animation: appear 3s;
 	}
+
 
 }
 
@@ -32,6 +34,7 @@
     opacity: 1;
   }
 }
+
 
 .highlights .highlight-image {
 	width: 100%;
@@ -225,8 +228,9 @@
 	background-color: #efefef;
 
 	.story-description {
+		font-size: 16px;
 		letter-spacing: 1px;
-		height: 60px;	
+		height: 70px;	
 	}
 
 }
