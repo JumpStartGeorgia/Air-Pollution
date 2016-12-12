@@ -99,9 +99,7 @@ $navigation-color: #1bc5c7;
 
 .navbar-wrapper .pledge-button {
 	display: flex;
-	justify-content: center;
 	align-items: center;	
-	padding: 0 10px;
 	background: linear-gradient(45deg, #296faf, #1bc5cc);
 	-webkit-text-fill-color: transparent;
 	-webkit-background-clip: text;
@@ -183,7 +181,15 @@ $navigation-color: #1bc5c7;
 		}
 
 		> li {
-			margin: 20px 0 0 10px;
+			margin: 20px 0 0 5px;
+
+			.search-form {
+
+				input {
+					text-align: left;
+				}
+			}
+
 		}
 
 		> * {
