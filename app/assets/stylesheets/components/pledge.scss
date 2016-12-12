@@ -72,21 +72,25 @@
 }
 
 .pledge-wrapper .made-pledge, .pledge-wrapper .pledge-count {
-	margin: 0 0 20px 0;
+	margin: 0 0 30px 0;
 }
 
 .pledge-wrapper .make-pledge {
 	font-family: 'Julius Sans One', sans-serif;
-	font-size: 2.6em;
+	font-size: 2.1em;
 	margin:0 0 50px 0;
+	border: solid 3px;
+	padding: 5px 30px;
 
 	a {
 		text-decoration: none;
 		color: white;
-		&:hover {
-			color: #70bbff;
-		};
+
 	}
+
+	&:hover, &:hover a {
+		color: #70bbff;
+	};
 }
 
 
@@ -143,7 +147,7 @@
 	}
 
 	.pledge-wrapper .make-pledge {
-		font-size: 2.2em;
+		font-size: 1.6em;
 		margin:0 0 40px 0;
 	}
 
