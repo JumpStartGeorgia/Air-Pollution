@@ -1,19 +1,32 @@
 <% page_title t('shared.prompts.forgot_password') %>
+<%- model_class = User -%>
 
-<%= semantic_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+<div id="reset-password-form">
 
-  <%= f.inputs do %>
-    <%= f.input :email, as: :email %>
+
+  <%= semantic_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post, :"data-form-id"=>"reset-password-form" }) do |f| %>
+    <%= f.semantic_errors *f.object.errors.keys %>
+
+    <%= f.input :email, :as => :email, :input_html => { :size => 35 , :class => "login-username" }, :placeholder => t('activerecord.attributes.user.email') , label: false  %>
+
+    <div class="form-group submit-row">
+      <%= f.submit t('shared.prompts.password_reset'), :class => 'btn btn-default pass-reset' %>
+    </div>
   <% end %>
 
-  <%= f.actions do %>
-    <%= f.action :submit,
-                 label: t('.send_reset_password_instructions'),
-                 button_html: { class: 'btn btn-success' } %>
-  <% end %>
-<% end %>
+  <div class="form-group">
+    <%- if controller_name != 'sessions' %>
+      <%= link_to t('shared.prompts.sign_in'), new_session_path(resource_name), :class => 'sign-in-link' %>
+    <% end -%>
 
-<%= link_to t('shared.actions.log_in'),
-    new_session_path(resource_name),
-    class: 'btn btn-primary' %>
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <div class="sign-up-box">
+        <span><%= t('shared.prompts.sign_up_question') %></span>
+        <%= link_to t('shared.prompts.sign_up'), new_registration_path(resource_name), :class => 'sign-up-link' %>
+      </div>
+    <% end -%>  
+  </div>
+
+
+</div>
+

@@ -103,3 +103,10 @@ i.v{visibility:visible;}
     }
 }
 
+/* bootstrap button takes it styles from formtastic styles */
+.formtastic input
+{
+    padding:4px 14px !important;
+    font-size:14px !important;
+  box-sizing:content-box;
+}

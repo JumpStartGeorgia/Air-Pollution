@@ -5,6 +5,7 @@ ka:
       user:
         email: ელ.ფოსტა
         password: პაროლი
+        password_confirmation: "გაიმეორეთ პაროლი"
         role: როლი
     models:
       user:

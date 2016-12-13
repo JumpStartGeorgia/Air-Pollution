@@ -46,11 +46,14 @@ ka:
     prompts:
       confirm: დარწმუნებული ხართ?
       forgot_password: დაგავიწყდათ პაროლი?
+      sign_in: "უკვე გაქვთ ანგარიში?"
       sign_in_provider: "შესვლა %{provider}-ით"
       sign_up_provider: "დარეგისტრირდით %{provider}-ით"
       sign_in_local_or_provider: "ან შეიყვანეთ თქვენი ელ. ფოსტა და პაროლი"
       sign_up_question: "არ გაქვთ ანგარიში?"
       sign_up: "დარეგისტრირდით"
+      sign_up2: "Sign Up"
+      password_reset: "პაროლის აღდგენა"
     story_types:
       infographic: Infographic
       storybuilder: StoryBuilder (Long)
