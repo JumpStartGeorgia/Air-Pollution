@@ -62,6 +62,8 @@ ka:
     filters:
       all: ყველა
       matches: მსგავსი ამბები
+      no_filter: No Filter
+      filter_header: Filtered By    
       sort_header: დალაგება
       sort_title: როგორ გსურთ ამბების დალაგება?
       filters: ფილტრი

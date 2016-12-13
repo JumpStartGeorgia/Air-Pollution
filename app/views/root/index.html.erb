@@ -47,16 +47,17 @@
     </div>
 
     <ul class="nav h">
+      <li class="li-sort-label"><span class="sort-label"><%= t('shared.filters.filter_header') %>:</span></li>
       <li class="dropdown dropdown-hover story-types afilter">
         <a href="#" class="dropdown-toggle<%= params[:type].nil? ? '' : ' selected' %>" 
           data-toggle="dropdown" tabindex="15" title="<%= t('shared.filters.story_type_title') %>"
           data-filtered-by="<%= params[:type] %>" 
           data-filter-type="category" data-filter-default-label="<%= t('shared.filters.story_type_header') %>"
-          data-filter-default="all">
-        <span><%= params[:type].nil? ? t('shared.filters.all') : I18n.t("shared.story_types.#{params[:type]}") %></span><i class='s i-caret-b'></i></a>
+          data-filter-default="no_filter">
+        <span><%= params[:type].nil? ? t('shared.filters.no_filter') : I18n.t("shared.story_types.#{params[:type]}") %></span><i class='s i-caret-b'></i></a>
         <ul class="dropdown-menu afilter-list">          
           <li class="dropdown">
-            <%= link_to I18n.t('shared.filters.all'), url_for(params.merge(:type => nil)), :class => params[:type].nil? ? 'active' : '', :"data-filter" => 'all' %>
+            <%= link_to I18n.t('shared.filters.no_filter'), url_for(params.merge(:type => nil)), :class => params[:type].nil? ? 'active' : '', :"data-filter" => 'no_filter' %>
           </li>
           <% I18n.t('shared.story_types').each do |key, value| %>
             <li class="dropdown">
