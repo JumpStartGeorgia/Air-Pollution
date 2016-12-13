@@ -74,7 +74,7 @@ class Story < ActiveRecord::Base
                     :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
-                        :'xl' => {:geometry => "600x>"},
+                        :'xl' => {:geometry => "1000x715#"},
                         :'big' => {:geometry => "459x328#"},
                         :'small' => {:geometry => "229x164#"}
                     },
