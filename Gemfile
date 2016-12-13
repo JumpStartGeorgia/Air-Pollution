@@ -153,12 +153,9 @@ group :test do
   gem 'capybara-email', '~> 2.4'
 end
 
-  # Debugging: write 'binding.pry' in Ruby code to debug in terminal
-  gem 'pry-byebug', '~> 3.4', '>= 3.4.1'
-
 group :development, :test do
   # Debugging: write 'binding.pry' in Ruby code to debug in terminal
-  # gem 'pry-byebug', '~> 3.4', '>= 3.4.1'
+  gem 'pry-byebug', '~> 3.4', '>= 3.4.1'
 
   # Adds a console to application errors in browser
   gem 'web-console', '~> 2.0'
