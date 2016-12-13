@@ -38,6 +38,11 @@ class User < ActiveRecord::Base
   # Email already required by devise
   validates :role, presence: true
 
+  before_validation :check_role
+  def check_role
+    self.role_id = 1 if self.role_id.nil?
+  end
+
   # requested_role may be the name of one role (a string)
   # or an array of possible roles
   def is?(requested_role)

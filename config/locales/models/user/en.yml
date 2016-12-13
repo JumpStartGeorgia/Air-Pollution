@@ -5,6 +5,7 @@ en:
       user:
         email: Email
         password: Password
+        password_confirmation: Passowrd Confirmation
         role: Role
     models:
       user:
