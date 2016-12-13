@@ -1,0 +1,26 @@
+# encoding: utf-8
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+ka:
+  date:
+    formats:
+      default: '%d/%m/%Y'
+      short: "%d %b"
+      long: "%d %B %Y"
+    day_names: [კვირა, ორშაბათი, სამშაბათი, ოთხშაბათი, ხუთშაბათი, პარასკევი, შაბათი]
+    abbr_day_names: [კვ, ორშ, სამშ, ოთხშ, ხუთშ, პარ, შაბ]
+    month_names: [~, იანვარი, თებერვალი, მარტი, აპრილი, მაისი, ივნისი, ივლისი, აგვისტო, სექტემბერი, ოქტომბერი, ნოემბერი,  დეკემბერი]
+    abbr_month_names: [~, იანვ, თებ, მარ, აპრ, მაისი, ივნ, ივლ, აგვ, სექტ, ოქტ, ნოემ,  დეკ]
+    order:
+      - :day
+      - :month
+      - :year
+  time:
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      short: "%d %b %H:%M"
+      long: "%d/%m/%Y %H:%M"
+      file: "%Y %m %d %H:%M:%S"
+      no_time: '%d/%m/%Y'
+    am: "am"
+    pm: "pm"
