@@ -26,7 +26,6 @@ html {
 
 .pledge-footer{
     border: solid 4px;
-    border-radius: 30%;
     border-image:  linear-gradient(45deg, #296faf, #1bc5cc);
     border-image-slice: 1;
     background: linear-gradient(45deg, #296faf, #1bc5cc);
@@ -45,9 +44,26 @@ html {
         height: 100%;
         padding: 30px 50px;
         text-decoration: none;
-        color: #d8cece;
+        color: white;
+    }
+
+    &:hover {
+        -webkit-text-fill-color: white;
+        -webkit-background-clip: initial;
+        animation: fill-background 0.3s;
     }
 }
+
+@keyframes fill-background {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
   
 .default {
     display: flex;

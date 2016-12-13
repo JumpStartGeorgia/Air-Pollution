@@ -11,6 +11,8 @@ var next_height = 0;
 
   	dropdown_button_func();
 
+  	search_func();
+
   });
 
 
@@ -56,3 +58,20 @@ function dropdown_button_func() {
 	});
 }
 
+
+function search_func() {
+
+	$(".navbar-right .search-form").click(function(){
+  		$(".navbar-right .search-form").addClass('search-active');
+  		$(".navbar-right .search-form input").focus();
+  	});
+
+	$(function() {
+	    $("body").click(function(e) {
+	        if (!(e.target.id == "navbar-search-form" || $(e.target).parents("#navbar-search-form").size())) { 
+	        	$(".navbar-right .search-form").removeClass('search-active');
+  				$(".navbar-right .search-form input").val('');
+	        } 
+	    });
+	})
+}

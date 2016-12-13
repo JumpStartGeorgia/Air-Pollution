@@ -17,6 +17,13 @@
     </button>
 
     <ul class='navbar-right'>
+        <li>
+          <form accept-charset="UTF-8" action="<%= root_path %>" id="navbar-search-form" class='search-form' method="get" role="search">
+            <button class='search-button'><%= inline_svg('svg/search_b.svg',  class: "search-icon") %></button>
+            <input autocomplete="off" class="search-input" id="q" name="q" tabindex="1" type="text" value="<%= params[:q] %>">
+          </form>
+        </li>
+
 
         <% if @latest_pledge.present? %>
           <% img =  image_path("sky.jpg") %>
@@ -50,11 +57,6 @@
           </li>
         <% end %>
 
-        <li>
-          <form accept-charset="UTF-8" action="<%= root_path %>" id="search-form" class='search-form' method="get" role="search">
-            <input autocomplete="off" class="search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
-          </form>
-        </li>
 
         <li class='language-switcher-container'>
           <ul class='language-switcher'>
@@ -74,6 +76,8 @@
             <% end %>
           </ul>
         </li>
+
+
 
       </ul>
 
