@@ -9,7 +9,8 @@
 
 .pledge main .container {
 	h1, h2 {
-		font-family: 'Julius Sans One', sans-serif;
+		font-family: 'Ek Mukta', sans-serif;
+	  	text-transform: uppercase;
 	}
 
 }
@@ -22,7 +23,8 @@
 	padding: 50px 0 50px 0;
 	margin-top: 10px;
 	color: white;
-	font-size: 1.5em;
+	font-size: 1.7em;
+
 	/*background-image: linear-gradient( #76CAD4, #7cbfa1	);*/
 	background-image: linear-gradient( #8ee2ec, #497b65	);
 }
@@ -60,18 +62,16 @@
 	background-color: transparent;
 	font-family: 'Arimo', sans-serif;
 
-
 	h2 {
 		font-weight: bold;
-		font-size: 1.6em;
-		line-height: 1.6em;
+		font-size: 1.8em;
+		line-height: 1.8em;
 		text-align: center;
-		text-decoration: underline;
-		margin: 35px 0 35px 0;
+		margin: 25px 0 15px 0;
 	}
 
 	.icon {
-		height: 50px;
+		height: 70px;
 		width: auto;
 	}
 
@@ -82,7 +82,8 @@
 }
 
 .pledge-wrapper .make-pledge {
-	font-family: 'Julius Sans One', sans-serif;
+	font-family: 'Ek Mukta', sans-serif;
+	text-transform: uppercase;
 	font-size: 2.1em;
 	margin:0 0 50px 0;
 	border: solid 3px;
@@ -114,7 +115,11 @@
 
 	.all-pledges {
 		width: 100%;
+		padding: 30px 0;
 		margin-top: 50px;
+		border-top: 1px solid;
+		border-bottom: 1px solid;
+		border-color: #e9ebee;
 	}
 
 
