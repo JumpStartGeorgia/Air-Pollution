@@ -27,18 +27,7 @@
 		display: block;
 		animation: appear 2.5s;
 	}
-
 }
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 
 .highlights .highlight-image {
 	width: 100%;
@@ -75,6 +64,7 @@
   	font-size: 40px;
   	font-family: serif;
   	line-height: 70px;
+  	
 	&:hover {
 		background-color: rgba(27,27,27,0.9) !important;
 	}
@@ -91,7 +81,6 @@
 
 	&.prev {
 		left: 20px;
-
 		span::before{
     		content: "\2039";
     	}
@@ -262,6 +251,15 @@
 	}
 }
 
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 
 
