@@ -1,0 +1,29 @@
+.about main .container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #3c84c5;
+	h1 {
+		font-family: 'Ek Mukta', sans-serif;
+	}
+}
+
+.about main .primary-header {
+	text-align: center;
+	font-size: 3.5em;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+}
+
+.about-wrapper {
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.about-text {
+	width: 60%;
+	font-size: 1.5em;
+
+}
