@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208103608) do
+ActiveRecord::Schema.define(version: 20161213133705) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -224,7 +224,7 @@ ActiveRecord::Schema.define(version: 20161208103608) do
     t.string   "last_sign_in_ip",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "role_id",                limit: 4
+    t.integer  "role_id",                limit: 4,   default: 1
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
     t.string   "nickname",               limit: 255
