@@ -26,7 +26,9 @@
     <% $i = 0 %>
     <div class="highlight-buttons">
       <% while $i < high_index  do %>
-          <button class="highlight-item-button" data-index=<%= $i %>> </button>
+          <a href="#" class="highlight-item-button" data-index=<%= $i %>> 
+            <div> </div>
+          </a>
        <% $i +=1 %>
       <% end %>
     </div>

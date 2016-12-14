@@ -39,7 +39,7 @@
 
 .highlights .highlight-image {
 	width: 100%;
-	height: calc(98vh - 130px);
+	height: calc(100vh - 150px);
 
 	background-size: cover;
 	background-position: center center;
@@ -118,11 +118,14 @@
 }
 
 .highlights .highlight-item-button {
-	width: 14px;
-	height: 14px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 20px;
+	height: 20px;
 	margin: 5px;
 
-	border-radius: 10px;
+	border-radius: 50%;
 	border: 2px solid;
 	border-color: rgba(72,62,62,0.88);
 	background-color: rgba(72,62,62,0.88);
@@ -131,12 +134,22 @@
 	 	outline: none; 
 	}
 
+	div {
+		width: 12px;
+		height: 12px;
+		border-radius: 6px;
+	}
 
 	&.active {
-		background-color: rgba(255,255,255,0.67);
+		div {
+			background-color: rgba(255,255,255,0.67);
+		}
 	}
 }
 
+.filter {
+	margin-top: 50px;
+}
 
 .stories-grid {
 	display: flex;
@@ -302,11 +315,17 @@
 	}
 
 
+
 }
 
 @media screen and (max-width: 650px), (max-height: 900px) {
-	.index main {
-		margin-top: 60px;
+
+	.highlights .highlight-title {
+		font-size: 2.5em;
+	}
+
+	.highlights .highlight-image {
+		height: calc(100vh - 120px);
 	}
 
 
@@ -331,8 +350,6 @@
 			right: 5px;
 		}	
 	}
-
-
 
 }
 
