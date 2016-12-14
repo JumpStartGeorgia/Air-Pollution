@@ -84,9 +84,10 @@ html {
 .app-footer-right {
 }
 
-.share {
-    margin-left: 10px;
+.app-footer-left.share {
+    display: none;
     img {
+        display: none;
         width: 40px;
         height: 40px;
     }
