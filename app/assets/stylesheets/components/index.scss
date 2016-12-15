@@ -13,6 +13,10 @@
 
 .highlights {
 	position: relative;
+}
+
+
+.highlights .highlight-items-wrapper {
 	background-color: gray;
 }
 
@@ -23,24 +27,11 @@
 		display: block;
 		animation: appear 2.5s;
 	}
-
-
 }
-
-@keyframes appear {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 
 .highlights .highlight-image {
 	width: 100%;
-	height: calc(98vh - 130px);
-
+	height: calc(100vh - 150px);
 	background-size: cover;
 	background-position: center center;
 	background-repeat: no-repeat;
@@ -50,7 +41,7 @@
 	position: absolute;
 	left: 10%;
 	right: 10%;
-	bottom: 50px;
+	bottom: 60px;
 	width: 60%;
 
 	font-family: 'Ek Mukta', sans-serif;
@@ -65,16 +56,15 @@
 	top: calc(50% - 35px);
 	width: 70px;
 	height: 70px;
-
 	border: none;
 	border-radius: 35px;
 	background-color: rgba(27,27,27,0.5);
   	transition: background-color 0.3s ease;
   	color: white;
-
   	font-size: 40px;
   	font-family: serif;
   	line-height: 70px;
+  	
 	&:hover {
 		background-color: rgba(27,27,27,0.9) !important;
 	}
@@ -91,7 +81,6 @@
 
 	&.prev {
 		left: 20px;
-
 		span::before{
     		content: "\2039";
     	}
@@ -109,34 +98,46 @@
 }
 
 .highlights .highlight-buttons {
-	position: absolute;
-	bottom: 20px;
-	left: calc(50% - 43px);
+	position: relative;
+	bottom: 40px;
 	display: flex;
 	justify-content: center;
 	z-index: 2;
 }
 
 .highlights .highlight-item-button {
-	width: 14px;
-	height: 14px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 17px;
+	height: 17px;
 	margin: 5px;
-
-	border-radius: 10px;
-	border: 2px solid;
-	border-color: rgba(72,62,62,0.88);
+	border: none;
+	border-radius: 50%;
 	background-color: rgba(72,62,62,0.88);
 
 	&:focus {
 	 	outline: none; 
 	}
 
+	> div {
+		width: 8px;
+		height: 8px;
+		margin: 0;
+		padding: 0;
+		border-radius: 50%;
+	}
 
 	&.active {
-		background-color: rgba(255,255,255,0.67);
+		div {
+			background-color: rgba(255,255,255,0.67);
+		}
 	}
 }
 
+.filter {
+	margin-top: 50px;
+}
 
 .stories-grid {
 	display: flex;
@@ -251,6 +252,15 @@
 }
 
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 
 
 
@@ -302,11 +312,17 @@
 	}
 
 
+
 }
 
 @media screen and (max-width: 650px), (max-height: 900px) {
-	.index main {
-		margin-top: 60px;
+
+	.highlights .highlight-title {
+		font-size: 2.5em;
+	}
+
+	.highlights .highlight-image {
+		height: calc(100vh - 120px);
 	}
 
 
@@ -331,8 +347,6 @@
 			right: 5px;
 		}	
 	}
-
-
 
 }
 

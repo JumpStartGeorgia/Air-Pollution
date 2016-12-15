@@ -1,5 +1,5 @@
 
-$navigation-color: #1bc5c7;
+$navigation-color: #38c3d4;
 
 .navbar-wrapper {
 	position: fixed;
@@ -112,7 +112,6 @@ $navigation-color: #1bc5c7;
 		-webkit-text-fill-color: transparent;
 		-webkit-background-clip: text;
     }
-
 }
 
 .navbar-wrapper .search-form {
@@ -122,13 +121,14 @@ $navigation-color: #1bc5c7;
 
 	input {
 		width: 0;
-		height: 25px;
-		padding: 0;
+		font-size: 20px;
+		font-family: serif;
+		line-height: 20px;
 		text-align: left;
 		outline: none;
 		border: none;
-		border-bottom: 1px solid;
-		transition: all 0.2s;
+		border-bottom: solid 1px;
+		transition: width 0.2s;
 		color: #296faf;
 	}
 
@@ -154,8 +154,7 @@ $navigation-color: #1bc5c7;
 
 	&.search-active, &:hover {
 		input {
-			width: 300px;			
-			border-left: 1px solid;
+			width: 300px;	
 		}
 	}
 
@@ -238,8 +237,9 @@ $navigation-color: #1bc5c7;
 		input {
 			order: 0;
 			width: 70%;
+			padding: 5px;
 			max-width: 300px;
-			border-right: none;
+			border: solid 1px;
 		}
 
 		button {
@@ -250,7 +250,6 @@ $navigation-color: #1bc5c7;
 			input {
 				width: 70%;
 				max-width: 300px;
-				border-right: none;
 			}
 		}
 

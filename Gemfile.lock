@@ -411,6 +411,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (~> 2.7)
+  autoprefixer-rails
   awesome_print (~> 1.6, >= 1.6.1)
   bootstrap-sass (~> 3.3.5)
   brakeman (~> 3.2.1)
