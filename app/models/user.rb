@@ -58,7 +58,7 @@ class User < ActiveRecord::Base
   ## OMNIAUTH LOGIN
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email.present? ? auth.info.email : "<%= Devise.friendly_token[0,10] %>@fake.com"
+      user.email = auth.info.email.present? ? auth.info.email : "#{Devise.friendly_token[0,10]}@fake.com"
       user.password = Devise.friendly_token[0,20]
       user.nickname = auth.info.nickname,
       user.avatar = auth.info.image

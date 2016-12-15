@@ -5,6 +5,12 @@ en:
       no_stories: There are no stories at this time.
     about:
       title: About
+      partners: Partner Organizations
+      intro: |
+        The Air Filter is an informational platform which was created within the program "Up in the Air: Establishing the Link Between Air Pollution, Health, and Economic Development in Georgia" which aims to raise awareness about the dangers of air pollution.
+
+        The information regarding air quality and pollution in Georgia will be displayed on this web-page. In addition, citizens will be available to understand how they can reduce air pollution and its influence and take actionable pledges. 
+      disclaimer: This Website is made possible by the support of the American People through the United States Agency for International Development (USAID.) The contents of this Web site are the sole responsibility of ​Jumpstart Georgia ​and do not necessarily reflect the views of USAID or the United States government.
     story:
       view: View the Original 
       count: Views

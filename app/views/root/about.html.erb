@@ -1,10 +1,21 @@
 <% page_title t('.title') %>
 
-<div class='about-wrapper'>
-<!-- 	<div class="about-text"> 
-	The Air Filter is an informational platform which was created within the program "Up in the Air: Establishing the Link Between Air Pollution, Health, and Economic Development in Georgia" which aims to raise awareness about the dangers of air pollution.
+<div class='about-wrapper1'>
+  <div class="about-text1">
+    <%= simple_format(t('.intro')) %>
+  </div>
+  <h2><%= t('.partners') %>:</h2>
+  <div class="partner-logos">
+    <%= image_tag ('partners/cenn.png') %>
+    <%= image_tag ('partners/road_safety.png') %>
+    <%= image_tag ('partners/spectri.png') %>
+  </div>
 
-	The information regarding air quality and pollution in Georgia will be displayed on this web-page. In addition, citizens will be available to understand how they can reduce air pollution and its influence and take actionable pledges. 
+  <div class="about-disclaimer">
+    <%= t('.disclaimer') %>
+  </div>
 
-	</div> -->
+  <div class="about-usaid-logos">
+    <%= image_tag ('partners/usaid.png') %>
+  </div>
 </div>
