@@ -7,6 +7,7 @@
 		</div>
 	<% end %>
 
+
 	<div class='default'>
 		<div class='app-footer-left'>
 			<p class='app-footer-left'>&copy; <%= Time.now.year %></p>
@@ -19,11 +20,25 @@
 		            :target => "_blank") %>
 		    </div>
 		 </div>
+		 
 
-		  <p id='footer-targer'> </p>
-		  <%= link_to image_tag('jumpstart-logo.png', class: 'app-footer-right'),
+		<% if params[:controller] == "root" && params[:action] != "about" %>
+			<div class='usaid'>
+				<div class="disclaimer">
+					<div class='text'> <%= t('.disclaimer') %> </div>
+					<div class='triangle'> </div>
+				</div>
+
+				<div class="usaid-logos">
+					<%= link_to(image_tag ('partners/usaid.png')) %>
+				</div>
+			</div>
+		<% end %>
+
+		  <%= link_to image_tag('jumpstart-logo.png'), 
 		              'http://jumpstart.ge',
 		              target: '_blank',
+		              class: 'app-footer-right',
 		              title: t('shared.common.jumpstart.slogan') %>
 	</div>
 </footer>
