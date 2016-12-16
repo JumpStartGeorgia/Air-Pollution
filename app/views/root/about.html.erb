@@ -1,21 +1,26 @@
 <% page_title t('.title') %>
 
-<div class='about-wrapper1'>
-  <div class="about-text1">
-    <%= simple_format(t('.intro')) %>
-  </div>
-  <h2><%= t('.partners') %>:</h2>
-  <div class="partner-logos">
-    <%= image_tag ('partners/cenn.png') %>
-    <%= image_tag ('partners/road_safety.png') %>
-    <%= image_tag ('partners/spectri.png') %>
-  </div>
+<div class='about-wrapper'>
+	<div class="about-text">
+		<%= simple_format(t('.intro')) %>
+	</div>
 
-  <div class="about-disclaimer">
-    <%= t('.disclaimer') %>
-  </div>
+	<div class="partners-wrapper">
+		<h2><%= t('.partners') %>:</h2>
+		<div class="partner-logos">
+			<%= link_to(image_tag ('partners/cenn.png')) %>
+			<%= link_to(image_tag ('partners/road_safety.png')) %>
+			<%= link_to(image_tag ('partners/spectri.png')) %>
+		</div>
+	</div>
 
-  <div class="about-usaid-logos">
-    <%= image_tag ('partners/usaid.png') %>
-  </div>
+	<div class='usaid'>
+		<div class="about-disclaimer">
+			<%= t('.disclaimer') %>
+		</div>
+
+		<div class="about-usaid-logos">
+			<%= link_to(image_tag ('partners/usaid.png')) %>
+		</div>
+	</div>
 </div>

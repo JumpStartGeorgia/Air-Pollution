@@ -1,29 +1,100 @@
 .about main .container {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	color: #3c84c5;
-	h1 {
+	color: #1d5c96;
+	font-size: 10px;
+	h1, h2 {
 		font-family: 'Ek Mukta', sans-serif;
 	}
 }
 
 .about main .primary-header {
-	text-align: center;
-	font-size: 3.5em;
-	letter-spacing: 3px;
-	text-transform: uppercase;
+	padding-left: 5px;
+	font-size: 3.6em;
+	letter-spacing: 2px;
 }
 
 .about-wrapper {
 	display: flex;
-	justify-content: center;
+	flex-direction: column;
 	width: 100%;
 }
 
-.about-text {
-	width: 60%;
-	font-size: 1.5em;
+.about .about-text {
+	padding: 10px 5px;
+	border-style: solid;
+	border-width: 1px 0 2px 0;
+	border-color: #c7c7c7;
+	font-size: 1.7em;
+}
+
+.about .partners-wrapper {
+	width: 100%;
+	margin: 4% 0;
+
+	h2 {
+		padding-left: 5px;
+		margin-bottom: 20px;
+		font-size: 2.6em;
+		letter-spacing: 1px;
+	}
+}
+
+.about .partner-logos {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+
+	img {
+		height: 100px;
+		width: auto;
+		margin: 0 50px 10px 0; 
+		-webkit-filter: grayscale(1) opacity(0.7);
+  		filter: grayscale(1) opacity(0.7);
+  		transition: all 0.3s;
+	}
+
+	a:hover img{
+		-webkit-filter: none;
+  		filter: none;
+	}
 
 }
+
+.about .usaid {
+	padding: 20px 0 30px 5px;
+	border-style: solid;
+	border-width: 1px 0;
+	border-color: #c7c7c7;
+
+	.about-disclaimer {
+		font-size: 1.5em;
+		margin-bottom: 20px;
+	}
+
+	.about-usaid-logos {
+		width: 100%;
+	}
+
+	.about-usaid-logos img {
+		height: auto;
+		width: 100%;
+	}
+
+	.about-usaid-logos:hover img {
+		animation: usaid-logo-hover 0.3s;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.about .partner-logos img {
+		height: 70px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.about .partner-logos img {
+		height: 50px;
+	}
+}
+
