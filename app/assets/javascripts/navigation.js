@@ -1,13 +1,18 @@
 var curr_height = 0;
 var next_height = 0;
+
 (function() {
 
   $(document).ready(function() {
-  	check_scrolled_height();
+  	check_scrolled_height(false, false);
 
   	$(window).scroll(function() {
-	  check_scrolled_height();
+	  check_scrolled_height(false, true);
 	});
+
+ 	$(window).resize(function(){
+ 		check_scrolled_height(true, false);
+ 	});
 
   	dropdown_button_func();
 
@@ -16,31 +21,34 @@ var next_height = 0;
   });
 
 
+
 })();
 
-function check_scrolled_height() {
+function check_scrolled_height(resize_check, animate_check) {
 	var scrollTop = 200;
-	if($(window).width() < 650) {
+	var navbar_left = 90;
+	if($(window).width() < 650 || $(window).height() < 900 ) {
 		scrollTop = 70;
+		navbar_left = 60;
 	}
+
 	if($(window).scrollTop() >= scrollTop){ 
-		if(! $(".navbar-left").hasClass( "navbar-change-height") ) {
-			$(".navbar-wrapper .navbar-logo").stop(true, true); 
-			$(".navbar-logo").fadeOut(200, function(){
-				$(".navbar-logo").stop(true, true); 
-				$(".navbar-left").addClass("navbar-change-height");
-				$(".logo-with-lungs").addClass("no-display");
-				$(".navbar-logo").fadeIn(200);
+		if(! $(".navbar-left").hasClass( "hide-lung") || resize_check ) {
+			$(".navbar-left").addClass("hide-lung");
+			$(".navbar-left").stop(true,true);
+			$(".navbar-left").css("left", 0 );
+			$(".navbar-left").animate({left: "-" + $(".logo-with-lungs").width() + "px"}, animate_check ? 200 : 1, function(){
+				$(".navbar-left").css("height", navbar_left + "px" );
+				$(".navbar-left").animate({height: ($(".navbar-left").height() - 30) + "px"},  animate_check ? 200 : 1);
 			});
 		}
 	} else {
-		if( $(".navbar-left").hasClass( "navbar-change-height") ) {
-			$("	.navbar-wrapper .navbar-logo").stop(true, true); 
-			$(".navbar-logo").fadeOut(200, function(){
-				$(".navbar-logo").stop(true, true); 
-				$(".navbar-left").removeClass("navbar-change-height");
-				$(".logo-with-lungs").removeClass("no-display");
-				$(".navbar-logo").fadeIn(200);
+		if( $(".navbar-left").hasClass("hide-lung") || resize_check) {
+			$(".navbar-left").removeClass("hide-lung");
+			$(".navbar-left").stop(true,true);
+			$(".navbar-left").css("height", (navbar_left - 30) + "px");
+			$(".navbar-left").animate({ height: ($(".navbar-left").height() + 30) + "px"},  animate_check ? 200 : 1, function() {
+				$(".navbar-left").animate({left: "0"},  animate_check ? 200 : 1);
 			});
 		}
 	}

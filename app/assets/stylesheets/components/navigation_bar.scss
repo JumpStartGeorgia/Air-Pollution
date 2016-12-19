@@ -34,15 +34,16 @@ $navigation-color: #38c3d4;
 
 
 .navbar-wrapper .container {
-	width: 90%;
-	min-width: 1500px; 
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
+	width: 90%;
+	min-width: 1500px; 
     height: auto;
-
+    overflow: hidden;
 	padding: 20px 0 20px 0;
+
 	> * {
 		padding: 0;
 		margin: 0;
@@ -53,24 +54,6 @@ $navigation-color: #38c3d4;
 	}
   
 }
-
-
-
-.navbar-wrapper .navbar-logo {
-
-
-	.logo-with-lungs {
-		height: 90px;
-		width: auto;
-	}
-
-	.logo-with-letters {
-		height: 50px;
-		width: auto;
-	}
-}
-
-
 
 .navbar-wrapper .navbar-left, .navbar-wrapper .navbar-right {
 	display: flex;
@@ -83,15 +66,37 @@ $navigation-color: #38c3d4;
 
 .navbar-wrapper .navbar-left {
 	height: 90px;
-    transition: height 0.5s;
+    position: relative;
+
  	> * {
  		margin-right: 30px;
  	}
+
 }
 
-.navbar-wrapper .navbar-change-height {
-	height: 60px;
-} 
+
+
+
+.navbar-wrapper .navbar-logo {
+
+	.logo-with-lungs {
+		height: 90px;
+		width: auto;
+	}
+
+
+	.logo-with-letters {
+		height: 50px;
+		width: auto;
+	}
+}
+
+
+
+
+
+
+
 
 .navbar-wrapper .navbar-right {
  	> * {
@@ -286,10 +291,14 @@ $navigation-color: #38c3d4;
 	}
 
 	.navbar-wrapper .navbar-left {
-		height: 60px;
+		height: 60px !important;
 		> * {
  			margin-right: 10px;
  		}
+	}
+
+	.navbar-wrapper .navbar-left.hide-lung {
+		height: 30px !important;
 	}
 
 	.navbar-wrapper .navbar-right {
@@ -298,9 +307,6 @@ $navigation-color: #38c3d4;
  		}
 	}
 
-	.navbar-wrapper .navbar-change-height {
-		height: 40px;
-	} 
 
 	.navbar-wrapper .dropdown-button {
 		height: 20px;
@@ -312,10 +318,6 @@ $navigation-color: #38c3d4;
 
 	}
 
-}
-
-.navbar-wrapper .no-display {
-	display: none;
 }
 
 .navbar-wrapper .flex-display {
