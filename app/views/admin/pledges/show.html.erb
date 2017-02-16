@@ -1,0 +1,33 @@
+<% show_name = (can? :create, @pledge) ? true : false %>
+
+<%
+page_title t('shared.labels.model_object_title',
+             label: t('activerecord.attributes.pledge.title'),
+             label_value: @pledge.title)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/show_actions',
+        locals: {
+          object: @pledge,
+          index_path: admin_pledges_path,
+          show_path: admin_pledge_path,
+          edit_path: edit_admin_pledge_path
+                }
+  %>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%=t 'activerecord.attributes.pledge.title' %>:</strong></dt>
+  <dd><%= @pledge.title %></dd>
+  <dt><strong><%=t 'activerecord.attributes.pledge.is_public' %>:</strong></dt>
+  <dd><%= @pledge.is_public %></dd>
+  <dt><strong><%=t 'activerecord.attributes.pledge.why_care' %>:</strong></dt>
+  <dd><%= simple_format(@pledge.why_care) %></dd>
+  <dt><strong><%=t 'activerecord.attributes.pledge.what_it_is' %>:</strong></dt>
+  <dd><%= simple_format(@pledge.what_it_is) %></dd>
+  <dt><strong><%=t 'activerecord.attributes.pledge.what_you_do' %>:</strong></dt>
+  <dd><%= simple_format(@pledge.what_you_do) %></dd>
+  <dt><strong><%=t 'activerecord.attributes.pledge.image' %>:</strong></dt>
+  <dd><%= image_tag(@pledge.image.url(:big)) if @pledge.image.exists? %></dd>
+</dl>

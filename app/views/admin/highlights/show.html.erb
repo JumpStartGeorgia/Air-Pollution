@@ -1,7 +1,7 @@
 <% show_name = (can? :create, @highlight) ? true : false %>
 
 <%
-page_title t('.title',
+page_title t('shared.labels.model_object_title',
              label: t('activerecord.attributes.highlight.title'),
              label_value: @highlight.title)
 %>
@@ -20,6 +20,8 @@ page_title t('.title',
 <dl class="dl-horizontal">
   <dt><strong><%=t 'activerecord.attributes.highlight.title' %>:</strong></dt>
   <dd><%= @highlight.title %></dd>
+  <dt><strong><%=t 'activerecord.attributes.highlight.is_public' %>:</strong></dt>
+  <dd><%= @highlight.is_public %></dd>
   <dt><strong><%=t 'activerecord.attributes.highlight.url' %>:</strong></dt>
   <dd><%= link_to(@highlight.url, target: :blank) if @highlight.url.present? %></dd>
   <dt><strong><%=t 'activerecord.attributes.highlight.image' %>:</strong></dt>

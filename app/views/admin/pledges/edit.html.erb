@@ -1,0 +1,15 @@
+<% model_class = Pledge %>
+<% page_title t('shared.actions.with_obj.edit',
+                obj: t('activerecord.models.pledge', count: 1)) %>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/edit_actions',
+        locals: {
+          object: @pledge,
+          show_path: admin_pledge_path(@pledge),
+          index_path: admin_pledges_path
+                }
+  %>
+</div>
+
+<%= render partial: 'form' %>

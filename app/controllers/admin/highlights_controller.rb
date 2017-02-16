@@ -6,7 +6,7 @@ class Admin::HighlightsController < ApplicationController
   # GET /admin/highlights
   # GET /admin/highlights.json
   def index
-    @highlights = Highlight.all
+    @highlights = Highlight.sorted
   end
 
   # GET /admin/highlights/1
@@ -31,7 +31,7 @@ class Admin::HighlightsController < ApplicationController
     respond_to do |format|
       if @highlight.save
         format.html { redirect_to [:admin,@highlight], notice: t('shared.msgs.success_created',
-                            obj: t('activerecord.models.page_content', count: 1))}
+                            obj: t('activerecord.models.highlight', count: 1))}
         format.json { render :show, status: :created, location: @highlight }
       else
         format.html { render :new }
@@ -46,7 +46,7 @@ class Admin::HighlightsController < ApplicationController
     respond_to do |format|
       if @highlight.update(highlight_params)
         format.html { redirect_to [:admin,@highlight], notice: t('shared.msgs.success_updated',
-                            obj: t('activerecord.models.page_content', count: 1))}
+                            obj: t('activerecord.models.highlight', count: 1))}
         format.json { render :show, status: :ok, location: @highlight }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class Admin::HighlightsController < ApplicationController
     @highlight.destroy
     respond_to do |format|
       format.html { redirect_to admin_highlights_url, notice: t('shared.msgs.success_destroyed',
-                            obj: t('activerecord.models.page_content', count: 1))}
+                            obj: t('activerecord.models.highlight', count: 1))}
       format.json { head :no_content }
     end
   end

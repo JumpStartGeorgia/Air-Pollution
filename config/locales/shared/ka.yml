@@ -30,6 +30,7 @@ ka:
       admin: ადმინის სექცია
     labels:
       translated_field: "%{field} (%{language})"
+      model_object_title: '%{label}: %{label_value}'
     locale:
       short:
         en: En

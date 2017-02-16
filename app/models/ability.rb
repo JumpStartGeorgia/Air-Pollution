@@ -7,7 +7,7 @@ class Ability
 
   def initialize(user)
     user ||= User.new
-    content_resources = []
+    content_resources = [Highlight, Pledge]
 
     if user.is? 'super_admin'
       can :manage, :all

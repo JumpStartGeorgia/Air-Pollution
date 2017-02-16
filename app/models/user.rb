@@ -15,7 +15,7 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
-#  role_id                :integer
+#  role_id                :integer          default(1)
 #  provider               :string(255)
 #  uid                    :string(255)
 #  nickname               :string(255)

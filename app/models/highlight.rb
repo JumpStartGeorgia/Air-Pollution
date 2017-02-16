@@ -2,11 +2,19 @@
 #
 # Table name: highlights
 #
-#  id         :integer          not null, primary key
-#  is_public  :boolean          default(FALSE)
-#  posted_at  :datetime
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                    :integer          not null, primary key
+#  is_public             :boolean          default(FALSE)
+#  posted_at             :datetime
+#  created_at            :datetime         not null
+#  updated_at            :datetime         not null
+#  image_en_file_name    :string(255)
+#  image_en_content_type :string(255)
+#  image_en_file_size    :integer
+#  image_en_updated_at   :datetime
+#  image_ka_file_name    :string(255)
+#  image_ka_content_type :string(255)
+#  image_ka_file_size    :integer
+#  image_ka_updated_at   :datetime
 #
 
 class Highlight < ActiveRecord::Base

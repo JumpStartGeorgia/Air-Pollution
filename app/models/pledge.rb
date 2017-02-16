@@ -23,7 +23,7 @@ class Pledge < ActiveRecord::Base
 
   ###########################
   ## TRANSLATIONS
-  translates :title, :why_care, :what_it_is, :what_you_do, :slug, \
+  translates :title, :why_care, :what_it_is, :what_you_do, :slug, 
               :text, # text is no longer used but is needed here for migrations
               :fallbacks_for_empty_translations => true
   globalize_accessors
