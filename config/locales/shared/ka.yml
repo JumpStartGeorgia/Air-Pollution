@@ -44,6 +44,7 @@ ka:
       success_created: "%{obj} წარმატებით შეიქმნა."
       success_destroyed: "%{obj} წარმატებით გაუქმდა."
       success_updated: "%{obj} წარმატებით განახლდა."
+      pledge_fields_required: "This field is required for the pledge to be made public."
     prompts:
       confirm: დარწმუნებული ხართ?
       forgot_password: დაგავიწყდათ პაროლი?

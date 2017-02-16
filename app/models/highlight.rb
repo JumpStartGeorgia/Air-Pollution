@@ -65,6 +65,10 @@ class Highlight < ActiveRecord::Base
     size: { in: 0..5.megabytes }
 
   ###########################
+  ## CALLBACKS
+  before_save :set_posted_at
+
+  ###########################
   ## SCOPES
   scope :published, -> {where(is_public: true)}
   scope :sorted, -> {with_translations(I18n.locale).order(posted_at: :desc, title: :asc)}
@@ -79,5 +83,23 @@ class Highlight < ActiveRecord::Base
     return locale == :en ? image_en : image_ka
   end
 
+
+  private
+
+  # if this record is becoming public, set posted_at
+  # if this record is being hidden from public, reset posted_at
+  def set_posted_at
+    if self.is_public? && self.is_public_changed?
+      # becoming public
+      self.posted_at = Time.now
+
+    elsif !self.is_public? && self.is_public_changed?
+      # loosing public
+      self.posted_at = nil
+
+    end
+
+    return true
+  end
 
 end
