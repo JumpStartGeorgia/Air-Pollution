@@ -110,6 +110,7 @@ class Story < ActiveRecord::Base
   ## VALIDATIONS
   validates :story_type, :title, :url, :posted_at, presence: true
   validates :story_type, inclusion: {in: TYPE.values}
+  validates :url, :format => {:with => URI::regexp(['http','https'])}, :if => "!url.blank?"
   validates_attachment :thumbnail,
     content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
     size: { in: 0..5.megabytes }

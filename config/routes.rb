@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       resources :page_contents, constraints: { format: :html }
       resources :highlights, constraints: { format: :html }
       resources :pledges, constraints: { format: :html }
+      resources :stories, constraints: { format: :html }
     end
 
     get '/stories/:id', :to => 'root#story', :as => :story
