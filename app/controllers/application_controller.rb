@@ -53,8 +53,8 @@ class ApplicationController < ActionController::Base
     end
 
     session[:previous_urls].pop if session[:previous_urls].count > 1
-    Rails.logger.debug "====================================="
-    Rails.logger.debug session[:previous_urls]
+    # Rails.logger.debug "====================================="
+    # Rails.logger.debug session[:previous_urls]
   end
   # def store_location
   #   session[:previous_urls] ||= []

@@ -60,15 +60,12 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name',  url_en: 'https://feradi.info/en',
     title_ka: 'infographic 1', description_ka: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_ka: 'Organization Name',  url_ka: 'https://feradi.info/en',
-                                image: File.open(path + 'info1.jpg')
+                                image_en: File.open(path + 'info1.jpg'),
+                                image_ka: File.open(path + 'info2.png')
   )
   s.datasources.create(name_en: 'CRRC', url_en: 'http://www.crrccenters.org/', name_ka: 'CRRC', url_ka: 'http://www.crrccenters.org/')
   s.datasources.create(name_en: 'GeoStat', url_en: 'http://google.com', name_ka: 'GeoStat', url_ka: 'http://google.com')
   stories << s
-  I18n.locale = :ka
-  s.image = File.open(path + 'info1.jpg')
-  s.save
-  I18n.locale = :en
 
   puts '- infographic2'
   s = Story.create(
@@ -77,13 +74,10 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name2',  url_en: 'https://feradi.info/en',
     title_ka: 'infographic 2', description_ka: 'werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_ka: 'Organization Name2',  url_ka: 'https://feradi.info/en',
-                                image: File.open(path + 'info2.png')
+                                image_en: File.open(path + 'info2.png'),
+                                image_ka: File.open(path + 'info1.jpg')
   )
   stories << s
-  I18n.locale = :ka
-  s.image = File.open(path + 'info2.png')
-  s.save
-  I18n.locale = :en
 
 
   puts '- infographic3'
@@ -93,15 +87,12 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name3',  url_en: 'https://feradi.info/en',
     title_ka: 'infographic 3', description_ka: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_ka: 'Organization Name3',  url_ka: 'https://feradi.info/en',
-                                image: File.open(path + 'info1.jpg')
+                                image_en: File.open(path + 'info1.jpg'),
+                                image_ka: File.open(path + 'info1.jpg')
   )
   s.datasources.create(name_en: 'CRRC', url_en: 'http://www.crrccenters.org/', name_ka: 'CRRC', url_ka: 'http://www.crrccenters.org/')
   s.datasources.create(name_en: 'GeoStat', url_en: 'http://google.com', name_ka: 'GeoStat', url_ka: 'http://google.com')
   stories << s
-  I18n.locale = :ka
-  s.image = File.open(path + 'info1.jpg')
-  s.save
-  I18n.locale = :en
 
   puts '- infographic4'
   s = Story.create(
@@ -110,13 +101,10 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name4',  url_en: 'https://feradi.info/en',
     title_ka: 'infographic 4', description_ka: 'werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_ka: 'Organization Name4',  url_ka: 'https://feradi.info/en',
-                                image: File.open(path + 'info2.png')
+                                image_en: File.open(path + 'info2.png'),
+                                image_ka: File.open(path + 'info1.jpg')
   )
   stories << s
-  I18n.locale = :ka
-  s.image = File.open(path + 'info2.png')
-  s.save
-  I18n.locale = :en
 
 
   puts '- fact'
@@ -126,13 +114,10 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Fact',  url_en: 'https://feradi.info/en',
       title_ka: 'fact 1', description_ka: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_ka: 'Organization Name Fact',  url_ka: 'https://feradi.info/en',
-                                image: File.open(path + 'fact1.jpg')
+                                image_en: File.open(path + 'fact1.jpg'),
+                                image_ka: File.open(path + 'fact1.jpg')
   )
   stories << s
-  I18n.locale = :ka
-  s.image = File.open(path + 'fact1.jpg')
-  s.save
-  I18n.locale = :en
 
   puts '- fact2'
   s = Story.create(
@@ -141,13 +126,10 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Fact',  url_en: 'https://feradi.info/en',
       title_ka: 'fact 2', description_ka: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_ka: 'Organization Name Fact',  url_ka: 'https://feradi.info/en',
-                                image: File.open(path + 'fact1.jpg')
+                                image_en: File.open(path + 'fact1.jpg'),
+                                image_ka: File.open(path + 'fact1.jpg')
   )
   stories << s
-  I18n.locale = :ka
-  s.image = File.open(path + 'fact1.jpg')
-  s.save
-  I18n.locale = :en
 
 
   puts '- gif'
@@ -157,13 +139,10 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Gif',  url_en: 'https://feradi.info/en',
       title_ka: 'gif 1', description_ka: 'gif gif gif asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_ka: 'Organization Name Gif',  url_ka: 'https://feradi.info/en',
-                                image: File.open(path + 'gif.gif')
+                                image_en: File.open(path + 'gif.gif'),
+                                image_ka: File.open(path + 'gif.gif')
   )
   stories << s
-  I18n.locale = :ka
-  s.image = File.open(path + 'gif.gif')
-  s.save
-  I18n.locale = :en
 
   puts '- gif'
   s = Story.create(
@@ -172,13 +151,10 @@ if ENV['load_test_data'].present? && !Rails.env.production?
                                 organization_en: 'Organization Name Gif',  url_en: 'https://feradi.info/en',
       title_ka: 'gif 2', description_ka: 'gif gif gif asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_ka: 'Organization Name Gif',  url_ka: 'https://feradi.info/en',
-                                image: File.open(path + 'gif.gif')
+                                image_en: File.open(path + 'gif.gif'),
+                                image_ka: File.open(path + 'gif.gif')
   )
   stories << s
-  I18n.locale = :ka
-  s.image = File.open(path + 'gif.gif')
-  s.save
-  I18n.locale = :en
 
 
   puts '- sb'
@@ -326,12 +302,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     is_public: true, posted_at: '2015-02-22',
     title_en: item.title, url_en: 'http://jumpstart.ge',
     title_ka: item.title, url_ka: 'http://jumpstart.ge',
-    image: File.open(path + 'highlight1.jpg')
+    image_en: File.open(path + 'highlight1.jpg'),
+    image_ka: File.open(path + 'highlight1.jpg')
   )
-  I18n.locale = :ka
-  h.image = File.open(path + 'highlight1.jpg')
-  h.save
-  I18n.locale = :en
   
   item = stories.sample
 
@@ -339,12 +312,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     is_public: true, posted_at: '2016-02-22',
     title_en: item.title, url_en: 'http://jumpstart.ge',
     title_ka: item.title, url_ka: 'http://jumpstart.ge',
-                                image: File.open(path + 'highlight2.jpg')
+    image_en: File.open(path + 'highlight2.jpg'),
+    image_ka: File.open(path + 'highlight2.jpg')
   )
-  I18n.locale = :ka
-  h.image = File.open(path + 'highlight2.jpg')
-  h.save
-  I18n.locale = :en
   
   item = pledges.sample
 
@@ -352,12 +322,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     is_public: true, posted_at: '2015-08-22',
     title_en: item.title, url_en: 'http://jumpstart.ge',
     title_ka: item.title, url_ka: 'http://jumpstart.ge',
-                                image: File.open(path + 'highlight3.jpg')
+    image_en: File.open(path + 'highlight3.jpg'),
+    image_ka: File.open(path + 'highlight3.jpg')
   )
-  I18n.locale = :ka
-  h.image = File.open(path + 'highlight3.jpg')
-  h.save
-  I18n.locale = :en
   
   item = pledges.sample
 
@@ -365,12 +332,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
     is_public: true, posted_at: '2016-08-22',
     title_en: item.title, url_en: 'http://jumpstart.ge',
     title_ka: item.title, url_ka: 'http://jumpstart.ge',
-                                image: File.open(path + 'highlight4.jpg')
+    image_en: File.open(path + 'highlight4.jpg'),
+    image_ka: File.open(path + 'highlight4.jpg')
   )
-  I18n.locale = :ka
-  h.image = File.open(path + 'highlight4.jpg')
-  h.save
-  I18n.locale = :en
   
 
 end

@@ -58,3 +58,11 @@
 
 // Make gray-light a bit lighter
 $gray-light: lighten($gray-base, 70%);
+
+
+.radio input[type="radio"], .radio-inline input[type="radio"], .checkbox input[type="checkbox"], .checkbox-inline input[type="checkbox"] {
+    position: inherit;
+    margin-left: 0px;
+    margin-right: 5px;
+    margin-top: 4px;
+}

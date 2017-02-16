@@ -1,0 +1,56 @@
+<%
+  model_class = Highlight
+  show_name = (can? :create, @highlight) ? true : false
+  page_title t('activerecord.models.highlight', count: 999)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/index_actions',
+        locals: {
+          model_class: model_class,
+          new_path: new_admin_highlight_path
+        }
+  %>
+</div>
+
+<table class='table table-striped table-hover table-nonfluid datatable-admin'>
+  <thead>
+    <tr>
+      <th><%=t 'activerecord.attributes.highlight.title' %></th>
+      <th><%=t 'activerecord.attributes.highlight.url' %></th>
+      <th><%=t 'activerecord.attributes.highlight.image' %></th>
+      <th><%=t 'activerecord.attributes.highlight.posted_at' %></th>
+      <th><%=t 'activerecord.attributes.highlight.is_public' %></th>
+
+      <th class='action-col'><%=t 'shared.common.actions' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @highlights.each do |highlight| %>
+      <tr>
+        <td><%= highlight.title %></td>
+        <td><%= link_to highlight.url, target: :blank if highlight.url.present? %></td>
+        <td><%= image_tag(highlight.image.url(:small)) if highlight.image.exists? %></td>
+        <td><%= l highlight.posted_at, format: :no_time if highlight.posted_at.present? %></td>
+        <td><%= highlight.is_public? %></td>
+
+        <td>
+          <%= if can? :edit, highlight
+                link_to t('shared.actions.edit'),
+                        edit_admin_highlight_path(highlight),
+                        class: 'btn btn-default'
+          end %>
+
+          <%= if can? :destroy, highlight
+                link_to t('shared.actions.destroy'),
+                        admin_highlight_path(highlight),
+                        method: :delete,
+                        data: { confirm: t('shared.prompts.confirm') },
+                        class: 'btn btn-danger'
+          end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,27 @@
+<% show_name = (can? :create, @highlight) ? true : false %>
+
+<%
+page_title t('.title',
+             label: t('activerecord.attributes.highlight.title'),
+             label_value: @highlight.title)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/show_actions',
+        locals: {
+          object: @highlight,
+          index_path: admin_highlights_path,
+          show_path: admin_highlight_path,
+          edit_path: edit_admin_highlight_path
+                }
+  %>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%=t 'activerecord.attributes.highlight.title' %>:</strong></dt>
+  <dd><%= @highlight.title %></dd>
+  <dt><strong><%=t 'activerecord.attributes.highlight.url' %>:</strong></dt>
+  <dd><%= link_to(@highlight.url, target: :blank) if @highlight.url.present? %></dd>
+  <dt><strong><%=t 'activerecord.attributes.highlight.image' %>:</strong></dt>
+  <dd><%= image_tag(@highlight.image.url(:medium)) if @highlight.image.exists? %></dd>
+</dl>

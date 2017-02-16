@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :users, constraints: { format: :html }
       resources :page_contents, constraints: { format: :html }
+      resources :highlights, constraints: { format: :html }
     end
 
     get '/stories/:id', :to => 'root#story', :as => :story

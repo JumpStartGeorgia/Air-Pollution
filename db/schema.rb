@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161213133705) do
+ActiveRecord::Schema.define(version: 20170216090138) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -47,16 +47,12 @@ ActiveRecord::Schema.define(version: 20161213133705) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "highlight_translations", force: :cascade do |t|
-    t.integer  "highlight_id",       limit: 4,   null: false
-    t.string   "locale",             limit: 255, null: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.string   "title",              limit: 255
-    t.string   "url",                limit: 255
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
-    t.datetime "image_updated_at"
+    t.integer  "highlight_id", limit: 4,   null: false
+    t.string   "locale",       limit: 255, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "title",        limit: 255
+    t.string   "url",          limit: 255
   end
 
   add_index "highlight_translations", ["highlight_id"], name: "index_highlight_translations_on_highlight_id", using: :btree
@@ -64,10 +60,18 @@ ActiveRecord::Schema.define(version: 20161213133705) do
   add_index "highlight_translations", ["title"], name: "index_highlight_translations_on_title", using: :btree
 
   create_table "highlights", force: :cascade do |t|
-    t.boolean  "is_public",  default: false
+    t.boolean  "is_public",                         default: false
     t.datetime "posted_at"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "image_en_file_name",    limit: 255
+    t.string   "image_en_content_type", limit: 255
+    t.integer  "image_en_file_size",    limit: 4
+    t.datetime "image_en_updated_at"
+    t.string   "image_ka_file_name",    limit: 255
+    t.string   "image_ka_content_type", limit: 255
+    t.integer  "image_ka_file_size",    limit: 4
+    t.datetime "image_ka_updated_at"
   end
 
   add_index "highlights", ["is_public"], name: "index_highlights_on_is_public", using: :btree
@@ -181,6 +185,14 @@ ActiveRecord::Schema.define(version: 20161213133705) do
     t.datetime "thumbnail_updated_at"
     t.string   "slug",                   limit: 255
     t.integer  "impressions_count",      limit: 4,   default: 0
+    t.string   "image_en_file_name",     limit: 255
+    t.string   "image_en_content_type",  limit: 255
+    t.integer  "image_en_file_size",     limit: 4
+    t.datetime "image_en_updated_at"
+    t.string   "image_ka_file_name",     limit: 255
+    t.string   "image_ka_content_type",  limit: 255
+    t.integer  "image_ka_file_size",     limit: 4
+    t.datetime "image_ka_updated_at"
   end
 
   add_index "stories", ["impressions_count"], name: "index_stories_on_impressions_count", using: :btree
@@ -190,20 +202,16 @@ ActiveRecord::Schema.define(version: 20161213133705) do
   add_index "stories", ["story_type"], name: "index_stories_on_story_type", using: :btree
 
   create_table "story_translations", force: :cascade do |t|
-    t.integer  "story_id",           limit: 4,     null: false
-    t.string   "locale",             limit: 255,   null: false
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "title",              limit: 255
-    t.text     "description",        limit: 65535
-    t.string   "organization",       limit: 255
-    t.string   "url",                limit: 255
-    t.text     "embed_code",         limit: 65535
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
-    t.integer  "image_file_size",    limit: 4
-    t.datetime "image_updated_at"
-    t.string   "slug",               limit: 255
+    t.integer  "story_id",     limit: 4,     null: false
+    t.string   "locale",       limit: 255,   null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.string   "title",        limit: 255
+    t.text     "description",  limit: 65535
+    t.string   "organization", limit: 255
+    t.string   "url",          limit: 255
+    t.text     "embed_code",   limit: 65535
+    t.string   "slug",         limit: 255
   end
 
   add_index "story_translations", ["locale"], name: "index_story_translations_on_locale", using: :btree
