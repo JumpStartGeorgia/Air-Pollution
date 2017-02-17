@@ -8,6 +8,7 @@ en:
       log_in: Sign In
       view: View
       add: Add
+      preview: Preview
       with_obj:
         cancel: Cancel %{obj}
         create: Create %{obj}

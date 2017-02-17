@@ -8,6 +8,7 @@ ka:
       log_in: შესვლა
       view: ნახვა
       add: დამატება
+      preview: Preview
       with_obj:
         cancel: "%{obj}-ის გაუქმება"
         create: "%{obj}-ის შექმნა"

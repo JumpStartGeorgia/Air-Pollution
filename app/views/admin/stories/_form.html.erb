@@ -31,18 +31,29 @@
                          field: t('activerecord.attributes.story.url'),
                          language: enabled_locale_name) %>
 
-      <%= f.input "embed_code_#{enabled_locale}",
-                  as: :text,
-                  label: t('shared.labels.translated_field',
-                         field: t('activerecord.attributes.story.embed_code'),
-                         language: enabled_locale_name),
-                   :input_html => { :class => 'autogrow', :rows => 3  },
-                   :wrapper_html => {class: 'js-embed js-hidden'} %>
+      <div class="js-embed js-hidden text input optional form-group" id="story_embed_code_<%= enabled_locale %>_input" style="display: block;">
+        <span class="form-label">
+          <label for="story_embed_code_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
+                               field: t('activerecord.attributes.story.embed_code'),
+                               language: enabled_locale_name) %></label>
+        </span>
+        <span class="form-wrapper">
+          <textarea rows="3" id="story_embed_code_<%= enabled_locale %>" class="autogrow form-control" name="story[embed_code_<%= enabled_locale %>]"><%= @story.send("embed_code_#{enabled_locale}")%></textarea>
 
-  
+          <div>
+            <button type="button" class="btn btn-primary btn-lg btn-modal-embed" data-toggle="modal" data-target="#modal-embed" data-backdrop="">
+              <%= t('shared.actions.preview') %>
+            </button>
+          </div>
+        </span>
+      </div>
+
+
       <div class="file input optional form-group js-image js-hidden" id="story_image_<%= enabled_locale %>_input">
         <span class="form-label">
-          <label for="story_image_<%= enabled_locale %>" class=" control-label"><%= t('activerecord.attributes.story.image') %></label>
+          <label for="story_image_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
+                         field: t('activerecord.attributes.story.image'),
+                         language: enabled_locale_name) %></label>
         </span>
         <% if @story.image(enabled_locale).exists? %>
           <%= image_tag(@story.image(enabled_locale).url('small')) %>
@@ -51,6 +62,7 @@
           <input id="story_image_<%= enabled_locale %>" accept="image/*" type="file" name="story[image_<%= enabled_locale %>]" />
         </span>
       </div>
+
 
     <% end %>
 
@@ -75,3 +87,22 @@
     <%= f.action :submit, button_html: { class: 'btn btn-success' } %>
   <% end %>
 <% end %>
+
+
+
+<div id="modal-embed" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><%= t('activerecord.attributes.story.embed_code') %></h4>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>      
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

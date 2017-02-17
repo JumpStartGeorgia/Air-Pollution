@@ -14,16 +14,13 @@ function setupStoryTypeSelector() {
     }
     options = $.extend({}, default_options, options);
 
-    console.log('toggling story types')
     // if an image story type is selected, show the image field
     // else show the embed code field
 
     if (gon.image_stories && gon.embed_stories){
       var val = $('form.story #story_story_type_input select').val();
 
-      console.log('val = ' + val)
-      if ($.inArray(val, gon.image_stories) > -1 && !$img.is(':visible')){
-        console.log('- image')
+      if ($.inArray(val, gon.image_stories) > -1){
         // image
         // - show image / hide embed
         $embed.fadeOut(function(){
@@ -33,8 +30,7 @@ function setupStoryTypeSelector() {
           $img.fadeIn();
         });
 
-      } else if ($.inArray(val, gon.embed_stories) > -1 && !$embed.is(':visible')){
-        console.log('- embed')
+      } else if ($.inArray(val, gon.embed_stories) > -1){
         // embed
         // - show embed / hide image
         $img.fadeOut(function(){
@@ -54,6 +50,17 @@ function setupStoryTypeSelector() {
 
   // set it when the page loads
   toggleStoryTypeFields();
+
+
+  // when the modal is opened get the embed code and add it to the modal
+
+  $('#modal-embed').on('show.bs.modal', function () {
+    var embed = $('.tab-content .tab-pane.active .js-embed textarea').val();
+
+    $(this).find('.modal-body').html(embed);
+
+    $(this).find('.modal-body').focus();
+  })
 }
 
 
