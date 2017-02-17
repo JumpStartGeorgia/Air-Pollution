@@ -56,8 +56,24 @@ class Story < ActiveRecord::Base
 
   ###########################
   ## THUMBNAIL PROCESSING
-  has_attached_file :thumbnail,
-                    :url => "/system/stories/:id/thumbnail/:style.:extension",
+  has_attached_file :thumbnail_en,
+                    :url => "/system/stories/:id/thumbnail/en/:style.:extension",
+                    :default_url => "/assets/missing/story/thumbnail/:style.png",
+                    :styles => {
+                        :'share' => {:geometry => "1200x>"},
+                        :'xl' => {:geometry => "1000x715#"},
+                        :'big' => {:geometry => "459x328#"},
+                        :'small' => {:geometry => "229x164#"}
+                    },
+                    :convert_options => {
+                      :'share' => '-quality 85',
+                      :'xl' => '-quality 85',
+                      :'big' => '-quality 85',
+                      :'small' => '-quality 85'
+                    }
+  
+  has_attached_file :thumbnail_ka,
+                    :url => "/system/stories/:id/thumbnail/ka/:style.:extension",
                     :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
@@ -111,7 +127,10 @@ class Story < ActiveRecord::Base
   validates :story_type, :title, :url, :posted_at, presence: true
   validates :story_type, inclusion: {in: TYPE.values}
   validates :url, :format => {:with => URI::regexp(['http','https'])}, :if => "!url.blank?"
-  validates_attachment :thumbnail,
+  validates_attachment :thumbnail_en,
+    content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
+    size: { in: 0..5.megabytes }
+  validates_attachment :thumbnail_ka,
     content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
     size: { in: 0..5.megabytes }
   validates_attachment :image_en,
@@ -196,6 +215,13 @@ class Story < ActiveRecord::Base
     locale = I18n.locale if !I18n.available_locales.include?(locale)
 
     return locale == :en ? image_en : image_ka
+  end
+
+  def thumbnail(locale=I18n.locale)
+    locale = locale.to_sym
+    locale = I18n.locale if !I18n.available_locales.include?(locale)
+
+    return locale == :en ? thumbnail_en : thumbnail_ka
   end
 
 end

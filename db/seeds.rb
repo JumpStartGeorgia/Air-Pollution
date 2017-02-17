@@ -55,7 +55,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- infographic1'
   s = Story.create(
-    story_type: Story::TYPE[:infographic], is_public: true, posted_at: '2016-01-02', thumbnail: File.open(path + 'info1-thumb.jpg'),
+    story_type: Story::TYPE[:infographic], is_public: true, posted_at: '2016-01-02', 
+    thumbnail_en: File.open(path + 'info1-thumb.jpg'),
+    thumbnail_ka: File.open(path + 'info1-thumb.jpg'),
     title_en: 'infographic 1', description_en: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name',  url_en: 'https://feradi.info/en',
     title_ka: 'infographic 1', description_ka: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
@@ -69,7 +71,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- infographic2'
   s = Story.create(
-    story_type: Story::TYPE[:infographic], is_public: true, posted_at: '2016-05-04', thumbnail: File.open(path + 'info2-thumb.png'),
+    story_type: Story::TYPE[:infographic], is_public: true, posted_at: '2016-05-04', 
+    thumbnail_en: File.open(path + 'info2-thumb.png'),
+    thumbnail_ka: File.open(path + 'info2-thumb.png'),
     title_en: 'infographic 2', description_en: 'werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name2',  url_en: 'https://feradi.info/en',
     title_ka: 'infographic 2', description_ka: 'werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
@@ -82,7 +86,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- infographic3'
   s = Story.create(
-    story_type: Story::TYPE[:infographic], is_public: true, posted_at: '2015-01-02', thumbnail: File.open(path + 'info1-thumb.jpg'),
+    story_type: Story::TYPE[:infographic], is_public: true, posted_at: '2015-01-02', 
+    thumbnail_en: File.open(path + 'info1-thumb.jpg'),
+    thumbnail_ka: File.open(path + 'info1-thumb.jpg'),
     title_en: 'infographic 3', description_en: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name3',  url_en: 'https://feradi.info/en',
     title_ka: 'infographic 3', description_ka: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
@@ -96,7 +102,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- infographic4'
   s = Story.create(
-    story_type: Story::TYPE[:infographic], is_public: true, posted_at: '2015-05-04', thumbnail: File.open(path + 'info2-thumb.png'),
+    story_type: Story::TYPE[:infographic], is_public: true, posted_at: '2015-05-04', 
+    thumbnail_en: File.open(path + 'info2-thumb.png'),
+    thumbnail_ka: File.open(path + 'info2-thumb.png'),
     title_en: 'infographic 4', description_en: 'werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name4',  url_en: 'https://feradi.info/en',
     title_ka: 'infographic 4', description_ka: 'werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er werwer wer wer asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
@@ -109,7 +117,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- fact'
   s = Story.create(
-      story_type: Story::TYPE[:fact], is_public: true, posted_at: '2016-06-20', thumbnail: File.open(path + 'fact1-thumb.jpg'),
+      story_type: Story::TYPE[:fact], is_public: true, posted_at: '2016-06-20', 
+      thumbnail_en: File.open(path + 'fact1-thumb.jpg'),
+      thumbnail_ka: File.open(path + 'fact1-thumb.jpg'),
       title_en: 'fact 1', description_en: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name Fact',  url_en: 'https://feradi.info/en',
       title_ka: 'fact 1', description_ka: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
@@ -121,7 +131,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- fact2'
   s = Story.create(
-      story_type: Story::TYPE[:fact], is_public: true, posted_at: '2015-06-20', thumbnail: File.open(path + 'fact1-thumb.jpg'),
+      story_type: Story::TYPE[:fact], is_public: true, posted_at: '2015-06-20', 
+      thumbnail_en: File.open(path + 'fact1-thumb.jpg'),
+      thumbnail_ka: File.open(path + 'fact1-thumb.jpg'),
       title_en: 'fact 2', description_en: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name Fact',  url_en: 'https://feradi.info/en',
       title_ka: 'fact 2', description_ka: 'asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
@@ -134,7 +146,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- gif'
   s = Story.create(
-      story_type: Story::TYPE[:gif], is_public: true, posted_at: '2016-03-30', thumbnail: File.open(path + 'gif-thumb.gif'),
+      story_type: Story::TYPE[:gif], is_public: true, posted_at: '2016-03-30', 
+      thumbnail_en: File.open(path + 'gif-thumb.gif'),
+      thumbnail_ka: File.open(path + 'gif-thumb.gif'),
       title_en: 'gif 1', description_en: 'gif gif gif asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name Gif',  url_en: 'https://feradi.info/en',
       title_ka: 'gif 1', description_ka: 'gif gif gif asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
@@ -146,7 +160,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- gif'
   s = Story.create(
-      story_type: Story::TYPE[:gif], is_public: true, posted_at: '2015-03-30', thumbnail: File.open(path + 'gif-thumb.gif'),
+      story_type: Story::TYPE[:gif], is_public: true, posted_at: '2015-03-30', 
+      thumbnail_en: File.open(path + 'gif-thumb.gif'),
+      thumbnail_ka: File.open(path + 'gif-thumb.gif'),
       title_en: 'gif 2', description_en: 'gif gif gif asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name Gif',  url_en: 'https://feradi.info/en',
       title_ka: 'gif 2', description_ka: 'gif gif gif asdf alsdkjf alskdjf alsdkjf oiwe roiwue rowu er', 
@@ -159,7 +175,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- sb'
   s = Story.create(
-    story_type: Story::TYPE[:storybuilder], is_public: true, posted_at: '2015-05-02', thumbnail: File.open(path + 'sb-thumb.jpg'),
+    story_type: Story::TYPE[:storybuilder], is_public: true, posted_at: '2015-05-02', 
+    thumbnail_en: File.open(path + 'sb-thumb.jpg'),
+    thumbnail_ka: File.open(path + 'sb-thumb.jpg'),
     title_en: 'sb 1', description_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name SB',  url_en: 'https://feradi.info/en',
     title_ka: 'sb 1', description_ka: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
@@ -171,7 +189,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- sb'
   s = Story.create(
-    story_type: Story::TYPE[:storybuilder], is_public: true, posted_at: '2016-05-02', thumbnail: File.open(path + 'sb-thumb.jpg'),
+    story_type: Story::TYPE[:storybuilder], is_public: true, posted_at: '2016-05-02', 
+    thumbnail_en: File.open(path + 'sb-thumb.jpg'),
+    thumbnail_ka: File.open(path + 'sb-thumb.jpg'),
     title_en: 'sb 2', description_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name SB2',  url_en: 'https://feradi.info/en',
     title_ka: 'sb 2', description_ka: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
@@ -183,7 +203,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- radio'
   s = Story.create(
-    story_type: Story::TYPE[:radio], is_public: true, posted_at: '2016-11-02', thumbnail: File.open(path + 'radio-thumb.jpg'),
+    story_type: Story::TYPE[:radio], is_public: true, posted_at: '2016-11-02', 
+    thumbnail_en: File.open(path + 'radio-thumb.jpg'),
+    thumbnail_ka: File.open(path + 'radio-thumb.jpg'),
     title_en: 'radio 1', description_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name Radio',  url_en: 'https://feradi.info/en',
     title_ka: 'radio 1', description_ka: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
@@ -195,7 +217,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- radio'
   s = Story.create(
-    story_type: Story::TYPE[:radio], is_public: true, posted_at: '2015-11-02', thumbnail: File.open(path + 'radio-thumb.jpg'),
+    story_type: Story::TYPE[:radio], is_public: true, posted_at: '2015-11-02', 
+    thumbnail_en: File.open(path + 'radio-thumb.jpg'),
+    thumbnail_ka: File.open(path + 'radio-thumb.jpg'),
     title_en: 'radio 2', description_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name Radio',  url_en: 'https://feradi.info/en',
     title_ka: 'radio 2', description_ka: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
@@ -208,7 +232,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- animation'
   s = Story.create(
-    story_type: Story::TYPE[:animation], is_public: true, posted_at: '2016-02-22', thumbnail: File.open(path + 'animation-thumb.jpg'),
+    story_type: Story::TYPE[:animation], is_public: true, posted_at: '2016-02-22', \
+    thumbnail_en: File.open(path + 'animation-thumb.jpg'),
+    thumbnail_ka: File.open(path + 'animation-thumb.jpg'),
     title_en: 'animation 1', description_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name Animation',  url_en: 'https://www.youtube.com/watch?v=zkP1u3ZRoeQ',
     title_ka: 'animation 1', description_ka: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
@@ -220,7 +246,9 @@ if ENV['load_test_data'].present? && !Rails.env.production?
 
   puts '- animation'
   s = Story.create(
-    story_type: Story::TYPE[:animation], is_public: true, posted_at: '2015-02-22', thumbnail: File.open(path + 'animation-thumb.jpg'),
+    story_type: Story::TYPE[:animation], is_public: true, posted_at: '2015-02-22', 
+    thumbnail_en: File.open(path + 'animation-thumb.jpg'),
+    thumbnail_ka: File.open(path + 'animation-thumb.jpg'),
     title_en: 'animation 2', description_en: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 
                                 organization_en: 'Organization Name Animation',  url_en: 'https://www.youtube.com/watch?v=zkP1u3ZRoeQ',
     title_ka: 'animation 2', description_ka: 'lka sdflkjas dflkwje rlmnz,xmncv aksnd fkasnf lwker lwkejr f oiwe roiwue rowu er', 

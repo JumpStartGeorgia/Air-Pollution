@@ -21,7 +21,7 @@
     <meta property="og:image" content="<%= image_url(@story.thumbnail(:share)) %>" />
   <% end %>
   <% if @pledge.present? && params[:controller] == 'root' && params[:action] == 'pledge' %>
-    <meta property="og:image" content="<%= image_url(@pledge.image(:share)) %>" />
+    <meta property="og:image" content="<%= image_url(@pledge.image.url(:share)) %>" />
   <% end %>
   <meta property="og:image" content="<%= image_url("share_#{I18n.locale}.png") %>" />
   <meta property="og:site_name" content="<%= t("shared.common.name") %>" />

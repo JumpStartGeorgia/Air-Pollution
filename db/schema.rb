@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216090138) do
+ActiveRecord::Schema.define(version: 20170217083548) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -174,25 +174,29 @@ ActiveRecord::Schema.define(version: 20170216090138) do
   end
 
   create_table "stories", force: :cascade do |t|
-    t.integer  "story_type",             limit: 4
+    t.integer  "story_type",                limit: 4
     t.date     "posted_at"
-    t.boolean  "is_public",                          default: false
-    t.datetime "created_at",                                         null: false
-    t.datetime "updated_at",                                         null: false
-    t.string   "thumbnail_file_name",    limit: 255
-    t.string   "thumbnail_content_type", limit: 255
-    t.integer  "thumbnail_file_size",    limit: 4
-    t.datetime "thumbnail_updated_at"
-    t.string   "slug",                   limit: 255
-    t.integer  "impressions_count",      limit: 4,   default: 0
-    t.string   "image_en_file_name",     limit: 255
-    t.string   "image_en_content_type",  limit: 255
-    t.integer  "image_en_file_size",     limit: 4
+    t.boolean  "is_public",                             default: false
+    t.datetime "created_at",                                            null: false
+    t.datetime "updated_at",                                            null: false
+    t.string   "slug",                      limit: 255
+    t.integer  "impressions_count",         limit: 4,   default: 0
+    t.string   "image_en_file_name",        limit: 255
+    t.string   "image_en_content_type",     limit: 255
+    t.integer  "image_en_file_size",        limit: 4
     t.datetime "image_en_updated_at"
-    t.string   "image_ka_file_name",     limit: 255
-    t.string   "image_ka_content_type",  limit: 255
-    t.integer  "image_ka_file_size",     limit: 4
+    t.string   "image_ka_file_name",        limit: 255
+    t.string   "image_ka_content_type",     limit: 255
+    t.integer  "image_ka_file_size",        limit: 4
     t.datetime "image_ka_updated_at"
+    t.string   "thumbnail_en_file_name",    limit: 255
+    t.string   "thumbnail_en_content_type", limit: 255
+    t.integer  "thumbnail_en_file_size",    limit: 4
+    t.datetime "thumbnail_en_updated_at"
+    t.string   "thumbnail_ka_file_name",    limit: 255
+    t.string   "thumbnail_ka_content_type", limit: 255
+    t.integer  "thumbnail_ka_file_size",    limit: 4
+    t.datetime "thumbnail_ka_updated_at"
   end
 
   add_index "stories", ["impressions_count"], name: "index_stories_on_impressions_count", using: :btree

@@ -13,6 +13,20 @@
                          field: t('activerecord.attributes.story.title'),
                          language: enabled_locale_name) %>
 
+      <div class="file input optional form-group" id="story_thumbnail_<%= enabled_locale %>_input">
+        <span class="form-label">
+          <label for="story_thumbnail_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
+                               field: t('activerecord.attributes.story.thumbnail'),
+                               language: enabled_locale_name) %></label>
+        </span>
+        <% if @story.thumbnail(enabled_locale).exists? %>
+          <%= image_tag(@story.thumbnail(enabled_locale).url('small')) %>
+        <% end %>
+        <span class="form-wrapper">
+          <input id="story_thumbnail_<%= enabled_locale %>" accept="image/*" type="file" name="story[thumbnail_<%= enabled_locale %>]" />
+        </span>
+      </div>
+
       <%= f.input "description_#{enabled_locale}",
                   as: :text,
                   label: t('shared.labels.translated_field',
@@ -66,18 +80,6 @@
 
     <% end %>
 
-
-    <div class="file input optional form-group" id="story_thumbnail_input">
-      <span class="form-label">
-        <label for="story_thumbnail" class=" control-label"><%= t('activerecord.attributes.story.thumbnail') %></label>
-      </span>
-      <% if @story.image.exists? %>
-        <%= image_tag(@story.thumbnail.url('small')) %>
-      <% end %>
-      <span class="form-wrapper">
-        <input id="story_thumbnail" accept="image/*" type="file" name="story[image]" />
-      </span>
-    </div>
 
     <%= f.input :is_public, as: :radio %>
 
