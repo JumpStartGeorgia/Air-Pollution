@@ -52,14 +52,10 @@ function setupStoryTypeSelector() {
   toggleStoryTypeFields();
 
 
-  // when the modal is opened get the embed code and add it to the modal
-
-  $('#modal-embed').on('show.bs.modal', function () {
+  // show the embed code in a popup
+  $('.fb-inline').on('click', function(){
     var embed = $('.tab-content .tab-pane.active .js-embed textarea').val();
-
-    $(this).find('.modal-body').html(embed);
-
-    $(this).find('.modal-body').focus();
+    $('#fb-inline-content').html(embed);
   })
 }
 
