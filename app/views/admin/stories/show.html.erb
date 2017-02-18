@@ -17,23 +17,5 @@ page_title t('shared.labels.model_object_title',
   %>
 </div>
 
-<dl class="dl-horizontal">
-  <dt><strong><%=t 'activerecord.attributes.story.story_type' %>:</strong></dt>
-  <dd><%= I18n.t("shared.story_types.#{@story.story_type_key}") %></dd>
-  <dt><strong><%=t 'activerecord.attributes.story.title' %>:</strong></dt>
-  <dd><%= @story.title %></dd>
-  <dt><strong><%=t 'activerecord.attributes.story.is_public' %>:</strong></dt>
-  <dd><%= @story.is_public %></dd>
-  <dt><strong><%=t 'activerecord.attributes.story.description' %>:</strong></dt>
-  <dd><%= simple_format(@story.description) %></dd>
-  <dt><strong><%=t 'activerecord.attributes.story.organization' %>:</strong></dt>
-  <dd><%= @story.organization %></dd>
-  <dt><strong><%=t 'activerecord.attributes.story.url' %>:</strong></dt>
-  <dd><%= link_to(@story.url) if @story.url.present? %></dd>
-  <dt><strong><%=t 'activerecord.attributes.story.embed_code' %>:</strong></dt>
-  <dd><%= @story.embed_code.html_safe if @story.embed_code.present? %></dd>
-  <dt><strong><%=t 'activerecord.attributes.story.thumbnail' %>:</strong></dt>
-  <dd><%= image_tag(@story.thumbnail.url(:big)) if @story.thumbnail.exists? %></dd>
-  <dt><strong><%=t 'activerecord.attributes.story.image' %>:</strong></dt>
-  <dd><%= image_tag(@story.image.url(:big)) if @story.image.exists? %></dd>
-</dl>
+
+<%= render partial: 'shared/story_show', locals: {is_public: false} %>

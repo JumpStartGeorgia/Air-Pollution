@@ -51,7 +51,7 @@ class Story < ActiveRecord::Base
   ###########################
   ## RELATIONSHIPS
   has_many :datasources, :dependent => :destroy
-  accepts_nested_attributes_for :datasources, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :datasources, :reject_if => lambda { |x| x[:name_en].blank? && x[:name_ka].blank? }, :allow_destroy => true
 
 
   ###########################

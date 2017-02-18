@@ -3,86 +3,131 @@
   <%= f.semantic_errors *f.object.errors.keys %>
   <%= f.inputs do %>
 
-    <%= f.input :story_type, as: :select, collection: @story_types %>
+    <div class="js-cocoon">
+      <%= f.input :story_type, as: :select, collection: @story_types %>
 
 
-    <%= render layout: 'shared/form/translated_inputs',
-               locals: { object: object } do |enabled_locale, enabled_locale_name| %>
-      <%= f.input "title_#{enabled_locale}",
-                  label: t('shared.labels.translated_field',
-                         field: t('activerecord.attributes.story.title'),
-                         language: enabled_locale_name) %>
+      <%= render layout: 'shared/form/translated_inputs',
+                 locals: { object: object } do |enabled_locale, enabled_locale_name| %>
+        <%= f.input "title_#{enabled_locale}",
+                    label: t('shared.labels.translated_field',
+                           field: t('activerecord.attributes.story.title'),
+                           language: enabled_locale_name) %>
 
-      <div class="file input optional form-group" id="story_thumbnail_<%= enabled_locale %>_input">
-        <span class="form-label">
-          <label for="story_thumbnail_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
-                               field: t('activerecord.attributes.story.thumbnail'),
-                               language: enabled_locale_name) %></label>
-        </span>
-        <% if @story.thumbnail(enabled_locale).exists? %>
-          <%= image_tag(@story.thumbnail(enabled_locale).url('small')) %>
-        <% end %>
-        <span class="form-wrapper">
-          <input id="story_thumbnail_<%= enabled_locale %>" accept="image/*" type="file" name="story[thumbnail_<%= enabled_locale %>]" />
-        </span>
-      </div>
+        <div class="file input optional form-group" id="story_thumbnail_<%= enabled_locale %>_input">
+          <span class="form-label">
+            <label for="story_thumbnail_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
+                                 field: t('activerecord.attributes.story.thumbnail'),
+                                 language: enabled_locale_name) %></label>
+          </span>
+          <% if @story.thumbnail(enabled_locale).exists? %>
+            <%= image_tag(@story.thumbnail(enabled_locale).url('small')) %>
+          <% end %>
+          <span class="form-wrapper">
+            <input id="story_thumbnail_<%= enabled_locale %>" accept="image/*" type="file" name="story[thumbnail_<%= enabled_locale %>]" />
+          </span>
+        </div>
 
-      <%= f.input "description_#{enabled_locale}",
-                  as: :text,
-                  label: t('shared.labels.translated_field',
-                         field: t('activerecord.attributes.story.description'),
-                         language: enabled_locale_name),
-                   :input_html => { :class => 'autogrow', :rows => 3  } %>
+        <%= f.input "description_#{enabled_locale}",
+                    as: :text,
+                    label: t('shared.labels.translated_field',
+                           field: t('activerecord.attributes.story.description'),
+                           language: enabled_locale_name),
+                     :input_html => { :class => 'autogrow', :rows => 3  } %>
 
-      <%= f.input "organization_#{enabled_locale}",
-                  label: t('shared.labels.translated_field',
-                         field: t('activerecord.attributes.story.organization'),
-                         language: enabled_locale_name) %>
+        <%= f.input "organization_#{enabled_locale}",
+                    label: t('shared.labels.translated_field',
+                           field: t('activerecord.attributes.story.organization'),
+                           language: enabled_locale_name) %>
 
-      <%= f.input "url_#{enabled_locale}",
-                  as: :url,
-                  label: t('shared.labels.translated_field',
-                         field: t('activerecord.attributes.story.url'),
-                         language: enabled_locale_name) %>
+        <%= f.input "url_#{enabled_locale}",
+                    as: :url,
+                    label: t('shared.labels.translated_field',
+                           field: t('activerecord.attributes.story.url'),
+                           language: enabled_locale_name) %>
 
-      <div class="js-embed js-hidden text input optional form-group" id="story_embed_code_<%= enabled_locale %>_input" style="display: block;">
-        <span class="form-label">
-          <label for="story_embed_code_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
-                               field: t('activerecord.attributes.story.embed_code'),
-                               language: enabled_locale_name) %></label>
-        </span>
-        <span class="form-wrapper">
-          <textarea rows="3" id="story_embed_code_<%= enabled_locale %>" class="autogrow form-control" name="story[embed_code_<%= enabled_locale %>]"><%= @story.send("embed_code_#{enabled_locale}")%></textarea>
+        <div class="js-embed js-hidden text input optional form-group" id="story_embed_code_<%= enabled_locale %>_input" style="display: block;">
+          <span class="form-label">
+            <label for="story_embed_code_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
+                                 field: t('activerecord.attributes.story.embed_code'),
+                                 language: enabled_locale_name) %></label>
+          </span>
+          <span class="form-wrapper">
+            <textarea rows="3" id="story_embed_code_<%= enabled_locale %>" class="autogrow form-control" name="story[embed_code_<%= enabled_locale %>]"><%= @story.send("embed_code_#{enabled_locale}")%></textarea>
 
-          <div>
-            <button type="button" class="btn btn-primary btn-lg btn-modal-embed" data-toggle="modal" data-target="#modal-embed" data-backdrop="">
-              <%= t('shared.actions.preview') %>
-            </button>
-          </div>
-        </span>
-      </div>
-
-
-      <div class="file input optional form-group js-image js-hidden" id="story_image_<%= enabled_locale %>_input">
-        <span class="form-label">
-          <label for="story_image_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
-                         field: t('activerecord.attributes.story.image'),
-                         language: enabled_locale_name) %></label>
-        </span>
-        <% if @story.image(enabled_locale).exists? %>
-          <%= image_tag(@story.image(enabled_locale).url('small')) %>
-        <% end %>
-        <span class="form-wrapper">
-          <input id="story_image_<%= enabled_locale %>" accept="image/*" type="file" name="story[image_<%= enabled_locale %>]" />
-        </span>
-      </div>
+            <div>
+              <button type="button" class="btn btn-primary btn-lg btn-modal-embed" data-toggle="modal" data-target="#modal-embed" data-backdrop="">
+                <%= t('shared.actions.preview') %>
+              </button>
+            </div>
+          </span>
+        </div>
 
 
-    <% end %>
+        <div class="file input optional form-group js-image js-hidden" id="story_image_<%= enabled_locale %>_input">
+          <span class="form-label">
+            <label for="story_image_<%= enabled_locale %>" class=" control-label"><%= t('shared.labels.translated_field',
+                           field: t('activerecord.attributes.story.image'),
+                           language: enabled_locale_name) %></label>
+          </span>
+          <% if @story.image(enabled_locale).exists? %>
+            <%= image_tag(@story.image(enabled_locale).url('small')) %>
+          <% end %>
+          <span class="form-wrapper">
+            <input id="story_image_<%= enabled_locale %>" accept="image/*" type="file" name="story[image_<%= enabled_locale %>]" />
+          </span>
+        </div>
+
+        <hr />
+
+        <h3><%= t('activerecord.models.datasource', count: 999) %></h3>
+
+        <table class="table table-striped table-hover table-nonfluid table-datasources" data-type='datasources' data-locale='<%= enabled_locale %>'>
+          <thead>
+            <tr>
+              <th>
+                <%= t('shared.labels.translated_field',
+                         field: t('activerecord.attributes.datasource.name'),
+                         language: enabled_locale_name)
+                %><abbr title="required">*</abbr>
+              </th>
+              <th>
+                <%= t('shared.labels.translated_field',
+                         field: t('activerecord.attributes.datasource.url'),
+                         language: enabled_locale_name)
+                %>
+              </th>
+              <th>
+                <%=t 'shared.common.actions' %>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% object.datasources.sorted.each_with_index do |data, data_index| %>
+              <%= f.semantic_fields_for :datasources, data do |datasource| %>
+                <%= render partial: 'datasource_fields', locals: {f: datasource, object: data, enabled_locale: enabled_locale} %>
+              <% end %>
+            <% end %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">
+                <%= link_to_add_association t('shared.actions.add'), f, :datasources,
+                      :'data-association-insertion-node' => "#translation-#{enabled_locale} table.table-datasources tbody",
+                      :'data-association-insertion-method' => 'append',
+                      class: 'btn btn-primary',
+                      render_options: {locals: {enabled_locale: enabled_locale}} %>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
 
 
-    <%= f.input :is_public, as: :radio %>
+      <% end %>
 
+      <%= f.input :is_public, as: :radio %>
+    
+    </div>
   <% end %>
 
   <%= f.actions do %>

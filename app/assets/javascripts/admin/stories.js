@@ -64,3 +64,41 @@ function setupStoryTypeSelector() {
 }
 
 
+
+
+function setupStoryCocoon(){
+
+  // add datasource
+  $('.js-cocoon .tab-pane').on('cocoon:after-insert', 'table.table-datasources', function(e, insertedItem) {
+    var locale = $(this).data('locale');
+    var page_locales = [];
+    var row = $(insertedItem).clone();
+
+    // get all locales except the active one
+    $('.js-cocoon .tab-pane').each(function(){if ($(this).data('locale') != locale){page_locales.push($(this).data('locale'))}});
+
+    // replace the locale and then add the row to the correct table
+    for(var i=0;i<page_locales.length;i++){
+      // update the inserted row with the appropriate locale
+      $(row).html($(row).html().replace(new RegExp("_" + locale,"g"), '_' + page_locales[i]));
+      // add the row
+      $('.js-cocoon .tab-pane[data-locale="' + page_locales[i] + '"] table.table-datasources tbody').append($(row));
+    }
+  });
+
+  // delete datasource
+  $('.js-cocoon .tab-pane').on('cocoon:before-remove', 'table.table-datasources', function(e, deletedItem) {
+    // get the datasource of the row being deleted so the same row for other languages can also be deleted
+    var index = $(this).find('table.table-datasources tbody tr').index(deletedItem);
+
+    // mark this row in every table as deleted
+    $('.js-cocoon .tab-pane table.table-datasources tbody').each(function(){
+      var row = $(this).find('tr')[index];
+      // mark as deleted
+      $(row).find('td:last input').val('true');
+      // hide row
+      $(row).fadeOut();
+    });
+  });
+
+}

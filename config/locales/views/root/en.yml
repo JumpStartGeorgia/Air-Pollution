@@ -10,10 +10,6 @@ en:
         The Air Filter is an informational platform which was created within the program "Up in the Air: Establishing the Link Between Air Pollution, Health, and Economic Development in Georgia" which aims to raise awareness about the dangers of air pollution.
 
         The information regarding air quality and pollution in Georgia will be displayed on this web-page. In addition, citizens will be available to understand how they can reduce air pollution and its influence and take actionable pledges. 
-    story:
-      view: View the Original 
-      count: Views
-      click: Click to view the story
     pledge:
       count: Views
       all_pledges: All Pledges
@@ -23,3 +19,8 @@ en:
       pledge_success:
         header: Thank you for making the pledge!
         ask: Please let your friends know about the pledge so they too can take it.
+  shared:
+    story_show:
+      view: View the Original 
+      count: Views
+      click: Click to view the story
