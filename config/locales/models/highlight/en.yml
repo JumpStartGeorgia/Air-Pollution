@@ -1,0 +1,14 @@
+---
+en:
+  activerecord:
+    attributes:
+      highlight:
+        title: Title
+        url: URL
+        image: Image
+        posted_at: Date
+        is_public: Is Public?
+    models:
+      highlight:
+        one: Highlight
+        other: Highlights

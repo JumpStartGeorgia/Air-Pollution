@@ -1,0 +1,21 @@
+<% show_name = (can? :create, @story) ? true : false %>
+
+<%
+page_title t('shared.labels.model_object_title',
+             label: t('activerecord.attributes.story.title'),
+             label_value: @story.title)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/show_actions',
+        locals: {
+          object: @story,
+          index_path: admin_stories_path,
+          show_path: admin_story_path,
+          edit_path: edit_admin_story_path
+                }
+  %>
+</div>
+
+
+<%= render partial: 'shared/story_show', locals: {is_public: false} %>

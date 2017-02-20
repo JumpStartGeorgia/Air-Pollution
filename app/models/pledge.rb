@@ -23,7 +23,7 @@ class Pledge < ActiveRecord::Base
 
   ###########################
   ## TRANSLATIONS
-  translates :title, :why_care, :what_it_is, :what_you_do, :slug, \
+  translates :title, :why_care, :what_it_is, :what_you_do, :slug, 
               :text, # text is no longer used but is needed here for migrations
               :fallbacks_for_empty_translations => true
   globalize_accessors
@@ -56,10 +56,17 @@ class Pledge < ActiveRecord::Base
 
   ###########################
   ## VALIDATIONS
-  validates :title, :posted_at, presence: true
+  validates :title, presence: true
+  validates :why_care, presence: {message: I18n.t('shared.msgs.pledge_fields_required'), if: :record_is_public?}
+  validates :what_it_is, presence: {message: I18n.t('shared.msgs.pledge_fields_required'), if: :record_is_public?}
+  validates :what_you_do, presence: {message: I18n.t('shared.msgs.pledge_fields_required'), if: :record_is_public?}
   validates_attachment :image,
     content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },
     size: { in: 0..5.megabytes }
+
+  ###########################
+  ## CALLBACKS
+  before_save :set_posted_at
 
   ###########################
   ## SCOPES
@@ -84,4 +91,28 @@ class Pledge < ActiveRecord::Base
   def has_made_pledge?(user)
     self.pledge_users.where(user_id: user.id).count > 0
   end
+
+
+  private
+
+  def record_is_public?
+    self.is_public?
+  end
+
+  # if this record is becoming public, set posted_at
+  # if this record is being hidden from public, reset posted_at
+  def set_posted_at
+    if self.is_public? && self.is_public_changed?
+      # becoming public
+      self.posted_at = Time.now
+
+    elsif !self.is_public? && self.is_public_changed?
+      # loosing public
+      self.posted_at = nil
+
+    end
+
+    return true
+  end
+
 end

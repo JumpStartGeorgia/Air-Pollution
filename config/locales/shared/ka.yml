@@ -8,6 +8,7 @@ ka:
       log_in: შესვლა
       view: ნახვა
       add: დამატება
+      preview: Preview
       with_obj:
         cancel: "%{obj}-ის გაუქმება"
         create: "%{obj}-ის შექმნა"
@@ -30,6 +31,7 @@ ka:
       admin: ადმინის სექცია
     labels:
       translated_field: "%{field} (%{language})"
+      model_object_title: '%{label}: %{label_value}'
     locale:
       short:
         en: En
@@ -43,6 +45,7 @@ ka:
       success_created: "%{obj} წარმატებით შეიქმნა."
       success_destroyed: "%{obj} წარმატებით გაუქმდა."
       success_updated: "%{obj} წარმატებით განახლდა."
+      pledge_fields_required: "This field is required for the pledge to be made public."
     prompts:
       confirm: დარწმუნებული ხართ?
       forgot_password: დაგავიწყდათ პაროლი?

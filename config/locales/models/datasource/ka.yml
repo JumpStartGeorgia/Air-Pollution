@@ -1,0 +1,11 @@
+---
+ka:
+  activerecord:
+    attributes:
+      datasource:
+        name: Name
+        url: URL to Source
+    models:
+      datasource:
+        one: Datasource
+        other: Datasources

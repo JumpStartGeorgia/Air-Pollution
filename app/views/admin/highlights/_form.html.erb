@@ -1,0 +1,38 @@
+<% object = @highlight %>
+<%= semantic_form_for [:admin,object] do |f| %>
+  <%= f.semantic_errors *f.object.errors.keys %>
+  <%= f.inputs do %>
+    <%= render layout: 'shared/form/translated_inputs',
+               locals: { object: object } do |enabled_locale, enabled_locale_name| %>
+      <%= f.input "title_#{enabled_locale}",
+                  label: t('shared.labels.translated_field',
+                         field: t('activerecord.attributes.highlight.title'),
+                         language: enabled_locale_name) %>
+      <%= f.input "url_#{enabled_locale}",
+                  as: :url,
+                  label: t('shared.labels.translated_field',
+                         field: t('activerecord.attributes.highlight.url'),
+                         language: enabled_locale_name) %>
+  
+      <div class="file input optional form-group" id="highlight_image_<%= enabled_locale %>_input">
+        <span class="form-label">
+          <label for="highlight_image_<%= enabled_locale %>" class=" control-label"><%= t('activerecord.attributes.highlight.image') %></label>
+        </span>
+        <% if @highlight.image(enabled_locale).exists? %>
+          <%= image_tag(@highlight.image(enabled_locale).url('small')) %>
+        <% end %>
+        <span class="form-wrapper">
+          <input id="highlight_image_<%= enabled_locale %>" accept="image/*" type="file" name="highlight[image_<%= enabled_locale %>]" />
+        </span>
+      </div>
+
+    <% end %>
+
+    <%= f.input :is_public, as: :radio %>
+
+  <% end %>
+
+  <%= f.actions do %>
+    <%= f.action :submit, button_html: { class: 'btn btn-success' } %>
+  <% end %>
+<% end %>

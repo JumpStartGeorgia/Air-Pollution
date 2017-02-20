@@ -182,4 +182,6 @@ gem 'scoped_search', '~> 4.0' # search
 gem 'inline_svg', '~> 0.11.0'
 gem 'skrollr-rails'
 gem "autoprefixer-rails"
+gem 'cocoon', '~> 1.2', '>= 1.2.9' # nested forms
+
 

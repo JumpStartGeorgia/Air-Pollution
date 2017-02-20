@@ -16,8 +16,13 @@ class Datasource < ActiveRecord::Base
   
   ###########################
   ## VALIDATIONS
-  validates :name, :url, :story_id, presence: true
+  validates :name, :story_id, presence: true
   validates :url, :format => {:with => URI::regexp(['http','https'])}, :if => "!url.blank?"
 
+  ###########################
+  ## SCOPES
+  def self.sorted(locale=I18n.locale)
+    with_translations(locale).order(:name)
+  end
 
 end

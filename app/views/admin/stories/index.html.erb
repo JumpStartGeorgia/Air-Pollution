@@ -1,0 +1,62 @@
+<%
+  model_class = Story
+  show_name = (can? :create, @story) ? true : false
+  page_title t('activerecord.models.story', count: 999)
+%>
+
+<div class='actions-container'>
+  <%= render partial: 'shared/index_actions',
+        locals: {
+          model_class: model_class,
+          new_path: new_admin_story_path
+        }
+  %>
+</div>
+
+<table class='table table-striped table-hover table-nonfluid datatable-admin'>
+  <thead>
+    <tr>
+      <th></th>
+      <th><%=t 'activerecord.attributes.story.title' %></th>
+      <th><%=t 'activerecord.attributes.story.thumbnail' %></th>
+      <th><%=t 'activerecord.attributes.story.story_type' %></th>
+      <th><%=t 'activerecord.attributes.story.posted_at' %></th>
+      <th><%=t 'activerecord.attributes.story.is_public' %></th>
+
+      <th class='action-col'><%=t 'shared.common.actions' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @stories.each do |story| %>
+      <tr>
+        <td>
+          <%= link_to t('shared.actions.view'),
+                      admin_story_path(story),
+                      class: 'btn btn-default' %>
+        </td>
+        <td><%= story.title %></td>
+        <td><%= image_tag(story.thumbnail.url(:small)) if story.thumbnail.exists? %></td>
+        <td><%= I18n.t("shared.story_types.#{story.story_type_key}") %></td>
+        <td><%= l story.posted_at if story.posted_at.present? %></td>
+        <td><%= story.is_public? %></td>
+
+        <td>
+          <%= if can? :edit, story
+                link_to t('shared.actions.edit'),
+                        edit_admin_story_path(story),
+                        class: 'btn btn-default'
+          end %>
+
+          <%= if can? :destroy, story
+                link_to t('shared.actions.destroy'),
+                        admin_story_path(story),
+                        method: :delete,
+                        data: { confirm: t('shared.prompts.confirm') },
+                        class: 'btn btn-danger'
+          end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

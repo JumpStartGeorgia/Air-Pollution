@@ -1,0 +1,90 @@
+<%
+  is_public ||= true
+  model_class = Story
+%>
+
+<div class='story-wrapper'>
+
+
+  <div class='date'>
+      <%= l @story.posted_at %>
+  </div>
+
+  <div class='story-statistics'>
+    <div class="addthis_inline_share_toolbox"></div>
+<!--     <div class="count">
+      <%= t('.count')%>: 
+      <%= number_with_delimiter(@story.impressions_count) %>
+    </div> -->
+  </div>
+
+  <div class="image" title="<%= t('.click') %>">
+    <% if @story.has_image? %>
+      <%= link_to(image_tag(@story.thumbnail.url(:xl)), @story.image.url(:original), class: 'fb-image') %></a>
+      <div class="image-click"><%= link_to(image_tag('click.png'),@story.image.url(:original), class: 'fb-image') %></div>
+    <% elsif @story.has_embed? %>
+      <%= link_to(image_tag(@story.thumbnail.url(:xl)), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
+      <div class="image-click"><%= link_to(image_tag('click.png'), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></div>
+    <% end %>
+  </div>
+
+  <% if @story.has_embed? %>
+    <div id='fb-inline-content' style="display:none;">
+      <%= @story.embed_code.html_safe %>
+    </div>
+  <% end %>
+
+  <div class='story-info'>
+    <div class='description'>
+      <%= simple_format @story.description %>
+    </div>
+    <% if @story.organization.present? %>
+      <div class='organization'>
+        <span><%= model_class.human_attribute_name(:organization) %>:</span>
+        <%= @story.organization %>
+      </div>
+    <% end %>
+
+    <% if @story.url.present? %>
+      <div class='url'>
+        <!--span><%= model_class.human_attribute_name(:url) %>:</span-->
+        <%= link_to t('.view'), @story.url, target: :blank %>
+      </div>
+    <% end %>
+
+    <% if @story.datasources.present? %>
+      <div class='datasources'>
+        <span><%= model_class.human_attribute_name(:datasources) %>:</span>
+        <ul class="datasource-list">
+          <% @story.datasources.each_with_index do |source, index| %>
+            <% if source.name.present? %>
+              <li>
+              <% if source.url.present? %>
+                <%= link_to source.name, source.url, target: :blank %>
+              <% else %>
+                <%= source.name %>
+              <% end %></li>
+            <% end %>
+          <% end %>
+        </ul>    
+      </div>
+    <% end %>
+
+    <% if is_public %>
+      <div class='share'>
+        <%= link_to(image_tag("share_fb.svg", width: 50),
+              "https://www.facebook.com/share.php?u=#{current_url}",
+              :title => "facebook", :target => "_blank") %>
+        <%= link_to(image_tag("share_twitter.svg", width: 50),
+              "https://twitter.com/share?url=#{current_url}", :title => "twitter",
+              :target => "_blank") %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <% if is_public %>
+    <div class="fb-comments" data-href="<%= current_url(false) %>" data-num-posts="5" data-width="100%"></div>
+  <% end %>
+
+</div>
