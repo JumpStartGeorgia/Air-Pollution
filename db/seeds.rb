@@ -20,7 +20,7 @@ if ENV['create_user_accounts'].present? && !Rails.env.production?
   end
 
   User.find_or_create_by(email: 'super.admin@test.ge') do |u|
-    puts "creating site admin"
+    puts "creating super admin"
     u.password = 'password123'
     u.role_id = 2
   end
