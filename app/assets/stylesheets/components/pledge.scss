@@ -88,10 +88,12 @@
 	margin:0 0 50px 0;
 	border: solid 3px;
 	padding: 5px 30px;
+	transition: all 0.2s;
 
 	a {
 		text-decoration: none;
 		color: white;
+		transition: all 0.2s;
 	}
 
 	&:hover, &:hover a {
@@ -99,19 +101,37 @@
 	};
 }
 
+
 .pledge .share {
+	.addthis_share_toolbox {
+		display: flex;
+	}
+
+	span {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 35px !important;
+		width: 35px !important;		
+		margin: 0 10px 0 10px;
+		opacity: 0.8;
+		transition: opacity 0.2s;
+	}
+
+	span:hover {
+		opacity: 1;
+	}
+
 	svg {
-		margin: 5px;
-	}
-
-	.fb:hover path{
-		fill: #36369c;
-	}
-
-	.twitter:hover path {
-		fill: #00c7ff;
+		height: 30px !important;
+		width: 30px !important;
 	}
 }
+
+.pledge-wrapper .made-pledge {
+	text-align: center;
+}
+
 
 .all-pledges-wrapper{
 	display: flex;

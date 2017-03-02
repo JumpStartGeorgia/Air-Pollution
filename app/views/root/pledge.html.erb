@@ -64,14 +64,14 @@
 
 
   <div class='share'>
-    <%= link_to(inline_svg("share_fb.svg", width: 50, class: "fb"),
-          "https://www.facebook.com/share.php?u=#{current_url(false)}",
-          :title => "facebook", :target => "_blank") %>
-    <%= link_to(inline_svg("share_twitter.svg", width: 50, class: "twitter"),
-          "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
-          :target => "_blank") %>
+    <div class="addthis_share_toolbox"  addthis:url="<%= current_url %>">
+        <a class="addthis_button_facebook"></a> 
+        <a class="addthis_button_twitter"></a> 
+        <a class="addthis_button_email"></a>
+    </div>
   </div>
 </div>
+
 
 <a class="fb-inline" href="#fb-inline-content" style="display:none;"></a>
 <div id='fb-inline-content' style="display:none;">
@@ -87,7 +87,10 @@
   </div>
 
 
+
 </div>
+
+<div id="fb-root"></div>
 
 
 <% if @pledges.present? %>
