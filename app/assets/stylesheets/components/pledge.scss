@@ -102,24 +102,12 @@
 }
 
 
-.pledge .share {
-	.addthis_share_toolbox {
-		display: flex;
-	}
+.pledge-wrapper .share {
 
 	span {
-		display: flex;
-		align-items: center;
-		justify-content: center;
 		height: 35px !important;
-		width: 35px !important;		
+		width: 35px !important;	
 		margin: 0 10px 0 10px;
-		opacity: 0.8;
-		transition: opacity 0.2s;
-	}
-
-	span:hover {
-		opacity: 1;
 	}
 
 	svg {
@@ -129,7 +117,7 @@
 }
 
 .pledge-wrapper .made-pledge {
-	text-align: center;
+	text-align: center;	
 }
 
 

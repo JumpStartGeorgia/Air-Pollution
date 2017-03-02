@@ -65,18 +65,24 @@
 
 
 .app-footer .app-footer-left {
-    width: 110px;
     padding-left: 5px;
+    display: flex;
     p {
         margin-bottom: 0;
     }
 
-    &.share {
-        display: none;
-        img {
-            display: none;
-            width: 40px;
-            height: 40px;
+    .share {
+        margin-left: 10px;
+
+        span {
+            height: 20px !important;
+            width: 20px !important; 
+            margin: 0 5px 0 5px;
+        }
+
+        svg {
+            height: 18px !important;
+            width: 18px !important;
         }
     }
 }
