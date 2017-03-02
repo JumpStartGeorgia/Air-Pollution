@@ -102,7 +102,7 @@
 }
 
 
-.pledge-wrapper .share {
+.pledge-wrapper .share, .fancybox-skin .share{
 
 	span {
 		height: 35px !important;
@@ -113,6 +113,21 @@
 	svg {
 		height: 30px !important;
 		width: 30px !important;
+	}
+}
+
+.fancybox-skin {
+	p, h2 {
+		text-align: center;
+	}
+
+	h2 {
+		margin-bottom: 15px;
+	}
+
+	p {
+		font-size: 15px;
+		margin-bottom: 25px;
 	}
 }
 

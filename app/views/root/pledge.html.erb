@@ -78,15 +78,12 @@
  <h2><%= t('.pledge_success.header') %></h2>
  <p><%= t('.pledge_success.ask') %></p>
   <div class='share'>
-    <%= link_to(image_tag("share_fb.svg", width: 50),
-          "https://www.facebook.com/share.php?u=#{current_url(false)}",
-          :title => "facebook", :target => "_blank") %>
-    <%= link_to(image_tag("share_twitter.svg", width: 50),
-          "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
-          :target => "_blank") %>
+    <div class="addthis_share_toolbox"  addthis:url="<%= current_url %>">
+        <a class="addthis_button_facebook"></a> 
+        <a class="addthis_button_twitter"></a> 
+        <a class="addthis_button_email"></a>
+    </div>
   </div>
-
-
 
 </div>
 
