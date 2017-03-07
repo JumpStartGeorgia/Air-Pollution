@@ -1,9 +1,12 @@
+body.pledge {
+	font-size: 10px;
+}
 
 .pledge main .container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 1500px;
+	width: 90vw;
   	padding: 0;
 }
 
@@ -20,28 +23,46 @@
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	padding: 50px 0 50px 0;
+	padding: 0 0 50px 0;
 	margin-top: 10px;
+	color: #6a6868;
+	font-size: 1.8rem;
+}
+
+.pledge-header {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	justify-content: flex-end;
+	width: 100%;
+	height: 42rem;
+	overflow: hidden;
+	background-color: #3dcbdd;
+}
+
+
+.pledge-header .pledge-name {
+	position: relative;
+	max-width: 50%;
+	margin-right: 30px;
+	font-size: 7.5rem;
+	text-align: right;
+	z-index: 1;
 	color: white;
-	font-size: 1.7em;
-
-	/*background-image: linear-gradient( #76CAD4, #7cbfa1	);*/
-	background-image: linear-gradient( #38c3d4, #0c5f65);
 }
 
-.pledge .pledge-name {
-	font-size: 3.5em;
-	text-align: center;
-	margin: 0 0 40px 0;
-}
-
-.pledge-wrapper .image {
-	width: 320px;
-	height: 320px;
+.pledge-header .image {
+	position: absolute;
+    left: 0;
+    top: -7rem;
+    width: calc(90vw * 0.9);
+    height: 45rem;
+	background-color: #3dcbdd;
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-position: center center;
-	border-radius: 200px;
+	background-position: bottom right;
+    border-bottom-right-radius: 100%;
+	opacity: 0.75;
 }
 
 .pledge-wrapper .pledge-texts {
@@ -57,7 +78,7 @@
 	flex-direction: column;
 	align-items: center;
 	width: 60%;
-	margin: 60px 0 60px 0;
+	margin: 50px 0 50px 0;
 	text-align: center;
 	background-color: transparent;
 	font-family: 'Open Sans', sans-serif;
@@ -68,11 +89,18 @@
 		line-height: 1.8em;
 		text-align: center;
 		margin: 25px 0 15px 0;
+		background: linear-gradient(45deg, #296faf, #1bc5cc);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
 	}
 
 	.icon {
-		height: 70px;
+		height: 50px;
 		width: auto;
+
+		 path {
+		 	fill: #267eb4;
+		 }
 	}
 
 }
@@ -82,23 +110,42 @@
 }
 
 .pledge-wrapper .make-pledge {
+	margin:0 0 50px 0;
 	font-family: 'Ek Mukta', sans-serif;
 	text-transform: uppercase;
 	font-size: 2.1em;
-	margin:0 0 50px 0;
-	border: solid 3px;
-	padding: 5px 30px;
 	transition: all 0.2s;
+	border: solid 3px;
+	border-image:  linear-gradient(45deg, #296faf, #1bc5cc);
+    border-image-slice: 1;
+    background: linear-gradient(45deg, #296faf, #1bc5cc);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    width: auto;
+    height: auto;
 
 	a {
+		display: block;
 		text-decoration: none;
 		color: white;
 		transition: all 0.2s;
+		padding: 7px 30px;
 	}
 
-	&:hover, &:hover a {
-		color: #83c6ff;
+	&:hover {
+		-webkit-text-fill-color: white;
+        -webkit-background-clip: initial;
+        animation: fill-background 0.3s;
 	};
+}
+
+@keyframes fill-background {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 
@@ -218,13 +265,14 @@
 		width: 90vw;
 	}	
 
-	.pledge-wrapper .image {
-		width: 40vw;
-		height: 40vw;
-		max-width: 350px;
-		max-height: 350px;
-		border-radius: 170px;
+	.pledge-header .image {
+    	width: calc(90vw * 0.9);
 	}
+
+	.pledge-header .pledge-name {
+		font-size: 7rem;
+	}
+
 
 }
 
@@ -237,9 +285,10 @@
 } 
 
 
+
 @media screen and (max-width: 1000px) and (max-height: 1000px){
 	.pledge .pledge-name {
-		font-size: 2em;
+		font-size: 5rem;
 	}
 
 	.pledge-wrapper .pledge-texts {
@@ -263,15 +312,46 @@
 		font-size: 1.6em;
 		margin:0 0 40px 0;
 	}
-
-
 }
+
+
+@media screen and (max-width: 700px) {
+	.pledge-header {
+		height: 40rem;
+	}
+}
+
+@media screen and (max-height: 700px){
+
+	.pledge-header {
+		height: 30rem;
+	}
+
+	.pledge-header .image {
+	    top: -2rem;
+	    height: 26rem;
+	}
+
+	.pledge .pledge-name {
+		font-size: 6rem;
+	}
+
+} 
+
 
 @media screen and (max-width: 500px){
 	.pledge main .container {
 		width: 100vw;
 	}	
 
+	.pledge .pledge-name {
+		font-size: 4rem;
+	}
+
+
+	.pledge-header .image {
+    	width: calc(100vw * 0.9);
+	}
 
 	.pledge-wrapper .pledge-texts {
 		font-size: 0.9em;
