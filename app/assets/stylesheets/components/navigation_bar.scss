@@ -13,7 +13,7 @@ $navigation-color: #38c3d4;
 	font-family: 'Ek Mukta', sans-serif;
 	text-transform: uppercase;
 	background-color: white;
-	z-index: 2;
+	z-index: 4;
 	* {
 		color: $navigation-color;
 	}
@@ -96,11 +96,6 @@ $navigation-color: #38c3d4;
 
 
 
-
-
-
-
-
 .navbar-wrapper .navbar-right {
  	> * {
  		margin-left: 30px;
@@ -110,16 +105,7 @@ $navigation-color: #38c3d4;
 .navbar-wrapper .pledge-button {
 	display: flex;
 	align-items: center;	
-	background: linear-gradient(45deg, #296faf, #1bc5cc);
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
 	letter-spacing: 4px;
-
-    &:hover {
-    	background: #23527c;
-		-webkit-text-fill-color: transparent;
-		-webkit-background-clip: text;
-    }
 }
 
 .navbar-wrapper .search-form {

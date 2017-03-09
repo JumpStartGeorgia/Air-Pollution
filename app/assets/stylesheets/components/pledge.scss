@@ -118,9 +118,6 @@ body.pledge {
 	border: solid 3px;
 	border-image:  linear-gradient(45deg, #296faf, #1bc5cc);
     border-image-slice: 1;
-    background: linear-gradient(45deg, #296faf, #1bc5cc);
-    -webkit-text-fill-color: transparent;
-    -webkit-background-clip: text;
     width: auto;
     height: auto;
 
@@ -129,13 +126,23 @@ body.pledge {
 		text-decoration: none;
 		color: white;
 		transition: all 0.2s;
+	}
+
+	p {
+		margin: 0;
 		padding: 7px 30px;
+		background: linear-gradient(45deg, #296faf, #1bc5cc);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
 	}
 
 	&:hover {
-		-webkit-text-fill-color: white;
-        -webkit-background-clip: initial;
-        animation: fill-background 0.3s;
+		p {
+			-webkit-text-fill-color: white;
+	        -webkit-background-clip: initial;
+	        animation: fill-background 0.3s;
+		}
+
 	};
 }
 

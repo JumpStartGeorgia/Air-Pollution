@@ -9,9 +9,7 @@
 
   <div class='pledge-header'>
     <h1  class="pledge-name" > <%= @pledge.title%> </h1>
-<!--     <div class='image' style='background-image: url(<%= @pledge.image.url(:big) %>) ' >
-    </div> -->
-        <div class='image' style='background-image: url("https://www.axis.com/sites/default/files/heavy-traffic-highway-cars.jpg") ' >
+    <div class='image' style='background-image: url(<%= @pledge.image.url(:big) %>) ' >
     </div>
   </div>  
 
@@ -57,7 +55,9 @@
   <% else %>
     <div class='make-pledge'>
       <%= link_to  make_pledge_path(@pledge) do%> 
-        <%= t('.make_pledge') %>
+        <p>
+          <%= t('.make_pledge') %>
+        </p>
       <% end %>
     </div>
   
