@@ -22,7 +22,7 @@
       </div>
     <% end %>
 
-    <% if @pledge.what_you_do.present? %>
+    <% if @pledge.what_you_do.present? %> 
       <div class='what-do' data-300-top="opacity: 1" data-top-bottom="opacity: 0">
         <%= inline_svg('svg/pledge_icons/list.svg',  class: "icon do") %>
         <h2><%= model_class.human_attribute_name(:what_you_do) %>:</h2>
