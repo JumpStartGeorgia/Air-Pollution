@@ -1,6 +1,7 @@
 class Admin::StoriesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_story, only: [:show, :edit, :update, :destroy]
+  before_action :set_story_types, only: [:show, :new, :create, :edit, :update, :destroy]
   authorize_resource
 
   # GET /admin/stories
@@ -70,7 +71,9 @@ class Admin::StoriesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_story
       @story = Story.friendly.find(params[:id])
+    end
 
+    def set_story_types
       @story_types = []
       Story::TYPE.each do |key, value|
         @story_types << [I18n.t("shared.story_types.#{key}"), value]
