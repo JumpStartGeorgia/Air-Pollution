@@ -103,11 +103,12 @@
             </div>
             <div class='story-image-effect' style='background-image: url(<%= story.thumbnail.url(:big) %>)'></div>
           </div>
+          <div class='story-info'>
+            <p class='date'><%= l story.posted_at, format: :long %></p>
+            <p class='story-description'><%= truncate(strip_tags(story.description), length: 100, separator: ' ') %></p>
+          </div>
         <% end %>
-        <div class='story-info'>
-          <p class='date'><%= l story.posted_at, format: :long %></p>
-          <p class='story-description'><%= truncate(strip_tags(story.description), length: 100, separator: ' ') %></p>
-        </div>
+        
       </div>
     <% end %>
   

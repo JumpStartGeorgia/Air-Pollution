@@ -7,11 +7,11 @@
 
 <div class='pledge-wrapper' data-made-pledge="<%= params[:make_pledge] == 'success' %>">
 
-  <h1  class="pledge-name" > <%= @pledge.title%> </h1>
-
-  <div class='image' style='background-image: url(<%= @pledge.image.url(:big) %>) '
-      data-300-top="opacity: 1" data-top-bottom="opacity: 0" >
-  </div>
+  <div class='pledge-header'>
+    <h1  class="pledge-name" > <%= @pledge.title%> </h1>
+    <div class='image' style='background-image: url(<%= @pledge.image.url(:big) %>) ' >
+    </div>
+  </div>  
 
   <div class='pledge-texts'>
     <% if @pledge.what_it_is.present? %>
@@ -55,7 +55,9 @@
   <% else %>
     <div class='make-pledge'>
       <%= link_to  make_pledge_path(@pledge) do%> 
-        <%= t('.make_pledge') %>
+        <p>
+          <%= t('.make_pledge') %>
+        </p>
       <% end %>
     </div>
   
@@ -64,30 +66,30 @@
 
 
   <div class='share'>
-    <%= link_to(inline_svg("share_fb.svg", width: 50, class: "fb"),
-          "https://www.facebook.com/share.php?u=#{current_url(false)}",
-          :title => "facebook", :target => "_blank") %>
-    <%= link_to(inline_svg("share_twitter.svg", width: 50, class: "twitter"),
-          "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
-          :target => "_blank") %>
+    <div class="addthis_share_toolbox"  addthis:url="<%= current_url %>">
+        <a class="addthis_button_facebook"></a> 
+        <a class="addthis_button_twitter"></a> 
+        <a class="addthis_button_email"></a>
+    </div>
   </div>
 </div>
+
 
 <a class="fb-inline" href="#fb-inline-content" style="display:none;"></a>
 <div id='fb-inline-content' style="display:none;">
  <h2><%= t('.pledge_success.header') %></h2>
  <p><%= t('.pledge_success.ask') %></p>
   <div class='share'>
-    <%= link_to(image_tag("share_fb.svg", width: 50),
-          "https://www.facebook.com/share.php?u=#{current_url(false)}",
-          :title => "facebook", :target => "_blank") %>
-    <%= link_to(image_tag("share_twitter.svg", width: 50),
-          "https://twitter.com/share?url=#{current_url(false)}", :title => "twitter",
-          :target => "_blank") %>
+    <div class="addthis_share_toolbox"  addthis:url="<%= current_url %>">
+        <a class="addthis_button_facebook"></a> 
+        <a class="addthis_button_twitter"></a> 
+        <a class="addthis_button_email"></a>
+    </div>
   </div>
 
-
 </div>
+
+<div id="fb-root"></div>
 
 
 <% if @pledges.present? %>

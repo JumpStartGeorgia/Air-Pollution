@@ -1,0 +1,18 @@
+.share {
+	.addthis_share_toolbox {
+		display: flex;
+	}
+
+	span {
+		display: flex;
+		align-items: center;
+		justify-content: center;	
+		margin: 0 10px 0 10px;
+		opacity: 0.8;
+		transition: opacity 0.2s;
+	}
+
+	span:hover {
+		opacity: 1;
+	}
+}

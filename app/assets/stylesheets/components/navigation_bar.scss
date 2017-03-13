@@ -13,7 +13,7 @@ $navigation-color: #38c3d4;
 	font-family: 'Ek Mukta', sans-serif;
 	text-transform: uppercase;
 	background-color: white;
-	z-index: 2;
+	z-index: 4;
 	* {
 		color: $navigation-color;
 	}
@@ -41,7 +41,6 @@ $navigation-color: #38c3d4;
 	width: 90%;
 	min-width: 1500px; 
     height: auto;
-    overflow: hidden;
 	padding: 20px 0 20px 0;
 
 	> * {
@@ -62,6 +61,10 @@ $navigation-color: #38c3d4;
 	flex-wrap: wrap;
 	margin: 0;
 	padding: 0;
+}
+
+.navbar-wrapper .navbar-left-wrap {
+	overflow: hidden;
 }
 
 .navbar-wrapper .navbar-left {
@@ -93,11 +96,6 @@ $navigation-color: #38c3d4;
 
 
 
-
-
-
-
-
 .navbar-wrapper .navbar-right {
  	> * {
  		margin-left: 30px;
@@ -107,16 +105,7 @@ $navigation-color: #38c3d4;
 .navbar-wrapper .pledge-button {
 	display: flex;
 	align-items: center;	
-	background: linear-gradient(45deg, #296faf, #1bc5cc);
-	-webkit-text-fill-color: transparent;
-	-webkit-background-clip: text;
 	letter-spacing: 4px;
-
-    &:hover {
-    	background: #23527c;
-		-webkit-text-fill-color: transparent;
-		-webkit-background-clip: text;
-    }
 }
 
 .navbar-wrapper .search-form {

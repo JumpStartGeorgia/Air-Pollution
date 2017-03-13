@@ -1,13 +1,15 @@
 <div class="navbar-wrapper">
   <div id='navbar-container' class="container">
-    <ul class="navbar-left">
+     <div class='navbar-left-wrap'>
 
-      <%= link_to root_path, class: 'navbar-logo' do%>
-          <%= image_tag 'filter_logo_lungs.svg', class: "logo-with-lungs" %>
-          <%= image_tag "filter_logo_letters_#{I18n.locale}.svg", class: "logo-with-letters" %>
-      <% end %>
+    <div class="navbar-left">
+        <%= link_to root_path, class: 'navbar-logo' do%>
+            <%= image_tag 'filter_logo_lungs.svg', class: "logo-with-lungs" %>
+            <%= image_tag "filter_logo_letters_#{I18n.locale}.svg", class: "logo-with-letters" %>
+        <% end %>
 
-    </ul>
+    </div>
+      </div>
 
 
     <button type="button" class="dropdown-button" >
