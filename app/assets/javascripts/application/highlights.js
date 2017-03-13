@@ -10,7 +10,7 @@ var allowed_height_diff = 60;
   $(document).ready(function() {
   	highlight_button_functions();
   	show_first_highlight();
-  	auto_slideshow  = window.setTimeout(change_highlight, slideshow_time);
+  	// auto_slideshow  = window.setTimeout(change_highlight, slideshow_time);
   });
 
   if(is_touch){

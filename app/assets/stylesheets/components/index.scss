@@ -113,24 +113,26 @@ body.no-touch .highlights .highlight-next-prev-button:hover {
 	margin: 5px;
 	border: none;
 	border-radius: 50%;
-	background-color: rgba(72,62,62,0.88);
+	background-color: white;
+	opacity: 0.4;
 
 	&:focus {
 	 	outline: none; 
 	}
-
+/*
 	> div {
 		width: 8px;
 		height: 8px;
 		margin: 0;
 		padding: 0;
 		border-radius: 50%;
-	}
+	}*/
 
 	&.active {
-		div {
+/*		div {
 			background-color: rgba(255,255,255,0.67);
-		}
+		}*/
+		background-color: black;
 	}
 }
 
