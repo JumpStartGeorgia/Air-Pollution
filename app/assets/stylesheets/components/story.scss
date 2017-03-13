@@ -22,12 +22,10 @@
 }
 
 
-.story-wrapper .image{
+.story-wrapper .image {
   position: relative;
   width: 100%;
-  &:hover{
-    opacity: 0.7;
-  }
+
 
   .fb-image, .fb-inline {
     width: 100%;
@@ -45,6 +43,11 @@
     top: calc(50% - 38px);
     left: calc(50% - 38px);
   }
+}
+
+
+body.no-touch .story-wrapper .image:hover{
+    opacity: 0.7;
 }
 
 

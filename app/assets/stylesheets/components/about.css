@@ -89,9 +89,11 @@
 		width: 70%;
 	}
 
-	.about-usaid-logos:hover img {
-		animation: usaid-logo-hover 0.3s;
-	}
+
+}
+
+body.no-touch .about-usaid-logos:hover img {
+	animation: usaid-logo-hover 0.3s;
 }
 
 @media screen and (max-width: 1000px) {

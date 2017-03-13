@@ -40,7 +40,7 @@ class Pledge < ActiveRecord::Base
                     :default_url => "/assets/missing/pledge/image/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
-                        :'big' => {:geometry => "459x328#"},
+                        :'big' => {:geometry => "1500x>"},
                         :'small' => {:geometry => "229x164#"}
                     },
                     :convert_options => {

@@ -136,14 +136,14 @@ body.pledge {
         -webkit-background-clip: text;
 	}
 
-	&:hover {
-		p {
-			-webkit-text-fill-color: white;
-	        -webkit-background-clip: initial;
-	        animation: fill-background 0.3s;
-		}
+}
 
-	};
+body.no-touch .pledge-wrapper .make-pledge:hover {
+	p {
+		-webkit-text-fill-color: white;
+        -webkit-background-clip: initial;
+        animation: fill-background 0.3s;
+	}
 }
 
 @keyframes fill-background {

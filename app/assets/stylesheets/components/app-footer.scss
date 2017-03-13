@@ -51,11 +51,12 @@
         -webkit-background-clip: text;
     }
 
-    &:hover p{
-        -webkit-text-fill-color: white;
-        -webkit-background-clip: initial;
-        animation: fill-background 0.3s;
-    }
+}
+
+body.no-touch .app-footer .pledge-footer:hover p{
+    -webkit-text-fill-color: white;
+    -webkit-background-clip: initial;
+    animation: fill-background 0.3s;
 }
 
 

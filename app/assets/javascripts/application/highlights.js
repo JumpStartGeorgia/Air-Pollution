@@ -2,24 +2,26 @@
 var auto_slideshow;
 var slideshow_time = 5000;
 var higlight_height;
+var highlight_height_change;
+var allowed_height_diff = 60;
 
 (function() {
 
   $(document).ready(function() {
   	highlight_button_functions();
   	show_first_highlight();
-  	set_highlight_height();
-
   	auto_slideshow  = window.setTimeout(change_highlight, slideshow_time);
+  });
 
-  	$(window).scroll(function() {
-	 	change_highlight_height();
+  if(is_touch){
+	$(document).ready(function() {
+	  	set_highlight_height();
 	});
 
- 	$(window).resize(function(){
-  		set_highlight_height();
+  	$(window).resize(function(){
+  		change_highlight_height();
  	});
-  });
+  }
 
 })();
 
@@ -84,11 +86,14 @@ function change_highlight(index, direction) {
 }
 
 function set_highlight_height() {
-	$(".highlights .highlight-image").css('height', '');
-	highlights_height = $(".highlights .highlight-image").height();
+	var image = $(".highlights .highlight-image");
+	image.css('height', '');
+	image.css('height', image.height());
+	highlight_height_change = $(window).height();
 }
 
 function change_highlight_height() {
-	 $(".highlights .highlight-image").css("height",  highlights_height);
+	if(Math.abs($(window).height() - highlight_height_change) > allowed_height_diff) {
+		set_highlight_height();
+	}
 }
-

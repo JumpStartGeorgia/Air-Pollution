@@ -1,6 +1,7 @@
 var curr_height = 0;
 var next_height = 0;
 var logo_ratio = 1.25;
+var height_change = 25;
 
 (function() {
 
@@ -52,15 +53,15 @@ function check_scrolled_height(resize_check, animate_check) {
 			if(animate_check) {
 				navbar_left.animate({left: -1 * lungs_width + "px"}, anim_dur + 100, function(){
 					navbar_left.css("height", navbar_left_height + "px" );
-					navbar_left.animate({height: navbar_left_height - 30 + "px"}, anim_dur);
+					navbar_left.animate({height: navbar_left_height - height_change + "px"}, anim_dur);
 				});	
 			} else {
-				navbar_left.css({"height": navbar_left_height - 30 + "px"}).css({"left": -1 * lungs_width + "px"});
+				navbar_left.css({"height": navbar_left_height - height_change + "px"}).css({"left": -1 * lungs_width + "px"});
 			}
 		}
 	} else { //when page is not scrolled
 		if( navbar_left.hasClass("hide-lung") || resize_check) {
-			navbar_left.removeClass("hide-lung").stop(true,true).css("height", (navbar_left_height - 30) + "px");
+			navbar_left.removeClass("hide-lung").stop(true,true).css("height", (navbar_left_height - height_change) + "px");
 			if(animate_check){
 				navbar_left.animate({ height: navbar_left_height + "px"},  anim_dur , function() {
 					navbar_left.css("left", "-" + lungs_width + "px");

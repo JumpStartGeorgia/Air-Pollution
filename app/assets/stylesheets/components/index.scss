@@ -64,10 +64,6 @@
   	font-family: serif;
   	line-height: 70px;
   	
-	&:hover {
-		background-color: rgba(27,27,27,0.9) !important;
-	}
-
 	&:focus {
 	 	outline: none; 
 	}
@@ -92,9 +88,13 @@
     		content: "\203a";		
     	}
 	}
-
-
 }
+
+body.no-touch .highlights .highlight-next-prev-button:hover {
+	background-color: rgba(27,27,27,0.9) !important;
+}
+
+
 
 .highlights .highlight-buttons {
 	position: relative;
@@ -159,18 +159,19 @@
 	width: 100%;
 	height: 100%;
 
-	&:hover {
-		.story-image-effect  {
-			-moz-transform: scale(1.2);
-			-webkit-transform: scale(1.2);
-			transform: scale(1.2);
-		}
+}
 
-		.story-info {
-			color: #2b6a92;
-		}
+
+body.no-touch .stories-grid-item .story-link:hover {
+	.story-image-effect  {
+		-moz-transform: scale(1.2);
+		-webkit-transform: scale(1.2);
+		transform: scale(1.2);
 	}
 
+	.story-info {
+		color: #2b6a92;
+	}
 }
 
 .stories-grid-item .story-image{
