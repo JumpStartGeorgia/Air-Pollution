@@ -124,7 +124,7 @@ class Story < ActiveRecord::Base
 
   ###########################
   ## VALIDATIONS
-  validates :story_type, :title, :url, :posted_at, presence: true
+  validates :story_type, :title, :url, presence: true
   validates :story_type, inclusion: {in: TYPE.values}
   validates :url, :format => {:with => URI::regexp(['http','https'])}, :if => "!url.blank?"
   validates_attachment :thumbnail_en,
@@ -164,6 +164,9 @@ class Story < ActiveRecord::Base
     includes(datasources: :translations)
   end
 
+  ###########################
+  ## CALLBACKS
+  before_save :set_posted_at
 
   ###########################
   ## METHODS
@@ -222,6 +225,26 @@ class Story < ActiveRecord::Base
     locale = I18n.locale if !I18n.available_locales.include?(locale)
 
     return locale == :en ? thumbnail_en : thumbnail_ka
+  end
+
+
+
+  private
+
+  # if this record is becoming public, set posted_at
+  # if this record is being hidden from public, reset posted_at
+  def set_posted_at
+    if self.is_public? && self.is_public_changed?
+      # becoming public
+      self.posted_at = Time.now
+
+    elsif !self.is_public? && self.is_public_changed?
+      # loosing public
+      self.posted_at = nil
+
+    end
+
+    return true
   end
 
 end
