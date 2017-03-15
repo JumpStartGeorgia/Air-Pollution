@@ -1,6 +1,6 @@
 <% 
   @show_page_title = false 
-  page_title @pledge.title 
+  page_title t('.title', title: @pledge.title)
   model_class = Pledge
 %>
 

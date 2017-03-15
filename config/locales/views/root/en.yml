@@ -11,6 +11,7 @@ en:
 
         The information regarding air quality and pollution in Georgia will be displayed on this web-page. In addition, citizens will be available to understand how they can reduce air pollution and its influence and take actionable pledges. 
     pledge:
+      title: 'Pledge: %{title}'
       count: Views
       all_pledges: All Pledges
       make_pledge: Join!
