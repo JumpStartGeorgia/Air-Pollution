@@ -61,15 +61,15 @@ class Story < ActiveRecord::Base
                     :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
-                        :'xl' => {:geometry => "1000x715"},
-                        :'big' => {:geometry => "459x328"},
-                        :'small' => {:geometry => "229x164"}
+                        :'xl' => '',
+                        :'big' => '',
+                        :'small' => ''
                     },
                     :convert_options => {
                       :'share' => '-quality 85',
-                      :'xl' => '-quality 85',
-                      :'big' => '-quality 85',
-                      :'small' => '-quality 85'
+                      :'xl' => '-quality 85 -thumbnail 1000x715^ -extent 1000x715',
+                      :'big' => '-quality 85 -thumbnail 459x328^ -extent 459x328',
+                      :'small' => '-quality 85 -thumbnail 229x164^ -extent 229x164'
                     }
   
   has_attached_file :thumbnail_ka,
@@ -77,15 +77,15 @@ class Story < ActiveRecord::Base
                     :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
-                        :'xl' => {:geometry => "1000x715"},
-                        :'big' => {:geometry => "459x328"},
-                        :'small' => {:geometry => "229x164"}
+                        :'xl' => '',
+                        :'big' => '',
+                        :'small' => ''
                     },
                     :convert_options => {
                       :'share' => '-quality 85',
-                      :'xl' => '-quality 85',
-                      :'big' => '-quality 85',
-                      :'small' => '-quality 85'
+                      :'xl' => '-quality 85 -thumbnail 1000x715^ -extent 1000x715',
+                      :'big' => '-quality 85 -thumbnail 459x328^ -extent 459x328',
+                      :'small' => '-quality 85 -thumbnail 229x164^ -extent 229x164'
                     }
   
   has_attached_file :image_en,
