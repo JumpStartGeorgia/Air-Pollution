@@ -5,5 +5,6 @@ set :application, 'Filter'
 set :repository, 'https://github.com/JumpStartGeorgia/Air-Pollution.git'
 set :branch, 'master'
 set :web_url, 'filter.ge'
+set :secondary_web_url, 'www.filter.ge'
 set :use_ssl, true
 
