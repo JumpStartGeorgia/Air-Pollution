@@ -29,8 +29,8 @@ $(document).on("ready page:change", function() {
               break;
 
             default: //fullscreen
-              options.minWidth = w;
-              options.minHeight = h;
+              options.minWidth = 200;
+              options.minHeight = 200;
               replace_iframe_sizes(w,h);
               break;
           }

@@ -23,7 +23,7 @@
       <%= link_to(image_tag(@story.thumbnail.url(:xl)), @story.image.url(:original), class: 'fb-image') %></a>
       <div class="image-click"><%= link_to(image_tag('click.png'),@story.image.url(:original), class: 'fb-image') %></div>
     <% elsif @story.has_embed? %>
-      <%= link_to(image_tag(@story.thumbnail.url(:xl)), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
+      <%= link_to(image_tag("@story.thumbnail.url(:xl)"), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
       <div class="image-click"><%= link_to(image_tag('click.png'), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></div>
     <% end %>
   </div>

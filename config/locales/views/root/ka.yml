@@ -2,25 +2,25 @@
 ka:
   root:
     index:
-      no_stories: There are no stories at this time.
+      no_stories: ამჯერად არცერთი ამბავი არ მოიძებნა.
     about:
-      title: About
+      title: შესახებ
       partners: პარტნიორი ორგანიზაციები
       intro: |
         ფილტრი არის საინფორმაციო პლატფორმა, რომელიც შეიქმნა "Up in the Air: Establishing the Link Between Air Pollution, Health, and Economic Development in Georgia" პროექტის ფარგლებში, რომლის მიზანია  მოსახლეობის ცნობიერების ამაღლება ჰაერის დაბინძურების საშიშროების შესახებ. 
 
         საიტზე თავმოყრილი იქნება საქართველოში ჰაერის მდგომარეობისა და დაბინძურების შესახებ არსებული ინფორმაცია. ამასთან ერთად, მოქალაქეებს საშუალება ეძლევათ გაიგონ, რისი გაკეთება შეუძლიათ მათ, რათა შეამცირონ ჰაერის დაბინძურება და მასზე ზემოქმედება.
     pledge:
-      count: Views
+      count: ნახვები
       all_pledges: ყველა პირობა
       make_pledge: ჩაერთე!
-      made_pledge: You have already taken the pledge.
-      pledge_count: Pledges Made
+      made_pledge: შენ უკვე დადე პირობა.
+      pledge_count: დადებული პირობების რაოდენობა
       pledge_success:
-        header: Thank you for making the pledge!
-        ask: Please let your friends know about the pledge so they too can take it.  
+        header: მადლობა პირობის დადებისთვის!
+        ask: უთხარი მეგობრებს პირობის შესახებ, რათა ისინიც შემოგვიერთდნენ.  
   shared:
     story_show:
-      view: View the Original 
-      count: Views
-      click: Click to view the story
+      view: იხილეთ პირველად ვერსია 
+      count: ნახვები
+      click: დაკლიკეთ ამბის სანახავად

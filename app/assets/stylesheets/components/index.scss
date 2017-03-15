@@ -196,13 +196,14 @@ body.no-touch .stories-grid-item .story-link:hover {
 	bottom: 10px;
 	display: flex;
 	justify-content: flex-start;
-	align-items: center;
+	align-items: flex-end;
 	z-index: 2;
 
 	.story-title {
+		padding: 0 5px;
 		color: white;
 		font-size: 1.6em;
-		line-height: 1.6rem;
+		line-height: 2.6rem;
 		font-family: 'Lato', sans-serif;
 		text-decoration: none;
 		transition: color 0.1s ease;
