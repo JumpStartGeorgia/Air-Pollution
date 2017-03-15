@@ -14,6 +14,8 @@
   </div>  
 
   <div class='pledge-texts'>
+
+<% if false %>
     <% if @pledge.what_it_is.present? %>
       <div class='what-is' data-300-top="opacity: 1" data-top-bottom="opacity: 0">
        <%= inline_svg('svg/pledge_icons/question.svg',  class: "icon question") %>
@@ -21,6 +23,7 @@
         <%= simple_format @pledge.what_it_is %>
       </div>
     <% end %>
+<% end %>
 
     <% if @pledge.what_you_do.present? %> 
       <div class='what-do' data-300-top="opacity: 1" data-top-bottom="opacity: 0">

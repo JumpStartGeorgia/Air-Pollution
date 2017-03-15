@@ -6,9 +6,9 @@ en:
         posted_at: Date
         is_public: Is Public?
         title: Title
-        why_care: Why You Should Care
+        why_care: Why Should You Care
         what_it_is: What Is It
-        what_you_do: What You Can Do
+        what_you_do: I Will
         image: Image
     models:
       pledge:

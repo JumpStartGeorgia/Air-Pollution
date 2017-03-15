@@ -16,12 +16,14 @@
                          language: enabled_locale_name),
                    :input_html => { :class => 'autogrow', :rows => 3  } %>
 
+<% if false %>
       <%= f.input "what_it_is_#{enabled_locale}",
                   as: :text,
                   label: t('shared.labels.translated_field',
                          field: t('activerecord.attributes.pledge.what_it_is'),
                          language: enabled_locale_name),
                    :input_html => { :class => 'autogrow', :rows => 3  } %>
+<% end %>
 
       <%= f.input "what_you_do_#{enabled_locale}",
                   as: :text,
