@@ -61,9 +61,9 @@ class Story < ActiveRecord::Base
                     :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
-                        :'xl' => {:geometry => "1000x715#"},
-                        :'big' => {:geometry => "459x328#"},
-                        :'small' => {:geometry => "229x164#"}
+                        :'xl' => {:geometry => "1000x715"},
+                        :'big' => {:geometry => "459x328"},
+                        :'small' => {:geometry => "229x164"}
                     },
                     :convert_options => {
                       :'share' => '-quality 85',
@@ -77,9 +77,9 @@ class Story < ActiveRecord::Base
                     :default_url => "/assets/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
-                        :'xl' => {:geometry => "1000x715#"},
-                        :'big' => {:geometry => "459x328#"},
-                        :'small' => {:geometry => "229x164#"}
+                        :'xl' => {:geometry => "1000x715"},
+                        :'big' => {:geometry => "459x328"},
+                        :'small' => {:geometry => "229x164"}
                     },
                     :convert_options => {
                       :'share' => '-quality 85',
@@ -124,7 +124,7 @@ class Story < ActiveRecord::Base
 
   ###########################
   ## VALIDATIONS
-  validates :story_type, :title, :url, presence: true
+  validates :story_type, :title, presence: true
   validates :story_type, inclusion: {in: TYPE.values}
   validates :url, :format => {:with => URI::regexp(['http','https'])}, :if => "!url.blank?"
   validates_attachment :thumbnail_en,
