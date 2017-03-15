@@ -85,6 +85,10 @@ a {
     }
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
 .actions-container {
   background-color: #f9f9f9;
   padding: 10px;

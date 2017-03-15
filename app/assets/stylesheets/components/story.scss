@@ -73,14 +73,30 @@ body.no-touch .story-wrapper .image:hover{
       padding: 0 30px 0 30px;
     }
 
-    .share {
-      margin-top: 15px;
-      img {
-        width: 40px;
-        height: 40px;
+    .datasources {
+      display: flex;
+      align-items: flex-start;
+
+      ul {
+        padding-left: 30px;
       }
     }
 }
+
+.story-wrapper .share, .fancybox-skin .share{
+
+  span {
+    height: 20px !important;
+    width: 20px !important; 
+    margin: 0 5px 0 5px;
+  }
+
+  svg {
+    height: 15px !important;
+    width: 15px !important;
+  }
+}
+
 
 @media screen and (max-width: 1200px) {
   .story main .container {

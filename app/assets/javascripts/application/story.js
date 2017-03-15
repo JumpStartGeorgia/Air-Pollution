@@ -13,14 +13,14 @@ function replace_iframe_sizes(w,h){
 
 $(document).on("ready page:change", function() {
   if ($(".fb-image").length > 0 || $(".fb-inline").length > 0){
-    $(".fb-image").fancybox({parent: 'body', fitToView: false, padding: 0});
+    $(".fb-image").fancybox({parent: 'body', fitToView: true, padding: 0});
 
     var options = {parent: 'body', padding: 0};
     if (!is_touch_device()){
       $inline = $(".fb-inline");
       if ($inline.length > 0){
-        var w = $(window).width()-100;
-        var h = $(window).height()-100;
+        var w = $(window).width()-10;
+        var h = $(window).height()-10;
         $inline.each(function(){
           var $t = $(this);
           switch($t.data('type')){
@@ -29,8 +29,8 @@ $(document).on("ready page:change", function() {
               break;
 
             default: //fullscreen
-              options.minWidth = 200;
-              options.minHeight = 200;
+              options.minWidth = w;
+              options.minHeight = h;
               replace_iframe_sizes(w,h);
               break;
           }
