@@ -91,30 +91,40 @@ class Story < ActiveRecord::Base
   has_attached_file :image_en,
                     :url => "/system/stories/:id/image/en/:style.:extension",
                     :default_url => "/assets/missing/story/image/:style.png",
-                    :styles => {
-                        :'xl' => {:geometry => "1000x>"},
-                        :'big' => {:geometry => "600x>"},
-                        :'small' => {:geometry => "450>"}
-                    },
-                    :convert_options => {
-                      :'xl' => '-quality 85',
-                      :'big' => '-quality 85',
-                      :'small' => '-quality 85'
-                    }
+                    :styles => proc { |attachment| attachment.instance.attachment_styles }
 
   has_attached_file :image_ka,
                     :url => "/system/stories/:id/image/ka/:style.:extension",
                     :default_url => "/assets/missing/story/image/:style.png",
-                    :styles => {
-                        :'xl' => {:geometry => "1000x>"},
-                        :'big' => {:geometry => "600x>"},
-                        :'small' => {:geometry => "450>"}
-                    },
-                    :convert_options => {
-                      :'xl' => '-quality 85',
-                      :'big' => '-quality 85',
-                      :'small' => '-quality 85'
-                    }
+                    :styles => proc { |attachment| attachment.instance.attachment_styles }
+
+  # if this is a new record, do not apply the cropping processor
+  # - the user must be able to set the crop size first
+  def attachment_styles
+    # if this is a gifographic, the thumbs must not be animated, but the rest must be
+    if is_gif?
+      {
+        :'xl' => {:geometry => "1000x>", animated: false},
+        :'big' => {:geometry => "600x>", animated: false},
+        :'small' => {:geometry => "450>", animated: false}
+      }
+    else
+      {
+        :'xl' => {
+          :geometry => "1000x>", 
+          :convert_options => '-quality 85'
+        },
+        :'big' => {
+          :geometry => "600x>", 
+          :convert_options => '-quality 85'
+        },
+        :'small' => {
+          :geometry => "450>", 
+          :convert_options => '-quality 85'
+        }
+      }
+    end
+  end
 
 
   ###########################
@@ -246,5 +256,7 @@ class Story < ActiveRecord::Base
 
     return true
   end
+
+
 
 end
