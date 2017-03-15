@@ -17,6 +17,13 @@ server {
   root <%= full_current_path %>/public;
   try_files $uri/index.html $uri @puma_<%= application %>;
 
+  ##############################################################
+  # this app does a lot of data upload processing that takes a long time
+  # set this value to equal the value in the unicorn.rb file
+  ##############################################################
+  proxy_read_timeout 120;
+  proxy_send_timeout 120;
+
 
   # the certificate and key
   ssl_certificate <%= ssl_cert %>;
