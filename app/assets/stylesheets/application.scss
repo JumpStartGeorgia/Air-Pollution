@@ -45,6 +45,20 @@ URL: https://gist.github.com/bobbygrace/9e961e8982f42eb91b80
 @import url('https://fonts.googleapis.com/css?family=Ek+Mukta:600');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+@font-face
+{
+  font-family: 'BebasNeue-Bold';
+  font-style: normal;
+  src: image-url('fonts/BebasNeue-Bold.otf') format('opentype');
+}
+
+@font-face
+{
+  font-family: 'DejaVuSans';
+  font-style: normal;
+  /*   src: url('/assets/BPG%20DejaVuSans%202.ttf'); */
+  src: image-url('fonts/BPG-DejaVuSans-2.ttf')  format('truetype');
+}
 
 body {
     height: auto;

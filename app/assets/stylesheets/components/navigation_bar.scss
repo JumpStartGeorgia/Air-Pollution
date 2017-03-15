@@ -1,5 +1,5 @@
 
-$navigation-color: #38c3d4;
+$navigation-color: #16b7cc;
 
 .navbar-wrapper {
 	position: fixed;
@@ -10,7 +10,8 @@ $navigation-color: #38c3d4;
 	justify-content: center;
 	flex-wrap: wrap;
 	font-size: 25px;
-	font-family: 'Ek Mukta', sans-serif;
+	font-family: 'BebasNeue-Bold';
+	letter-spacing: 1px;
 	text-transform: uppercase;
 	background-color: white;
 	z-index: 4;
@@ -215,7 +216,7 @@ $navigation-color: #38c3d4;
 		}
 
 		> li {
-			margin: 20px 0 0 5px;
+			margin: 15px 0 0 5px;
 		}
 
 		> * {

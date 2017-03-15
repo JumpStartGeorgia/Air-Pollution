@@ -58,7 +58,7 @@ class Pledge < ActiveRecord::Base
   ## VALIDATIONS
   validates :title, presence: true
   validates :why_care, presence: {message: I18n.t('shared.msgs.pledge_fields_required'), if: :record_is_public?}
-  validates :what_it_is, presence: {message: I18n.t('shared.msgs.pledge_fields_required'), if: :record_is_public?}
+  # validates :what_it_is, presence: {message: I18n.t('shared.msgs.pledge_fields_required'), if: :record_is_public?}
   validates :what_you_do, presence: {message: I18n.t('shared.msgs.pledge_fields_required'), if: :record_is_public?}
   validates_attachment :image,
     content_type: { content_type: ["image/jpeg", "image/png", "image/gif"] },

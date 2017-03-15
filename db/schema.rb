@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20170217083548) do
     t.datetime "updated_at",                null: false
     t.string   "title",       limit: 255
     t.text     "why_care",    limit: 65535
-    t.text     "what_it_is",  limit: 65535
+    # t.text     "what_it_is",  limit: 65535
     t.text     "what_you_do", limit: 65535
     t.string   "slug",        limit: 255
   end

@@ -12,7 +12,7 @@ ka:
         საიტზე თავმოყრილი იქნება საქართველოში ჰაერის მდგომარეობისა და დაბინძურების შესახებ არსებული ინფორმაცია. ამასთან ერთად, მოქალაქეებს საშუალება ეძლევათ გაიგონ, რისი გაკეთება შეუძლიათ მათ, რათა შეამცირონ ჰაერის დაბინძურება და მასზე ზემოქმედება.
     pledge:
       count: Views
-      all_pledges: All Pledges
+      all_pledges: ყველა პირობა
       make_pledge: ჩაერთე!
       made_pledge: You have already taken the pledge.
       pledge_count: Pledges Made

@@ -24,8 +24,10 @@ page_title t('shared.labels.model_object_title',
   <dd><%= @pledge.is_public %></dd>
   <dt><strong><%=t 'activerecord.attributes.pledge.why_care' %>:</strong></dt>
   <dd><%= simple_format(@pledge.why_care) %></dd>
+<% if false %>
   <dt><strong><%=t 'activerecord.attributes.pledge.what_it_is' %>:</strong></dt>
   <dd><%= simple_format(@pledge.what_it_is) %></dd>
+<% end %>
   <dt><strong><%=t 'activerecord.attributes.pledge.what_you_do' %>:</strong></dt>
   <dd><%= simple_format(@pledge.what_you_do) %></dd>
   <dt><strong><%=t 'activerecord.attributes.pledge.image' %>:</strong></dt>
