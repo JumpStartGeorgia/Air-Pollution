@@ -13,7 +13,7 @@ function replace_iframe_sizes(w,h){
 
 $(document).on("ready page:change", function() {
   if ($(".fb-image").length > 0 || $(".fb-inline").length > 0){
-    $(".fb-image").fancybox({parent: 'body', fitToView: true, padding: 0});
+    $(".fb-image").fancybox({parent: 'body', fitToView: false, padding: 0});
 
     var options = {parent: 'body', padding: 0};
     if (!is_touch_device()){
