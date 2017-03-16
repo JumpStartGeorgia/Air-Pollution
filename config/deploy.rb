@@ -21,6 +21,7 @@ set :full_current_path, -> { "#{deploy_to}/#{current_path}" }
 set :full_shared_path, -> { "#{deploy_to}/#{shared_path}" }
 set :full_tmp_path, -> { "#{deploy_to}/tmp" }
 set_default :branch, 'master'
+set :term_mode, nil
 
 set :initial_directories, lambda {
   [
