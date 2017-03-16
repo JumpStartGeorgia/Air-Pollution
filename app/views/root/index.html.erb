@@ -9,6 +9,9 @@
         <div class="highlight-item" data-index=<%= high_index %>>
           <%= link_to highlight.url do %>
            <div class='highlight-image' style='background-image: url(<%= highlight.image.url(:big) %>)'></div>
+<!--             <p class='highlight-title'>
+              <%= highlight.title %> 
+            </p> -->
           <% end %>
         </div>
         <% high_index +=1 %>
@@ -95,7 +98,7 @@
             <div class='story-image-attr'>
               <%= image_tag(story_icon(story), alt: story.story_type_key, width: 35, class: "story-icon") %>
               <span class='story-title'>
-                  <%= story.title %> 
+                  <%= story.title %>
                </span>
             </div>
             <div class='story-image-effect' style='background-image: url(<%= story.thumbnail.url(:big) %>)'></div>
