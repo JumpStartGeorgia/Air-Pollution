@@ -58,7 +58,7 @@ class Story < ActiveRecord::Base
   ## THUMBNAIL PROCESSING
   has_attached_file :thumbnail_en,
                     :url => "/system/stories/:id/thumbnail/en/:style.:extension",
-                    :default_url => "/assets/missing/story/thumbnail/:style.png",
+                    :default_url => "/images/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
                         :'xl' => '',
@@ -74,7 +74,7 @@ class Story < ActiveRecord::Base
   
   has_attached_file :thumbnail_ka,
                     :url => "/system/stories/:id/thumbnail/ka/:style.:extension",
-                    :default_url => "/assets/missing/story/thumbnail/:style.png",
+                    :default_url => "/images/missing/story/thumbnail/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
                         :'xl' => '',
@@ -90,12 +90,12 @@ class Story < ActiveRecord::Base
   
   has_attached_file :image_en,
                     :url => "/system/stories/:id/image/en/:style.:extension",
-                    :default_url => "/assets/missing/story/image/:style.png",
+                    :default_url => "/images/missing/story/image/:style.png",
                     :styles => proc { |attachment| attachment.instance.attachment_styles }
 
   has_attached_file :image_ka,
                     :url => "/system/stories/:id/image/ka/:style.:extension",
-                    :default_url => "/assets/missing/story/image/:style.png",
+                    :default_url => "/images/missing/story/image/:style.png",
                     :styles => proc { |attachment| attachment.instance.attachment_styles }
 
   # if this is a new record, do not apply the cropping processor
