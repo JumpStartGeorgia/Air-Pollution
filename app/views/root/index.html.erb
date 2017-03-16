@@ -9,6 +9,9 @@
         <div class="highlight-item" data-index=<%= high_index %>>
           <%= link_to highlight.url do %>
            <div class='highlight-image' style='background-image: url(<%= highlight.image.url(:big) %>)'></div>
+            <p class='highlight-title'>
+              <%= highlight.title %> 
+            </p>
           <% end %>
         </div>
         <% high_index +=1 %>
