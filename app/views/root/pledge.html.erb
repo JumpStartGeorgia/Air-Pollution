@@ -1,6 +1,6 @@
 <% 
   @show_page_title = false 
-  page_title t('.title', title: @pledge.title)
+  page_title @pledge.title 
   model_class = Pledge
 %>
 
@@ -24,7 +24,6 @@
       </div>
     <% end %>
 <% end %>
-
     <% if @pledge.what_you_do.present? %> 
       <div class='what-do' data-300-top="opacity: 1" data-top-bottom="opacity: 0">
         <%= inline_svg('svg/pledge_icons/list.svg',  class: "icon do") %>
@@ -102,7 +101,7 @@
       <% @pledges.each do |pledge| %>
             <div>
               <%= link_to pledge_path(pledge), class: "pledge-link" do %>
-                <div class='image' style='background-image: url("<%= pledge.image.url(:small) %>")'></div>
+                <div class='image' style='background-image: url("<%= pledge.image.url(:big) %>")'></div>
                 <div class='pledge-title'><%= pledge.title %></div>
               <% end %>
             </div>

@@ -45,7 +45,7 @@ ka:
       success_created: "%{obj} წარმატებით შეიქმნა."
       success_destroyed: "%{obj} წარმატებით გაუქმდა."
       success_updated: "%{obj} წარმატებით განახლდა."
-      pledge_fields_required: "This field is required for the pledge to be made public."
+      pledge_fields_required: "ეს ველი იმიტომ არის საჭირო, რომ პირობა საჯაროდ გამოქვეყნდეს."
     prompts:
       confirm: დარწმუნებული ხართ?
       forgot_password: დაგავიწყდათ პაროლი?
@@ -55,21 +55,21 @@ ka:
       sign_in_local_or_provider: "ან შეიყვანეთ თქვენი ელ. ფოსტა და პაროლი"
       sign_up_question: "არ გაქვთ ანგარიში?"
       sign_up: "დარეგისტრირდით"
-      sign_up2: "Sign Up"
+      sign_up2: "ავტორიზაცია"
       password_reset: "პაროლის აღდგენა"
     story_types:
-      infographic: Infographic
-      storybuilder: StoryBuilder (Long)
-      radio: Radio
-      animation: Animation
-      video: Video
-      fact: Fact
-      gif: Animated GIF
+      infographic: ინფოგრაფიკა
+      storybuilder: სთორიბილდერი (გრძელი)
+      radio: რადიო
+      animation: ანიმაცია
+      video: ვიდეო
+      fact: ფაქტი
+      gif: ანიმირებული გიფი
     filters:
       all: ყველა
       matches: მსგავსი ამბები
-      no_filter: No Filter
-      filter_header: Filtered By    
+      no_filter: ფილტრის გარეშე
+      filter_header: გაფილტვრა   
       sort_header: დალაგება
       sort_title: როგორ გსურთ ამბების დალაგება?
       filters: ფილტრი
@@ -77,6 +77,6 @@ ka:
         recent: ბოლო
         views: ნახვა
         likes: მოწონება
-      story_type_header: Type
-      story_type_title: Filter stories by type
+      story_type_header: ტიპი
+      story_type_title: ამბების გაფილტვრა ტიპების მიხედვით
 

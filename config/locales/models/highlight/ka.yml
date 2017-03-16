@@ -3,12 +3,12 @@ ka:
   activerecord:
     attributes:
       highlight:
-        title: Title
+        title: სახელი
         url: URL
-        image: Image
-        posted_at: Date
-        is_public: Is Public?
+        image: სურათი
+        posted_at: თარიღი
+        is_public: საჯაროა?
     models:
       highlight:
-        one: Highlight
-        other: Highlights
+        one: მთავარი ამბავი
+        other: მთავარი ამბები
