@@ -3,9 +3,9 @@ ka:
   activerecord:
     attributes:
       datasource:
-        name: Name
-        url: URL to Source
+        name: სახელი
+        url: წყაროს URL
     models:
       datasource:
-        one: Datasource
-        other: Datasources
+        one: მონაცემთა წყარო
+        other: მონაცემთა წყაროები

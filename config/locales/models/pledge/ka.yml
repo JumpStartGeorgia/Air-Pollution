@@ -3,14 +3,14 @@ ka:
   activerecord:
     attributes:
       pledge:
-        posted_at: Date
-        is_public: Is Public?
-        title: Title
+        posted_at: თარიღი
+        is_public: საჯაროა?
+        title: სათაური
         why_care: რატომ არის ეს მნიშვნელოვანი
         what_it_is: What Is It
         what_you_do: ვდებ პირობას, რომ
-        image: Image
+        image: სურათი
     models:
       pledge:
-        one: Pledge
-        other: Pledges
+        one: პირობა
+        other: პირობები

@@ -3,18 +3,18 @@ ka:
   activerecord:
     attributes:
       story:
-        story_type: Type
-        posted_at: Date
-        is_public: Is Public?
-        thumbnail: Thumbnail Image
-        title: Title
-        description: Description
-        organization: Created By
-        url: URL to Original
-        embed_code: Embed Code
-        image: Visual Image
-        datasources: Datasources
+        story_type: ტიპი
+        posted_at: თარიღი
+        is_public: საჯაროა?
+        thumbnail: ესკიზი
+        title: სათაური
+        description: აღწერა
+        organization: შექმნილია
+        url: პირველადი ვერსიის URL
+        embed_code: ჩასასმელი კოდი
+        image: ვიზუალური სურათი
+        datasources: მონაცემთა წყაროები
     models:
       story:
-        one: Story
-        other: Stories
+        one: ამბავი
+        other: ამბები
