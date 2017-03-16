@@ -18,9 +18,15 @@
     </div> -->
   </div>
 
+
+
   <div class="image" title="<%= t('.click') %>">
     <% if @story.has_image? %>
-      <%= link_to(image_tag(@story.thumbnail.url(:xl)), @story.image.url(:original), class: 'fb-image') %></a>
+      <% if @story.is_gif? %>
+        <%= link_to(image_tag(@story.thumbnail.url(:xl)), @story.image.url(:original), class: 'fb-image fit-view') %></a>
+      <% else %>
+        <%= link_to(image_tag(@story.thumbnail.url(:xl)), @story.image.url(:original), class: 'fb-image') %></a>
+      <% end %>
       <div class="image-click"><%= link_to(image_tag('click.png'),@story.image.url(:original), class: 'fb-image') %></div>
     <% elsif @story.has_embed? %>
       <%= link_to(image_tag(@story.thumbnail.url(:xl)), '#fb-inline-content', class: 'fb-inline', :'data-type' => @story.story_type_key) %></a>
