@@ -37,7 +37,7 @@ class Pledge < ActiveRecord::Base
   ## IMAGE PROCESSING
   has_attached_file :image,
                     :url => "/system/pledges/:id/:style.:extension",
-                    :default_url => "/assets/missing/pledge/image/:style.png",
+                    :default_url => "/images/missing/pledge/image/:style.png",
                     :styles => {
                         :'share' => {:geometry => "1200x>"},
                         :'big' => {:geometry => "1500x>"},
