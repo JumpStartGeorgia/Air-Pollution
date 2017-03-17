@@ -21,6 +21,6 @@ ka:
       short: "%d %b %H:%M"
       long: "%d/%m/%Y %H:%M"
       file: "%Y %m %d %H:%M:%S"
-      no_time: '%d/%m/%Y'
+      no_time: '%d-%m-%Y'
     am: "am"
     pm: "pm"
