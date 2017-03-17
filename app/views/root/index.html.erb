@@ -37,13 +37,17 @@
   </div>
 <% end %>
 
-<% if @stories.present? %>
-
   <div id="filter" class='filter'>  
     <div class="mob">
       <div class="search">
         <%= form_tag root_path, :method => :get, :id => 'search-filter', :role => "search" do %>
           <input autocomplete="off" class="search-input" id="q" name="q" placeholder="<%= t('shared.common.search') %>" tabindex="1" type="text" value="<%= params[:q] %>">
+          <% if params[:type].present? %>
+            <input type="hidden" id="type" name="type" value="<%= params[:type] %>" />
+          <% end %>
+          <% if params[:sort].present? %>
+            <input type="hidden" id="sort" name="sort" value="<%= params[:sort] %>" />
+          <% end %>
         <% end %>  
       </div>
       <div class="filters"><%= t('shared.filters.filters') %><i class='s i-caret-b'></i></div>
@@ -89,6 +93,8 @@
   </div>
 
   
+<% if @stories.present? %>
+
 
   <div class="stories-grid">
     <% @stories.each do |story| %>
