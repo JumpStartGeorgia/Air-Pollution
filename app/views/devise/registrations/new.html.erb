@@ -3,6 +3,7 @@
 
 <div id="signup-form">
 
+<% if params[:fb].present? %>
   <div class="providers">
     <%- if devise_mapping.omniauthable? %>    
       <%- model_class.omniauth_providers.each do |provider| %>
@@ -18,7 +19,7 @@
   </div>
 
   <div class="facebook_or_local"><%= t('shared.prompts.sign_in_local_or_provider') %></div>
-
+<% end %>
   <%= semantic_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:"data-form-id"=>"signup-form"}) do |f| %> 
     <%= f.semantic_errors *f.object.errors.keys %>
 
