@@ -36,7 +36,7 @@
         </td>
         <td><%= pledge.title %></td>
         <td><%= image_tag(pledge.image.url(:small)) if pledge.image.exists? %></td>
-        <td><%= l pledge.posted_at if pledge.posted_at.present? %></td>
+        <td><%= l pledge.posted_at, format: :no_time if pledge.posted_at.present? %></td>
         <td><%= pledge.is_public? %></td>
 
         <td>

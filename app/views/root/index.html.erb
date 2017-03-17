@@ -104,7 +104,7 @@
             <div class='story-image-effect' style='background-image: url(<%= story.thumbnail.url(:big) %>)'></div>
           </div>
           <div class='story-info'>
-            <p class='date'><%= l story.posted_at if story.posted_at.present? %></p>
+            <p class='date'><%= l story.posted_at, format: :no_time if story.posted_at.present? %></p>
             <p class='story-description'><%= truncate(strip_tags(story.description), length: 100, separator: ' ') %></p>
           </div>
         <% end %>

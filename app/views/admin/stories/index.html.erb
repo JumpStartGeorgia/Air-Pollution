@@ -38,7 +38,7 @@
         <td><%= story.title %></td>
         <td><%= image_tag(story.thumbnail.url(:small)) if story.thumbnail.exists? %></td>
         <td><%= I18n.t("shared.story_types.#{story.story_type_key}") %></td>
-        <td><%= l story.posted_at if story.posted_at.present? %></td>
+        <td><%= l story.posted_at, format: :no_time if story.posted_at.present? %></td>
         <td><%= story.is_public? %></td>
 
         <td>

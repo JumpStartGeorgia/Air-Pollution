@@ -7,7 +7,7 @@
 
 
   <div class='date'>
-      <%= l @story.posted_at if @story.posted_at.present? %>
+      <%= l @story.posted_at, format: :no_time if @story.posted_at.present? %>
   </div>
 
   <div class='story-statistics'>
