@@ -76,7 +76,7 @@ ka:
       sort:
         recent: ბოლო
         views: ნახვა
-        likes: მოწონება
+        # likes: მოწონება
       story_type_header: ტიპი
       story_type_title: ამბების გაფილტვრა ტიპების მიხედვით
 

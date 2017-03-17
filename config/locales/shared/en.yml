@@ -76,6 +76,6 @@ en:
       sort:
         recent: Recent
         views: Views
-        likes: Likes
+        # likes: Likes
       story_type_header: Type
       story_type_title: Filter stories by type
