@@ -2,26 +2,30 @@
 #
 # Table name: stories
 #
-#  id                     :integer          not null, primary key
-#  story_type             :integer
-#  posted_at              :date
-#  is_public              :boolean          default(FALSE)
-#  created_at             :datetime         not null
-#  updated_at             :datetime         not null
-#  thumbnail_file_name    :string(255)
-#  thumbnail_content_type :string(255)
-#  thumbnail_file_size    :integer
-#  thumbnail_updated_at   :datetime
-#  slug                   :string(255)
-#  impressions_count      :integer          default(0)
-#  image_en_file_name     :string(255)
-#  image_en_content_type  :string(255)
-#  image_en_file_size     :integer
-#  image_en_updated_at    :datetime
-#  image_ka_file_name     :string(255)
-#  image_ka_content_type  :string(255)
-#  image_ka_file_size     :integer
-#  image_ka_updated_at    :datetime
+#  id                        :integer          not null, primary key
+#  story_type                :integer
+#  posted_at                 :datetime
+#  is_public                 :boolean          default(FALSE)
+#  created_at                :datetime         not null
+#  updated_at                :datetime         not null
+#  slug                      :string(255)
+#  impressions_count         :integer          default(0)
+#  image_en_file_name        :string(255)
+#  image_en_content_type     :string(255)
+#  image_en_file_size        :integer
+#  image_en_updated_at       :datetime
+#  image_ka_file_name        :string(255)
+#  image_ka_content_type     :string(255)
+#  image_ka_file_size        :integer
+#  image_ka_updated_at       :datetime
+#  thumbnail_en_file_name    :string(255)
+#  thumbnail_en_content_type :string(255)
+#  thumbnail_en_file_size    :integer
+#  thumbnail_en_updated_at   :datetime
+#  thumbnail_ka_file_name    :string(255)
+#  thumbnail_ka_content_type :string(255)
+#  thumbnail_ka_file_size    :integer
+#  thumbnail_ka_updated_at   :datetime
 #
 
 class Story < ActiveRecord::Base

@@ -3,7 +3,7 @@
 # Table name: pledges
 #
 #  id                 :integer          not null, primary key
-#  posted_at          :date
+#  posted_at          :datetime
 #  is_public          :boolean          default(FALSE)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
