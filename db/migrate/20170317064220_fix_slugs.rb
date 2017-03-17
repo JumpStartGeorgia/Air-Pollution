@@ -7,13 +7,17 @@ class FixSlugs < ActiveRecord::Migration
         I18n.locale = locale
 
         Pledge.all.each do |p|
-          p.slug = p.title.to_url
-          p.save
+          if p.title.present?
+            p.slug = p.title.to_url
+            p.save
+          end
         end
 
         Story.all.each do |s|
-          s.slug = s.title.to_url
-          s.save
+          if s.title.present?
+            s.slug = s.title.to_url
+            s.save
+          end
         end
 
       end
