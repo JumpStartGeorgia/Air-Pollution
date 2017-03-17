@@ -33,6 +33,11 @@ class Pledge < ActiveRecord::Base
   extend FriendlyId
   friendly_id :title, :use => [:globalize, :history]
 
+# for locale sensitive transliteration with friendly_id
+  def normalize_friendly_id(input)
+    input.to_s.to_url
+  end
+
   ###########################
   ## IMAGE PROCESSING
   has_attached_file :image,
