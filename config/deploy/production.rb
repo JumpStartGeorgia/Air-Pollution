@@ -11,3 +11,5 @@ set :puma_worker_count, '2'
 set :puma_thread_count_min, '1'
 set :puma_thread_count_max, '8'
 
+
+set :visible_to_robots, false
