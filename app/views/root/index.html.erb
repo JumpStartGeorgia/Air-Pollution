@@ -17,12 +17,13 @@
         <% high_index +=1 %>
       <% end %>
     </div>
-    <button class="highlight-next-prev-button prev">
-      <span class='icon'> </span>
-    </button>
-    <button class="highlight-next-prev-button next">
-      <span class='icon'> </span>
-    </button>
+    <a class="highlight-next-prev-button prev">
+        <%= inline_svg('svg/arrow.svg') %>
+    </a>
+
+    <a class="highlight-next-prev-button next">
+        <%= inline_svg('svg/arrow.svg') %>
+    </a>
 
     <% $i = 0 %>
     <div class="highlight-buttons">

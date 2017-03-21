@@ -53,39 +53,39 @@
 
 .highlights .highlight-next-prev-button {
 	position: absolute;
-	top: calc(50% - 35px);
-	width: 70px;
-	height: 70px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	top: calc(50% - 30px);
+	width: 60px;
+	height: 60px;
 	border: none;
-	border-radius: 35px;
+	border-radius: 50%;
 	background-color: rgba(27,27,27,0.5);
   	transition: background-color 0.3s ease;
   	color: white;
-  	font-size: 40px;
-  	font-family: serif;
+  	cursor: pointer;
   	
 	&:focus {
 	 	outline: none; 
 	}
 
-	span {
-		position: relative;
-		top: -5px;
-	    line-height: 27px;
+	svg {
+		width: 70%;
+		height: 70%;
 	}
 
 	&.prev {
 		left: 20px;
-		span::before{
-    		content: "\2039";
-    	}
 	}
 
 	&.next {
 		right: 20px;
-		span::before{
-    		content: "\203a";		
-    	}
+
+		svg {
+			transform: rotate(180deg);
+		}
+
 	}
 }
 
@@ -332,19 +332,13 @@ body.no-touch .stories-grid-item .story-link:hover {
 		width: 40px;
 		height: 40px;
 		border-radius: 20px;
-	  	font-size: 20px;
-
-		span {
-			top: -5px;
-		    line-height: 27px;
-		}
 
 		&.prev {
-			left: 5px;
+			left: 10px;
 		}
 
 		&.next {
-			right: 5px;
+			right: 10px;
 		}	
 	}
 
@@ -369,6 +363,16 @@ body.no-touch .stories-grid-item .story-link:hover {
 			font-size: 1em;
 			letter-spacing: 1px;
 		}
+	}
+
+	.highlights .highlight-buttons {
+		bottom: 25px;
+	}
+
+	.highlights .highlight-item-button {
+		width: 10px;
+		height: 10px;
+		margin: 3px;
 	}
 }
 
