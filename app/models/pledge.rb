@@ -3,7 +3,7 @@
 # Table name: pledges
 #
 #  id                 :integer          not null, primary key
-#  posted_at          :date
+#  posted_at          :datetime
 #  is_public          :boolean          default(FALSE)
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
@@ -32,6 +32,11 @@ class Pledge < ActiveRecord::Base
   ## URL SLUG
   extend FriendlyId
   friendly_id :title, :use => [:globalize, :history]
+
+# for locale sensitive transliteration with friendly_id
+  def normalize_friendly_id(input)
+    input.to_s.to_url
+  end
 
   ###########################
   ## IMAGE PROCESSING

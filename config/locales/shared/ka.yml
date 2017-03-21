@@ -8,7 +8,7 @@ ka:
       log_in: შესვლა
       view: ნახვა
       add: დამატება
-      preview: Preview
+      preview: ნახვა
       with_obj:
         cancel: "%{obj}-ის გაუქმება"
         create: "%{obj}-ის შექმნა"
@@ -21,11 +21,11 @@ ka:
     common:
       account: ანგარიში
       actions: მოქმედებები
-      search: Search
+      search: ძიება
       jumpstart:
         slogan: JumpStart Georgia - ჩვენ გაწვდით ინფორმაციას მონაცემებით და დიზაინით
       name: ჰაერის ფილტრი
-      description: This is a description of the project that will appear in the meta tags.
+      description: 'ფილტრი არის საინფორმაციო პლატფორმა, რომელიც შეიქმნა "Up in the Air: Establishing the Link Between Air Pollution, Health, and Economic Development in Georgia" პროექტის ფარგლებში, რომლის მიზანია  მოსახლეობის ცნობიერების ამაღლება ჰაერის დაბინძურების საშიშროების შესახებ.'
     links:
       page_contents: გვერდის ტექსტის რედაქტირება
       admin: ადმინის სექცია
@@ -76,7 +76,7 @@ ka:
       sort:
         recent: ბოლო
         views: ნახვა
-        likes: მოწონება
+        # likes: მოწონება
       story_type_header: ტიპი
       story_type_title: ამბების გაფილტვრა ტიპების მიხედვით
 

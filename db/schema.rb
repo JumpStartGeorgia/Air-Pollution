@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217083548) do
+ActiveRecord::Schema.define(version: 20170317071216) do
 
   create_table "datasource_translations", force: :cascade do |t|
     t.integer  "datasource_id", limit: 4,   null: false
@@ -129,7 +129,7 @@ ActiveRecord::Schema.define(version: 20170217083548) do
     t.datetime "updated_at",                null: false
     t.string   "title",       limit: 255
     t.text     "why_care",    limit: 65535
-    # t.text     "what_it_is",  limit: 65535
+    t.text     "what_it_is",  limit: 65535
     t.text     "what_you_do", limit: 65535
     t.string   "slug",        limit: 255
   end
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(version: 20170217083548) do
   add_index "pledge_users", ["user_id"], name: "index_pledge_users_on_user_id", using: :btree
 
   create_table "pledges", force: :cascade do |t|
-    t.date     "posted_at"
+    t.datetime "posted_at"
     t.boolean  "is_public",                      default: false
     t.datetime "created_at",                                     null: false
     t.datetime "updated_at",                                     null: false
@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(version: 20170217083548) do
 
   create_table "stories", force: :cascade do |t|
     t.integer  "story_type",                limit: 4
-    t.date     "posted_at"
+    t.datetime "posted_at"
     t.boolean  "is_public",                             default: false
     t.datetime "created_at",                                            null: false
     t.datetime "updated_at",                                            null: false
