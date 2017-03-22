@@ -4,6 +4,7 @@ $(document).on("page:change", function() {
   if ($('.pledge-wrapper').data('made-pledge') == true){
     $(".fb-inline").fancybox({parent: 'body'});
     $(".fb-inline").eq(0).trigger('click');
+    window.history.replaceState({}, document.title, $('.pledge-wrapper').data('url'));
   }
 
 });

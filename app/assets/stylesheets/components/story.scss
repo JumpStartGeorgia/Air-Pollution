@@ -81,6 +81,11 @@ body.no-touch .story-wrapper .image:hover{
     .datasources {
       display: flex;
       align-items: flex-start;
+      justify-content: center;
+
+      span {
+        display: block;
+      }
 
       ul {
         padding-left: 30px;

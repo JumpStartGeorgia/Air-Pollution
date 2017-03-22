@@ -1,11 +1,12 @@
 <% 
   @show_page_title = false 
-  page_title @pledge.title 
+  pledge_title = t('.title', title: @pledge.title)
+  page_title pledge_title
   model_class = Pledge
 %>
 
 
-<div class='pledge-wrapper' data-made-pledge="<%= params[:make_pledge] == 'success' %>">
+<div class='pledge-wrapper' data-made-pledge="<%= params[:make_pledge] == 'success' %>" data-url='<%= current_url(false) %>'>
 
   <div class='pledge-header'>
     <h1  class="pledge-name" > <%= @pledge.title%> </h1>
@@ -68,7 +69,8 @@
 
 
   <div class='share'>
-    <div class="addthis_share_toolbox"  addthis:url="<%= current_url %>">
+
+    <div class="addthis_share_toolbox" >
         <a class="addthis_button_facebook"></a> 
         <a class="addthis_button_twitter"></a> 
         <a class="addthis_button_email"></a>
@@ -82,7 +84,7 @@
  <h2><%= t('.pledge_success.header') %></h2>
  <p><%= t('.pledge_success.ask') %></p>
   <div class='share'>
-    <div class="addthis_share_toolbox"  addthis:url="<%= current_url %>">
+    <div class="addthis_share_toolbox">
         <a class="addthis_button_facebook"></a> 
         <a class="addthis_button_twitter"></a> 
         <a class="addthis_button_email"></a>
