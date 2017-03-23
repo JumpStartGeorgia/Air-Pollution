@@ -184,6 +184,7 @@ gem 'skrollr-rails'
 gem "autoprefixer-rails"
 gem 'cocoon', '~> 1.2', '>= 1.2.9' # nested forms
 gem 'stringex', '~> 2.7' # convert utf to ascii for url slugs
+gem 'meta-tags' # enables meta tags changes 
 
 
 

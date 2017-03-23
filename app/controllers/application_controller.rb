@@ -6,6 +6,37 @@ class ApplicationController < ActionController::Base
 
   before_action :set_global_vars
   before_action :store_location
+  before_action :prepare_meta_tags, if: "request.get?"
+
+  def prepare_meta_tags(options={})
+
+    site_name   = t("shared.common.name")
+    description = options[:description] || t("shared.common.description").html_safe
+    title       = options[:title] || t("shared.common.name")
+    image       = options[:image] || view_context.image_url("share_#{I18n.locale}.png")
+    current_url = request.url
+
+    # Let's prepare a nice set of defaults
+    defaults = {
+      site:        site_name,
+      title:       title,
+      image:       image,
+      description: description,
+      og: {
+        url: current_url,
+        site_name: site_name,
+        title: title,
+        image: image,
+        description: description,
+        type: 'website'
+      }
+    }
+
+    # options.reverse_merge!(defaults)
+
+    set_meta_tags defaults
+  end
+
 
   ##############################################
   # Locales #

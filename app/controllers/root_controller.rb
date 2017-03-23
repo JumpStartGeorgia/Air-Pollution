@@ -2,9 +2,12 @@
 class RootController < ApplicationController
   before_filter :authenticate_user!, only: [:make_pledge]
 
+
+
+
+
   def index
     @stories = Story.published.search_for(params[:q]).page(params[:page]).per(6);
-
     # apply filters
     if params[:type].present?
       value = Story::TYPE[params[:type].to_sym]
@@ -30,6 +33,9 @@ class RootController < ApplicationController
 
     @show_page_title = false
     @highlights = Highlight.published.sorted
+    prepare_meta_tags
+
+
   end
 
   def story
@@ -37,6 +43,8 @@ class RootController < ApplicationController
       @story = Story.friendly.published.find(params[:id])
       impressionist(@story, :unique => [:session_hash]) # record the view coun
       @story = Story.friendly.published.with_datasources.with_translations(I18n.locale).find(params[:id])
+
+
     rescue Exception
       redirect_to root_path
     end
@@ -44,10 +52,16 @@ class RootController < ApplicationController
 
   def pledge
     begin
+
       @pledge = Pledge.friendly.published.find(params[:id])
       impressionist(@pledge, :unique => [:session_hash]) # record the view coun
       @pledge = Pledge.friendly.published.with_translations(I18n.locale).find(params[:id])
       @pledges = Pledge.published.with_translations(I18n.locale).sorted.except_pledge(@pledge.id)
+      title = t('.title', title: @pledge.title)
+      prepare_meta_tags(title: title, description: "", image: view_context.image_url(@pledge.image.url(:share)))
+
+
+
     rescue Exception
       redirect_to root_path
     end
