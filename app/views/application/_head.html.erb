@@ -22,7 +22,7 @@
   <meta property="og:title" content="<%= title %>">
   <meta name="description" content="<%= desc %>">
   <meta property="og:description" content="<%= desc %>" />
-  <meta property="og:type" content="non_profit" />
+  <meta property="og:type" content="website" />
   <meta property="og:url" content="<%= current_url(!(params[:controller] == 'root' && params[:action] == 'pledge')) %>" />
 
   <% if @story.present? && params[:controller] == 'root' && params[:action] == 'story' %>
